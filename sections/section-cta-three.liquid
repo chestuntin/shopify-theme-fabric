@@ -1,0 +1,455 @@
+{%- comment -%}
+  ----------------------------------------------------------------------------------
+  SECTION: CTA THREE (Kultjur)
+  ----------------------------------------------------------------------------------
+  A responsive section rendering three CTA buttons (Offerings, Story, Contact).
+  
+  Class Prefix: .kultjur-cta-three
+  
+  Breakpoints:
+  - Mobile: <= 640px (Stacked vertical)
+  - Tablet: 641px - 1024px (2 columns top, 1 centered bottom)
+  - Desktop: >= 1025px (3 columns inline)
+  
+  Configuration:
+  - Colors, radii, padding, and labels are editable via Theme Editor.
+  ----------------------------------------------------------------------------------
+{%- endcomment -%}
+
+{%- if section.settings.show_section -%}
+
+<style>
+  .kultjur-cta-three {
+    --bg-color: {{ section.settings.bg_color | default: 'transparent' }};
+    --text-primary: {{ section.settings.text_color | default: '#000000' }};
+    --btn-primary: {{ section.settings.btn_primary_color | default: '#000000' }};
+    --btn-text: {{ section.settings.btn_text_color | default: '#FFFFFF' }};
+    --btn-border: {{ section.settings.btn_border_color | default: '#000000' }};
+    --btn-radius: {{ section.settings.btn_radius }}px;
+    --btn-padding-v: {{ section.settings.btn_padding_v }}px;
+    --btn-padding-h: {{ section.settings.btn_padding_h }}px;
+    --section-gap: {{ section.settings.section_gap }}px;
+    
+    background-color: var(--bg-color);
+    padding: var(--section-gap) 20px;
+    color: var(--text-primary);
+    text-align: {{ section.settings.text_alignment }};
+  }
+
+  .kultjur-cta-three__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .kultjur-cta-three__header {
+    margin-bottom: calc(var(--section-gap) / 1.5);
+  }
+
+  .kultjur-cta-three__heading {
+    margin: 0 0 10px 0;
+    font-size: 2rem; /* Adjustable if needed, keeping simple defaults */
+    line-height: 1.2;
+    color: inherit;
+  }
+
+  .kultjur-cta-three__subheading {
+    margin: 0;
+    font-size: 1rem;
+    opacity: 0.9;
+  }
+
+  .kultjur-cta-three__grid {
+    display: grid;
+    gap: 20px;
+    width: 100%;
+    /* Default Mobile: Stacked */
+    grid-template-columns: 1fr;
+  }
+
+  /* Button Styles */
+  .kultjur-cta-three__btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    cursor: pointer;
+    font-weight: 500;
+    font-family: inherit;
+    transition: opacity 0.2s ease, transform 0.1s ease, outline-offset 0.1s ease;
+    
+    background-color: var(--btn-primary);
+    color: var(--btn-text);
+    border: 1px solid var(--btn-border);
+    border-radius: var(--btn-radius);
+    padding: var(--btn-padding-v) var(--btn-padding-h);
+    min-height: 44px; /* Accessibility: Tap target */
+    line-height: 1.2;
+    width: 100%; /* Full width on mobile by default in grid */
+    box-sizing: border-box;
+  }
+
+  /* Secondary Style Toggle */
+  .kultjur-cta-three__btn--secondary {
+    background-color: transparent;
+    color: var(--btn-primary);
+    border: 1px solid var(--btn-primary);
+  }
+
+  /* Focus States */
+  .kultjur-cta-three__btn:focus-visible {
+    outline: 2px solid var(--btn-primary);
+    outline-offset: 4px;
+  }
+  
+  .kultjur-cta-three__btn:hover {
+    opacity: 0.9;
+  }
+
+  .kultjur-cta-three__btn:active {
+    transform: translateY(1px);
+  }
+
+  /* Tablet Breakpoint (641px - 1024px) */
+  @media screen and (min-width: 641px) and (max-width: 1024px) {
+    .kultjur-cta-three__grid {
+      grid-template-columns: 1fr 1fr;
+    }
+    
+    /* 3rd button centered on second row */
+    .kultjur-cta-three__btn:nth-child(3) {
+      grid-column: 1 / -1; /* Span full width */
+      width: 50%; /* Make it half width to look centered but distinct? Or let it be full width? 
+                     Prompt says "third button centered". 
+                     If I use justify-self: center, it won't stretch. */
+      justify-self: center;
+      width: auto;
+      min-width: 200px; /* Minimum width for better aesthetics */
+    }
+    
+    .kultjur-cta-three__btn {
+       width: 100%; /* Others full width in their columns */
+    }
+  }
+
+  /* Desktop Breakpoint (>= 1025px) */
+  @media screen and (min-width: 1025px) {
+    .kultjur-cta-three__grid {
+      grid-template-columns: repeat(3, 1fr);
+      align-items: center;
+    }
+    
+    .kultjur-cta-three__btn {
+      width: auto; /* Buttons only as wide as needed, or stretch if preferred. 
+                      Prompt says "equal spacing - three buttons inline".
+                      Grid defaults to stretch, let's keep stretch for uniformity or use max-width. */
+      width: 100%;
+    }
+  }
+
+  /* Prefers Reduced Motion */
+  @media (prefers-reduced-motion: reduce) {
+    .kultjur-cta-three__btn {
+      transition: none;
+    }
+  }
+</style>
+
+<section 
+  class="kultjur-cta-three" 
+  data-section-id="{{ section.id }}" 
+  aria-label="{{ section.settings.heading | escape }}"
+>
+  <div class="kultjur-cta-three__container">
+    
+    {%- if section.settings.heading != blank or section.settings.subheading != blank -%}
+      <div class="kultjur-cta-three__header">
+        {%- if section.settings.heading != blank -%}
+          <h2 class="kultjur-cta-three__heading">{{ section.settings.heading | escape }}</h2>
+        {%- endif -%}
+        {%- if section.settings.subheading != blank -%}
+          <div class="kultjur-cta-three__subheading rte">
+            {{ section.settings.subheading }}
+          </div>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+    <nav class="kultjur-cta-three__grid" aria-label="Quick links">
+      
+      {%- comment -%} Button 1 {%- endcomment -%}
+      {%- if section.settings.btn1_label != blank -%}
+        <a href="{{ section.settings.btn1_link | default: '/collections/offerings' }}" 
+           class="kultjur-cta-three__btn {% if section.settings.btn1_secondary %}kultjur-cta-three__btn--secondary{% endif %}"
+           {% if section.settings.btn1_new_tab %}target="_blank" rel="noopener noreferrer"{% endif %}
+           aria-label="{{ section.settings.btn1_label | escape }}"
+        >
+          {{ section.settings.btn1_label | escape }}
+        </a>
+      {%- endif -%}
+
+      {%- comment -%} Button 2 {%- endcomment -%}
+      {%- if section.settings.btn2_label != blank -%}
+        <a href="{{ section.settings.btn2_link | default: '/pages/story' }}" 
+           class="kultjur-cta-three__btn {% if section.settings.btn2_secondary %}kultjur-cta-three__btn--secondary{% endif %}"
+           {% if section.settings.btn2_new_tab %}target="_blank" rel="noopener noreferrer"{% endif %}
+           aria-label="{{ section.settings.btn2_label | escape }}"
+        >
+          {{ section.settings.btn2_label | escape }}
+        </a>
+      {%- endif -%}
+
+      {%- comment -%} Button 3 {%- endcomment -%}
+      {%- if section.settings.btn3_label != blank -%}
+        <a href="{{ section.settings.btn3_link | default: '/pages/contact' }}" 
+           class="kultjur-cta-three__btn {% if section.settings.btn3_secondary %}kultjur-cta-three__btn--secondary{% endif %}"
+           {% if section.settings.btn3_new_tab %}target="_blank" rel="noopener noreferrer"{% endif %}
+           aria-label="{{ section.settings.btn3_label | escape }}"
+        >
+          {{ section.settings.btn3_label | escape }}
+        </a>
+      {%- endif -%}
+
+    </nav>
+  </div>
+</section>
+
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "CTA Three Buttons",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Visibility"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_section",
+      "label": "Show section",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Explore More"
+    },
+    {
+      "type": "richtext",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "<p>Discover our world.</p>"
+    },
+    {
+      "type": "select",
+      "id": "text_alignment",
+      "label": "Text Alignment",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right", "label": "Right" }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "header",
+      "content": "Button 1"
+    },
+    {
+      "type": "text",
+      "id": "btn1_label",
+      "label": "Label",
+      "default": "Offerings"
+    },
+    {
+      "type": "url",
+      "id": "btn1_link",
+      "label": "Link"
+    },
+    {
+      "type": "checkbox",
+      "id": "btn1_new_tab",
+      "label": "Open in new tab",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "btn1_secondary",
+      "label": "Use Secondary Style",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Button 2"
+    },
+    {
+      "type": "text",
+      "id": "btn2_label",
+      "label": "Label",
+      "default": "Story"
+    },
+    {
+      "type": "url",
+      "id": "btn2_link",
+      "label": "Link"
+    },
+    {
+      "type": "checkbox",
+      "id": "btn2_new_tab",
+      "label": "Open in new tab",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "btn2_secondary",
+      "label": "Use Secondary Style",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Button 3"
+    },
+    {
+      "type": "text",
+      "id": "btn3_label",
+      "label": "Label",
+      "default": "Contact"
+    },
+    {
+      "type": "url",
+      "id": "btn3_link",
+      "label": "Link"
+    },
+    {
+      "type": "checkbox",
+      "id": "btn3_new_tab",
+      "label": "Open in new tab",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "btn3_secondary",
+      "label": "Use Secondary Style",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Style Settings"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "btn_primary_color",
+      "label": "Button Background Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "btn_text_color",
+      "label": "Button Text Color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "btn_border_color",
+      "label": "Button Border Color",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "btn_radius",
+      "min": 0,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "label": "Button Corner Radius",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "btn_padding_v",
+      "min": 10,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "label": "Vertical Button Padding",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "btn_padding_h",
+      "min": 10,
+      "max": 60,
+      "step": 1,
+      "unit": "px",
+      "label": "Horizontal Button Padding",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "section_gap",
+      "min": 20,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Section Vertical Spacing",
+      "default": 60
+    }
+  ],
+  "presets": [
+    {
+      "name": "CTA Three Buttons",
+      "settings": {
+        "heading": "Explore Kultjur",
+        "subheading": "<p>Read our story, check our offerings, or get in touch.</p>"
+      }
+    }
+  ]
+}
+{% endschema %}
+
+{%- comment -%}
+  ----------------------------------------------------------------------------------
+  QA / TEST INSTRUCTIONS
+  ----------------------------------------------------------------------------------
+  
+  1. PLACEMENT:
+     - Go to Theme Editor > Add Section > Search "CTA Three Buttons".
+     - Place this section below the Hero section (or hero-003 if visible).
+     - Place above Footer.
+
+  2. RESPONSIVE CHECKS:
+     - Desktop (> 1024px): Verify 3 buttons are inline horizontally.
+     - Tablet (641px - 1024px): Verify 2 buttons on top row, 1 button centered below.
+     - Mobile (<= 640px): Verify 3 buttons stacked vertically, full width.
+
+  3. ACCESSIBILITY:
+     - Keyboard: Tab through buttons. Ensure focus ring is visible.
+     - Screen Reader: Ensure aria-labels are read correctly.
+     - Contrast: Check that button text vs background meets WCAG AA (use Inspector).
+     - Tap Targets: Verify buttons are at least 44px tall on mobile.
+
+  4. SETTINGS:
+     - Toggle "Show section" to verify hide.
+     - Change text alignment (Left/Center/Right).
+     - Test "Open in new tab" for at least one button.
+     - Test "Secondary Style" toggle changes visual appearance.
+  ----------------------------------------------------------------------------------
+{%- endcomment -%}
