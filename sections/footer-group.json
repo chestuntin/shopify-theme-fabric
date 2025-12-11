@@ -21,9 +21,9 @@
             "width": "fill",
             "custom_width": 50,
             "inherit_color_scheme": true,
+            "color_scheme": "",
             "heading": "",
             "heading_preset": "h3",
-            "color_scheme": "",
             "border_style": "underline",
             "border_width": 1,
             "border_radius": 0,
@@ -44,6 +44,7 @@
       "block_order": [
         "email_signup_TCQELN"
       ],
+      "disabled": true,
       "name": "t:names.email_signup",
       "settings": {
         "content_direction": "column",
@@ -81,7 +82,7 @@
           "name": "t:names.menu",
           "settings": {
             "menu": "footer",
-            "heading": "Shop",
+            "heading": "SHOP",
             "menu_spacing": 8,
             "show_as_accordion": false,
             "accordion_icon": "caret",
@@ -102,7 +103,7 @@
           "name": "t:names.menu",
           "settings": {
             "menu": "",
-            "heading": "Customer care",
+            "heading": "CUSTOMER CARE",
             "menu_spacing": 8,
             "show_as_accordion": false,
             "accordion_icon": "caret",
@@ -123,7 +124,7 @@
           "name": "t:names.menu",
           "settings": {
             "menu": "",
-            "heading": "About us",
+            "heading": "ABOUT US",
             "menu_spacing": 8,
             "show_as_accordion": false,
             "accordion_icon": "caret",
@@ -144,7 +145,7 @@
           "name": "t:names.menu",
           "settings": {
             "menu": "",
-            "heading": "Connect",
+            "heading": "CONNECT",
             "menu_spacing": 8,
             "show_as_accordion": false,
             "accordion_icon": "caret",
