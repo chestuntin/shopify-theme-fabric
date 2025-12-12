@@ -9,7 +9,7 @@ body {
   flex-direction: column;
   margin: 0;
   min-height: 100svh;
-  font-variation-settings: 'slnt' 0;
+  font-variation-settings: "slnt" 0;
 }
 
 :root {
@@ -26,7 +26,8 @@ body {
 html {
   /* Firefox */
   scrollbar-width: thin;
-  scrollbar-color: rgb(var(--color-foreground-rgb) / var(--opacity-40)) var(--color-background);
+  scrollbar-color: rgb(var(--color-foreground-rgb) / var(--opacity-40))
+    var(--color-background);
   scroll-behavior: smooth;
 }
 
@@ -71,7 +72,8 @@ select {
 .predictive-search-results__card--product,
 .predictive-search-results__card {
   position: relative;
-  transition: transform var(--hover-transition-duration) var(--hover-transition-timing),
+  transition: transform var(--hover-transition-duration)
+      var(--hover-transition-timing),
     box-shadow var(--hover-transition-duration) var(--hover-transition-timing);
   will-change: transform, box-shadow;
   z-index: var(--layer-flat);
@@ -139,7 +141,8 @@ select {
   .card-hover-effect-subtle-zoom .product-card__image,
   .card-hover-effect-subtle-zoom .resource-card__image {
     overflow: hidden;
-    transition: transform var(--hover-transition-duration) var(--hover-transition-timing);
+    transition: transform var(--hover-transition-duration)
+      var(--hover-transition-timing);
   }
 
   .predictive-search-results__card .card-gallery,
@@ -158,13 +161,34 @@ select {
   }
 
   .card-hover-effect-subtle-zoom .header .product-card:hover .card-gallery,
-  .card-hover-effect-subtle-zoom .header .collection-card:hover .collection-card__image,
-  .card-hover-effect-subtle-zoom .header .product-card:hover .product-card__image,
-  .card-hover-effect-subtle-zoom .header .resource-card:hover .resource-card__image,
-  .card-hover-effect-subtle-zoom .header-drawer .product-card:hover .card-gallery,
-  .card-hover-effect-subtle-zoom .header-drawer .collection-card:hover .collection-card__image,
-  .card-hover-effect-subtle-zoom .header-drawer .product-card:hover .product-card__image,
-  .card-hover-effect-subtle-zoom .header-drawer .resource-card:hover .resource-card__image {
+  .card-hover-effect-subtle-zoom
+    .header
+    .collection-card:hover
+    .collection-card__image,
+  .card-hover-effect-subtle-zoom
+    .header
+    .product-card:hover
+    .product-card__image,
+  .card-hover-effect-subtle-zoom
+    .header
+    .resource-card:hover
+    .resource-card__image,
+  .card-hover-effect-subtle-zoom
+    .header-drawer
+    .product-card:hover
+    .card-gallery,
+  .card-hover-effect-subtle-zoom
+    .header-drawer
+    .collection-card:hover
+    .collection-card__image,
+  .card-hover-effect-subtle-zoom
+    .header-drawer
+    .product-card:hover
+    .product-card__image,
+  .card-hover-effect-subtle-zoom
+    .header-drawer
+    .resource-card:hover
+    .resource-card__image {
     transform: none;
   }
 
@@ -242,11 +266,13 @@ p:empty {
     pointer-events: none;
   }
 
-  html:active-view-transition-type(page-navigation) main[data-page-transition-enabled='true'] {
+  html:active-view-transition-type(page-navigation)
+    main[data-page-transition-enabled="true"] {
     view-transition-name: main-content;
   }
 
-  html:active-view-transition-type(page-navigation) main[data-product-transition='true'][data-template*='product'] {
+  html:active-view-transition-type(page-navigation)
+    main[data-product-transition="true"][data-template*="product"] {
     view-transition-name: none;
   }
 
@@ -259,11 +285,11 @@ p:empty {
   }
 
   html:active-view-transition-type(product-image-transition) {
-    [data-view-transition-type='product-image-transition'] {
+    [data-view-transition-type="product-image-transition"] {
       view-transition-name: product-image-transition;
     }
 
-    [data-view-transition-type='product-details'] {
+    [data-view-transition-type="product-details"] {
       view-transition-name: product-details;
     }
   }
@@ -331,6 +357,15 @@ p:empty {
   }
 }
 
+@media screen and (min-width: 990px) {
+  .page-width-wide,
+  .page-width-normal,
+  .page-width-narrow,
+  .page-width-content {
+    --page-margin: 160px;
+  }
+}
+
 .page-width-wide {
   /* NOTE: This results in a page width of 2400px because of how we set up margins with grid */
   --page-content-width: var(--wide-page-width);
@@ -364,18 +399,28 @@ p:empty {
     calc(100% - var(--page-margin) * 2)
   );
   --full-page-grid-margin: minmax(var(--page-margin), 1fr);
-  --full-page-grid-with-margins: var(--full-page-grid-margin) var(--full-page-grid-central-column-width)
-    var(--full-page-grid-margin);
+  --full-page-grid-with-margins: var(--full-page-grid-margin)
+    var(--full-page-grid-central-column-width) var(--full-page-grid-margin);
 
   /* Utility variable gives the grid's first column width. Provides an offset width for components like carousels */
   --util-page-margin-offset: max(
     var(--page-margin),
-    calc((100% - min(var(--page-content-width), calc(100% - (var(--page-margin) * 2)))) / 2)
+    calc(
+      (
+          100% -
+            min(
+              var(--page-content-width),
+              calc(100% - (var(--page-margin) * 2))
+            )
+        ) / 2
+    )
   );
 
   /* Offset for full-width sections to account for the page margin,
   used for Marquee — note that --util-page-margin-offset doesn't work here */
-  --full-page-margin-inline-offset: calc(((100vw - var(--full-page-grid-central-column-width)) / 2) * -1);
+  --full-page-margin-inline-offset: calc(
+    ((100vw - var(--full-page-grid-central-column-width)) / 2) * -1
+  );
 
   width: 100%;
 
@@ -385,7 +430,7 @@ p:empty {
   /* Set up the grid */
   display: grid;
   grid-template-columns: var(--full-page-grid-with-margins);
-  min-height: var(--section-min-height, 'auto');
+  min-height: var(--section-min-height, "auto");
 }
 
 /* Place all direct children in the center column by default */
@@ -402,11 +447,25 @@ p:empty {
   position: relative;
 }
 
+@media screen and (min-width: 990px) {
+  .shopify-section:has(.section) {
+    padding-left: var(--page-margin);
+    padding-right: var(--page-margin);
+  }
+}
+
 .shopify-section:not(.header-section) .section-background {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   z-index: var(--layer-section-background);
+}
+
+@media screen and (min-width: 990px) {
+  .shopify-section:not(.header-section):has(.section) .section-background {
+    left: var(--page-margin);
+    right: var(--page-margin);
+  }
 }
 
 /* For page-width sections, all content goes in the center column */
@@ -417,6 +476,160 @@ p:empty {
 /* For full-width sections, content spans all columns */
 .section--full-width > * {
   grid-column: 1 / -1;
+}
+
+/* Override for footer content to align with header/hero - must come after all section width rules */
+@media screen and (min-width: 990px) {
+  .section--page-width > .footer-content,
+  .section--page-width > .utilities,
+  .section--page-width > .logo-section,
+  .section--page-width > .custom-section-content,
+  .section--full-width > .footer-content,
+  .section--full-width > .utilities,
+  .section--full-width > .logo-section,
+  .section--full-width > .custom-section-content {
+    grid-column: 1 / -1 !important;
+    --padding-inline-start: 40px !important;
+    --padding-inline-end: 40px !important;
+    padding-inline: 40px !important;
+    padding-left: 40px !important;
+    padding-right: 40px !important;
+  }
+
+  /* Section content wrapper (used by section.liquid template like large-logo preset) */
+  /* Must override both CSS variables AND actual padding properties to override inline styles */
+  .section > .custom-section-content > .section-content-wrapper.spacing-style {
+    --padding-inline-start: 0 !important;
+    --padding-inline-end: 0 !important;
+    padding-inline: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  /* Also ensure section-content-wrapper has no padding even without spacing-style class */
+  .section > .custom-section-content > .section-content-wrapper {
+    --padding-inline-start: 0 !important;
+    --padding-inline-end: 0 !important;
+    padding-inline: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  /* Text blocks and logo blocks inside sections with custom-section-content should not have left padding to align properly */
+  /* Override spacing-style padding completely for these blocks - must override inline style variables */
+  /* This must come AFTER the .spacing-style rule to override padding-inline */
+  .section > .custom-section-content .text-block.spacing-style,
+  .section > .custom-section-content .logo-block.spacing-style {
+    --padding-inline-start: 0 !important;
+    --padding-inline-end: 0 !important;
+    padding-inline-start: 0 !important;
+    padding-inline-end: 0 !important;
+    padding-inline: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    margin-inline-start: 0 !important;
+    margin-inline-end: 0 !important;
+  }
+
+  /* Additional override specifically for logo-block to ensure no padding */
+  .section > .custom-section-content .logo-block.spacing-style {
+    padding-inline: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  /* Also target any direct children or nested elements that might have padding */
+  .section > .custom-section-content .text-block > *,
+  .section > .custom-section-content .logo-block > * {
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+  }
+
+  /* Remove padding from jumbo-text container and jumbo-text element itself */
+  .section > .custom-section-content .logo-block .jumbo-text__container,
+  .section > .custom-section-content .logo-block jumbo-text {
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+    --margin-left-nudge: 0 !important;
+  }
+
+  /* Override any inline styles that might be setting padding variables */
+  /* This targets the actual computed padding, not just the variables */
+  .section
+    > .custom-section-content
+    .text-block[style*="--padding-inline-start"],
+  .section
+    > .custom-section-content
+    .logo-block[style*="--padding-inline-start"] {
+    --padding-inline-start: 0 !important;
+    padding-left: 0 !important;
+  }
+
+  /* Nuclear option: override section-content-wrapper padding even with inline styles */
+  .section
+    > .custom-section-content
+    > .section-content-wrapper[style*="--padding-inline-start"] {
+    --padding-inline-start: 0 !important;
+    padding-left: 0 !important;
+  }
+
+  /* Logo block width calculation should not include padding when in aligned sections */
+  /* Also ensure logo-block itself has no padding that could push content */
+  .section > .custom-section-content .logo-block {
+    width: var(--logo-width) !important;
+    /* Force remove all padding and margin that might come from spacing-style */
+    box-sizing: border-box !important;
+  }
+
+  /* Ensure logo-block children have no left padding/margin */
+  /* This must override spacing-style padding which uses CSS variables */
+  .section > .custom-section-content .logo-block *,
+  .section > .custom-section-content .logo-block .jumbo-text__container,
+  .section > .custom-section-content .logo-block .jumbo-text__container * {
+    padding-left: 0 !important;
+    padding-inline-start: 0 !important;
+    margin-left: 0 !important;
+    --padding-inline-start: 0 !important;
+    --padding-inline: 0 !important;
+    --margin-left-nudge: 0 !important;
+  }
+
+  /* Override spacing-style padding-inline specifically for logo-block */
+  .section > .custom-section-content .logo-block.spacing-style {
+    padding-inline: 0 !important;
+  }
+
+  /* Make logo-block touch the edge by using negative margin to counteract parent's 40px padding */
+  /* Also account for font's left-side bearing with extra negative margin */
+  .section > .custom-section-content .logo-block {
+    margin-left: -40px !important;
+    padding-left: 0 !important;
+  }
+
+  /* Use transform on jumbo-text to counteract font's left-side bearing */
+  .section > .custom-section-content .logo-block jumbo-text {
+    transform: translateX(-0.04em) !important;
+  }
+
+  /* Logo section specific overrides - needs to override width calculation and alignment margins */
+  .section > .logo-section {
+    width: auto !important;
+    max-width: 100% !important;
+    margin-inline: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  /* Override logo section alignment classes when in footer context */
+  .section > .logo-section.logo-section--center,
+  .section > .logo-section.logo-section--flex-end,
+  .section > .logo-section.logo-section--flex-start {
+    margin-inline: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
 }
 
 /* Some page-width sections should still extend all the way to the right edge of the page, e.g. collection carousel */
@@ -431,6 +644,15 @@ p:empty {
   @media screen and (min-width: 750px) {
     padding-left: var(--page-margin);
     padding-right: var(--page-margin);
+  }
+}
+
+/* On desktop, header sections get 160px padding from wrapper */
+/* Header columns need 40px padding to align with hero overlay text (which is 40px from section edge) */
+@media screen and (min-width: 990px) {
+  .header-section .section--full-width-margin > * {
+    padding-left: 40px;
+    padding-right: 40px;
   }
 }
 
@@ -456,7 +678,9 @@ p:empty {
 }
 
 .section-content-wrapper.section-content-wrapper {
-  min-height: calc(var(--section-min-height, 'auto') - var(--section-height-offset, 0px));
+  min-height: calc(
+    var(--section-min-height, "auto") - var(--section-height-offset, 0px)
+  );
   position: relative;
   width: 100%;
   height: 100%;
@@ -543,8 +767,10 @@ p:empty {
   .grid {
     display: grid;
     gap: 0;
-    grid-template-columns: var(--margin-4xl) repeat(var(--centered-column-number), minmax(0, 1fr)) var(--margin-4xl);
-    grid-template-areas: 'column-0 column-1 column-2 column-3 column-4 column-5 column-6 column-7 column-8 column-9 column-10 column-11 column-12 column-13';
+    grid-template-columns:
+      var(--margin-4xl) repeat(var(--centered-column-number), minmax(0, 1fr))
+      var(--margin-4xl);
+    grid-template-areas: "column-0 column-1 column-2 column-3 column-4 column-5 column-6 column-7 column-8 column-9 column-10 column-11 column-12 column-13";
   }
 }
 
@@ -553,7 +779,13 @@ p:empty {
     grid-template-columns:
       1fr repeat(
         var(--centered-column-number),
-        minmax(0, calc((var(--page-width) - var(--page-margin) * 2) / var(--centered-column-number)))
+        minmax(
+          0,
+          calc(
+            (var(--page-width) - var(--page-margin) * 2) /
+              var(--centered-column-number)
+          )
+        )
       )
       1fr;
   }
@@ -713,13 +945,13 @@ placeholder-image {
   aspect-ratio: var(--ratio);
 }
 
-placeholder-image[data-type='product'] {
+placeholder-image[data-type="product"] {
   background-color: rgb(var(--color-foreground-rgb) / var(--opacity-15));
   width: 100%;
 }
 
 /** Placeholder background for the placeholder image, the dimensions are the same as the product images */
-placeholder-image[data-type='product']:not(:has(> img)) {
+placeholder-image[data-type="product"]:not(:has(> img)) {
   aspect-ratio: var(--ratio);
   height: 350px;
 }
@@ -730,11 +962,11 @@ placeholder-image > img {
   height: 100%;
 }
 
-[data-placeholder='true'] * {
+[data-placeholder="true"] * {
   cursor: default;
 }
 
-slideshow-component [data-placeholder='true'] * {
+slideshow-component [data-placeholder="true"] * {
   cursor: grab;
 }
 
@@ -911,7 +1143,8 @@ a {
   text-decoration-color: transparent;
   text-decoration-thickness: 0.075em;
   text-underline-offset: 0.125em;
-  transition: text-decoration-color var(--animation-speed) var(--animation-easing),
+  transition: text-decoration-color var(--animation-speed)
+      var(--animation-easing),
     color var(--animation-speed) var(--animation-easing);
 }
 
@@ -920,7 +1153,8 @@ a {
 }
 
 /* Add underline to text using our paragraph styles only. */
-p:not(.h1, .h2, .h3, .h4, .h5, .h6) a:where(:not(.button, .button-primary, .button-secondary)),
+p:not(.h1, .h2, .h3, .h4, .h5, .h6)
+  a:where(:not(.button, .button-primary, .button-secondary)),
 .rte
   :is(p, ul, ol, table):not(.h1, .h2, .h3, .h4, .h5, .h6)
   a:where(:not(.button, .button-primary, .button-secondary)) {
@@ -956,7 +1190,9 @@ summary::-webkit-details-marker {
 }
 
 /* When header is transparent, pull the first main content section up to sit under the floating header */
-body:has(.header[transparent]) .content-for-layout > .shopify-section:first-child {
+body:has(.header[transparent])
+  .content-for-layout
+  > .shopify-section:first-child {
   margin-top: calc(var(--header-group-height) * -1);
 }
 
@@ -1006,10 +1242,11 @@ body:has(.header[transparent]) #header-group > *:not(.header-section) {
 }
 
 .product-grid__item {
-  border: var(--product-card-border-width) solid rgb(var(--color-border-rgb) / var(--product-card-border-opacity));
+  border: var(--product-card-border-width) solid
+    rgb(var(--color-border-rgb) / var(--product-card-border-opacity));
 }
 
-.product-grid--organic[product-grid-view='default'] .product-grid__item {
+.product-grid--organic[product-grid-view="default"] .product-grid__item {
   height: fit-content;
 }
 
@@ -1025,11 +1262,11 @@ body:has(.header[transparent]) #header-group > *:not(.header-section) {
   overflow: hidden;
 }
 
-[product-grid-view='zoom-out'] .product-grid__card {
+[product-grid-view="zoom-out"] .product-grid__card {
   row-gap: var(--padding-xs);
 }
 
-[product-grid-view='default'] {
+[product-grid-view="default"] {
   --product-grid-gap: 16px;
   --padding-block-start: 24px;
   --padding-block-end: 24px;
@@ -1037,11 +1274,11 @@ body:has(.header[transparent]) #header-group > *:not(.header-section) {
   --padding-inline-end: 0px;
 }
 
-[product-grid-view='default'] .product-grid__item {
+[product-grid-view="default"] .product-grid__item {
   padding-block: 0;
 }
 
-[product-grid-view='mobile-single'],
+[product-grid-view="mobile-single"],
 .product-grid-mobile--large {
   @media screen and (max-width: 749px) {
     grid-template-columns: 1fr;
@@ -1054,28 +1291,35 @@ body:has(.header[transparent]) #header-group > *:not(.header-section) {
   }
 }
 
-ul[product-grid-view='zoom-out'] .product-grid__card > * {
+ul[product-grid-view="zoom-out"] .product-grid__card > * {
   display: none;
 }
 
-ul[product-grid-view='zoom-out'] .product-grid__card .card-gallery {
+ul[product-grid-view="zoom-out"] .product-grid__card .card-gallery {
   display: block;
 }
 
-[product-grid-view='zoom-out']
+[product-grid-view="zoom-out"]
   .card-gallery
-  > :is(quick-add-component, .product-badges, slideshow-component > slideshow-controls) {
+  > :is(
+    quick-add-component,
+    .product-badges,
+    slideshow-component > slideshow-controls
+  ) {
   display: none;
 }
 
-ul[product-grid-view='zoom-out'] .card-gallery > img {
+ul[product-grid-view="zoom-out"] .card-gallery > img {
   display: block;
 }
 
-[product-grid-view='zoom-out'] {
+[product-grid-view="zoom-out"] {
   --product-grid-columns-desktop: repeat(
     10,
-    minmax(clamp(50px, calc(100% - 9 * var(--product-grid-gap)) / 10, 80px), 1fr)
+    minmax(
+      clamp(50px, calc(100% - 9 * var(--product-grid-gap)) / 10, 80px),
+      1fr
+    )
   );
 }
 
@@ -1246,16 +1490,19 @@ results-list[initialized] {
 }
 
 .dialog-modal[open] {
-  animation: elementSlideInTop var(--animation-speed) var(--animation-easing) forwards;
+  animation: elementSlideInTop var(--animation-speed) var(--animation-easing)
+    forwards;
 
   &::backdrop {
-    animation: backdropFilter var(--animation-speed) var(--animation-easing) forwards;
+    animation: backdropFilter var(--animation-speed) var(--animation-easing)
+      forwards;
     transition: opacity var(--animation-speed) var(--animation-easing);
   }
 }
 
 .dialog-modal.dialog-closing {
-  animation: elementSlideOutTop var(--animation-speed) var(--animation-easing) forwards;
+  animation: elementSlideOutTop var(--animation-speed) var(--animation-easing)
+    forwards;
 
   &::backdrop {
     opacity: 0;
@@ -1275,11 +1522,13 @@ results-list[initialized] {
 /* stylelint-enable value-keyword-case */
 
 .dialog-drawer[open] {
-  animation: var(--dialog-drawer-opening-animation) var(--animation-speed) var(--animation-easing) forwards;
+  animation: var(--dialog-drawer-opening-animation) var(--animation-speed)
+    var(--animation-easing) forwards;
 }
 
 .dialog-drawer.dialog-closing {
-  animation: var(--dialog-drawer-closing-animation) var(--animation-speed) var(--animation-easing);
+  animation: var(--dialog-drawer-closing-animation) var(--animation-speed)
+    var(--animation-easing);
 }
 
 /* Buttons */
@@ -1353,8 +1602,8 @@ input:not(:placeholder-shown)::placeholder {
   display: none;
 }
 
-.button[aria-disabled='true'],
-.button-secondary[aria-disabled='true'],
+.button[aria-disabled="true"],
+.button-secondary[aria-disabled="true"],
 .button:disabled {
   opacity: 0.5;
   cursor: not-allowed;
@@ -1447,8 +1696,8 @@ button.shopify-payment-button__button--unbranded:hover:not([disabled]) {
   height: var(--icon-size-xs);
 }
 
-.show-more[data-expanded='true'] .show-more__label--more,
-.show-more[data-expanded='false'] .show-more__label--less {
+.show-more[data-expanded="true"] .show-more__label--more,
+.show-more[data-expanded="false"] .show-more__label--less {
   display: none;
 }
 
@@ -1459,13 +1708,17 @@ button.shopify-payment-button__button--unbranded:hover:not([disabled]) {
 
 shopify-accelerated-checkout,
 shopify-accelerated-checkout-cart {
-  --shopify-accelerated-checkout-button-border-radius: var(--style-border-radius-buttons-primary);
+  --shopify-accelerated-checkout-button-border-radius: var(
+    --style-border-radius-buttons-primary
+  );
   --shopify-accelerated-checkout-button-block-size: var(--height-buy-buttons);
 }
 
 .product-form-buttons:has(.add-to-cart-button.button-secondary)
   :is(shopify-accelerated-checkout, shopify-accelerated-checkout-cart) {
-  --shopify-accelerated-checkout-button-border-radius: var(--style-border-radius-buttons-secondary);
+  --shopify-accelerated-checkout-button-border-radius: var(
+    --style-border-radius-buttons-secondary
+  );
   --shopify-accelerated-checkout-button-block-size: var(--height-buy-buttons);
 }
 
@@ -1513,13 +1766,19 @@ summary .icon-plus :is(.horizontal, .vertical),
 
 details[open] > summary .icon-plus .horizontal,
 .details-open > summary .icon-plus .horizontal,
-.show-more:where([data-expanded='true']) .show-more__button .icon-plus .horizontal {
+.show-more:where([data-expanded="true"])
+  .show-more__button
+  .icon-plus
+  .horizontal {
   transform: rotate(90deg);
 }
 
 details[open] > summary .icon-plus .vertical,
 .details-open > summary .icon-plus .vertical,
-.show-more:where([data-expanded='true']) .show-more__button .icon-plus .vertical {
+.show-more:where([data-expanded="true"])
+  .show-more__button
+  .icon-plus
+  .vertical {
   transform: rotate(90deg);
   opacity: 0;
 }
@@ -1560,7 +1819,10 @@ media-gallery {
     /* arbitrary offset value based on average theme spacing and header height */
     --viewport-offset: 400px;
     --constrained-min-height: 300px;
-    --constrained-height: max(var(--constrained-min-height), calc(100vh - var(--viewport-offset)));
+    --constrained-height: max(
+      var(--constrained-min-height),
+      calc(100vh - var(--viewport-offset))
+    );
 
     margin-right: auto;
     margin-left: auto;
@@ -1571,7 +1833,9 @@ media-gallery:where(.media-gallery--grid) .media-gallery__grid {
   display: none;
 }
 
-media-gallery.media-gallery--grid .media-gallery__grid .product-media-container {
+media-gallery.media-gallery--grid
+  .media-gallery__grid
+  .product-media-container {
   /* Needed for safari to stretch to full grid height */
   height: 100%;
 }
@@ -1592,7 +1856,8 @@ media-gallery.media-gallery--grid .media-gallery__grid .product-media-container 
     --constrained-min-height: 500px;
   }
 
-  body:has(header-component[transparent]) .product-media-container.constrain-height {
+  body:has(header-component[transparent])
+    .product-media-container.constrain-height {
     --viewport-offset: 0px;
   }
 
@@ -1713,7 +1978,7 @@ zoom-dialog dialog {
   }
 
   .close-button:focus-visible::after {
-    content: '';
+    content: "";
     position: absolute;
     inset: calc(-1 * var(--focus-outline-offset));
     border: var(--focus-outline-width) solid currentColor;
@@ -1723,7 +1988,8 @@ zoom-dialog dialog {
 }
 
 .dialog--closed .close-button {
-  animation: elementSlideOutBottom calc(var(--animation-speed) * 0.5) var(--animation-easing) forwards;
+  animation: elementSlideOutBottom calc(var(--animation-speed) * 0.5)
+    var(--animation-easing) forwards;
 }
 
 .dialog-thumbnails-list-container {
@@ -1745,12 +2011,14 @@ zoom-dialog dialog {
   padding: var(--padding-lg);
   margin-inline: auto;
   scrollbar-width: none;
-  animation: thumbnailsSlideInBottom calc(var(--animation-speed) * 0.75) var(--animation-easing) forwards;
+  animation: thumbnailsSlideInBottom calc(var(--animation-speed) * 0.75)
+    var(--animation-easing) forwards;
   animation-delay: calc(var(--animation-speed) * 1.5);
 }
 
 .dialog--closed .dialog-thumbnails-list {
-  animation: thumbnailsSlideOutBottom var(--animation-speed) var(--animation-easing) forwards;
+  animation: thumbnailsSlideOutBottom var(--animation-speed)
+    var(--animation-easing) forwards;
 }
 
 @media screen and (min-width: 750px) {
@@ -1761,12 +2029,14 @@ zoom-dialog dialog {
     right: 0;
     max-height: calc(100vh - 200px);
     overflow-y: auto;
-    animation: thumbnailsSlideInTop calc(var(--animation-speed) * 0.5) var(--animation-easing) forwards;
+    animation: thumbnailsSlideInTop calc(var(--animation-speed) * 0.5)
+      var(--animation-easing) forwards;
     animation-delay: calc(var(--animation-speed) * 2);
   }
 
   .dialog--closed .dialog-thumbnails-list {
-    animation: thumbnailsSlideOutTop var(--animation-speed) var(--animation-easing) forwards;
+    animation: thumbnailsSlideOutTop var(--animation-speed)
+      var(--animation-easing) forwards;
   }
 }
 
@@ -1784,10 +2054,11 @@ zoom-dialog dialog {
     aspect-ratio: var(--aspect-ratio);
   }
 
-  &:is([aria-selected='true']) {
+  &:is([aria-selected="true"]) {
     outline: var(--focus-outline-width) solid currentcolor;
     outline-offset: calc(var(--focus-outline-offset) / 2);
-    border: var(--style-border-width) solid rgb(var(--color-border-rgb) / var(--media-border-opacity));
+    border: var(--style-border-width) solid
+      rgb(var(--color-border-rgb) / var(--media-border-opacity));
   }
 }
 
@@ -1842,19 +2113,27 @@ Otherwise, it should be a block to rely on its own size */
   padding: inherit;
 }
 
-slideshow-slide .shopify-model-viewer-ui__controls-area.shopify-model-viewer-ui__controls-area {
+slideshow-slide
+  .shopify-model-viewer-ui__controls-area.shopify-model-viewer-ui__controls-area {
   bottom: var(--padding-sm);
   right: var(--padding-sm);
 }
 
-.dialog-zoomed-gallery .shopify-model-viewer-ui__controls-area.shopify-model-viewer-ui__controls-area {
+.dialog-zoomed-gallery
+  .shopify-model-viewer-ui__controls-area.shopify-model-viewer-ui__controls-area {
   /* Move the controls above the thumbnails. Need to calculate the height of the thumbnails list */
-  bottom: calc(var(--thumbnail-width) / calc(var(--media-preview-ratio)) + var(--padding-lg) * 2);
+  bottom: calc(
+    var(--thumbnail-width) / calc(var(--media-preview-ratio)) +
+      var(--padding-lg) * 2
+  );
   right: var(--padding-lg);
 }
 
 @media screen and (max-width: 749px) {
-  slideshow-component:has(:not(.mobile\:hidden) :is(.slideshow-controls__dots, .slideshow-controls__counter))
+  slideshow-component:has(
+      :not(.mobile\:hidden)
+        :is(.slideshow-controls__dots, .slideshow-controls__counter)
+    )
     .shopify-model-viewer-ui__controls-area {
     /* Position the controls just above the counter */
     bottom: calc(var(--minimum-touch-target) + var(--padding-sm));
@@ -1862,13 +2141,17 @@ slideshow-slide .shopify-model-viewer-ui__controls-area.shopify-model-viewer-ui_
 }
 
 @media screen and (min-width: 750px) {
-  slideshow-component:has(:not(.desktop\:hidden) :is(.slideshow-controls__dots, .slideshow-controls__counter))
+  slideshow-component:has(
+      :not(.desktop\:hidden)
+        :is(.slideshow-controls__dots, .slideshow-controls__counter)
+    )
     .shopify-model-viewer-ui__controls-area {
     /* Position the controls just above the counter */
     bottom: calc(var(--minimum-touch-target) + var(--padding-sm));
   }
 
-  .dialog-zoomed-gallery .shopify-model-viewer-ui__controls-area.shopify-model-viewer-ui__controls-area {
+  .dialog-zoomed-gallery
+    .shopify-model-viewer-ui__controls-area.shopify-model-viewer-ui__controls-area {
     /* Move the controls up to match the padding on the thumbnails */
     bottom: var(--padding-lg);
 
@@ -1954,7 +2237,11 @@ deferred-media[data-media-loaded] img {
   }
 }
 
-deferred-media[class] :is(.deferred-media__poster-button img, .deferred-media__poster-button ~ video) {
+deferred-media[class]
+  :is(
+    .deferred-media__poster-button img,
+    .deferred-media__poster-button ~ video
+  ) {
   /* only apply this on the video block not product media */
   object-fit: cover;
   height: 100%;
@@ -1982,7 +2269,9 @@ deferred-media[class] :is(.deferred-media__poster-button img, .deferred-media__p
 
 /* Swatches */
 .swatch {
-  --color-border: rgb(var(--color-foreground-rgb) / var(--style-border-swatch-opacity));
+  --color-border: rgb(
+    var(--color-foreground-rgb) / var(--style-border-swatch-opacity)
+  );
   --min-width-unitless: 15.9999; /* want to avoid division by 0 */
   --min-height-unitless: 15.9999; /* want to avoid division by 0 */
   --min-height: 16px;
@@ -1995,8 +2284,12 @@ deferred-media[class] :is(.deferred-media__poster-button img, .deferred-media__p
   --max-filter-size: 32px;
 
   /* From the settings */
-  --offset-swatch-width: calc(var(--variant-picker-swatch-width-unitless) - var(--min-width-unitless));
-  --offset-swatch-height: calc(var(--variant-picker-swatch-height-unitless) - var(--min-height-unitless));
+  --offset-swatch-width: calc(
+    var(--variant-picker-swatch-width-unitless) - var(--min-width-unitless)
+  );
+  --offset-swatch-height: calc(
+    var(--variant-picker-swatch-height-unitless) - var(--min-height-unitless)
+  );
 
   /**
     Offset values are obtained from the following formulas:
@@ -2014,23 +2307,31 @@ deferred-media[class] :is(.deferred-media__poster-button img, .deferred-media__p
     by some scaling factor.
   */
   --offset-scaled-width: calc(
-    var(--scaling-factor) * var(--offset-swatch-width) / var(--offset-swatch-height) * var(--offset-max-swatch-size)
+    var(--scaling-factor) * var(--offset-swatch-width) /
+      var(--offset-swatch-height) * var(--offset-max-swatch-size)
   );
   --offset-scaled-height: calc(
-    var(--scaling-factor) * var(--offset-swatch-height) / var(--offset-swatch-width) * var(--offset-max-swatch-size)
+    var(--scaling-factor) * var(--offset-swatch-height) /
+      var(--offset-swatch-width) * var(--offset-max-swatch-size)
   );
   --offset-max-swatch-size: calc(var(--max-swatch-size) - var(--min-width));
 
   /* width = min(m + sU, (m + s * W'/H' * M'), M) */
   --swatch-width: min(
-    calc(var(--min-width) + calc(var(--scaling-factor) * var(--offset-swatch-width) * 1px)),
+    calc(
+      var(--min-width) +
+        calc(var(--scaling-factor) * var(--offset-swatch-width) * 1px)
+    ),
     calc(var(--min-width) + var(--offset-scaled-width)),
     var(--max-swatch-size)
   );
 
   /* height = min(m + sV, (m + s * H'/W' * M'), M) */
   --swatch-height: min(
-    calc(var(--min-height) + calc(var(--scaling-factor) * var(--offset-swatch-height) * 1px)),
+    calc(
+      var(--min-height) +
+        calc(var(--scaling-factor) * var(--offset-swatch-height) * 1px)
+    ),
     calc(var(--min-height) + var(--offset-scaled-height)),
     var(--max-swatch-size)
   );
@@ -2039,7 +2340,8 @@ deferred-media[class] :is(.deferred-media__poster-button img, .deferred-media__p
   background: var(--swatch-background);
   background-position: var(--swatch-focal-point, center);
   border-radius: var(--variant-picker-swatch-radius);
-  border: var(--style-border-swatch-width) var(--style-border-swatch-style) var(--color-border);
+  border: var(--style-border-swatch-width) var(--style-border-swatch-style)
+    var(--color-border);
   width: var(--swatch-width);
   height: var(--swatch-height);
 
@@ -2077,7 +2379,9 @@ deferred-media[class] :is(.deferred-media__poster-button img, .deferred-media__p
   &.swatch--pill {
     --style-border-swatch-width: var(--variant-picker-border-width);
     --style-border-swatch-style: var(--variant-picker-border-style);
-    --color-border: rgb(var(--color-foreground-rgb) / var(--variant-picker-border-opacity));
+    --color-border: rgb(
+      var(--color-foreground-rgb) / var(--variant-picker-border-opacity)
+    );
   }
 
   @media screen and (min-width: 750px) {
@@ -2168,7 +2472,7 @@ product-price.text-block:is(.h1, .h2, .h3, .h4, .h5, .h6) > *:not(.tax-note) {
   transition: transform var(--animation-speed) var(--animation-easing);
 }
 
-.drawer[data-open='true'] {
+.drawer[data-open="true"] {
   transform: translateX(0);
 }
 
@@ -2207,7 +2511,7 @@ product-price.text-block:is(.h1, .h2, .h3, .h4, .h5, .h6) > *:not(.tax-note) {
   position: relative;
 
   &::after {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
@@ -2243,10 +2547,28 @@ product-price.text-block:is(.h1, .h2, .h3, .h4, .h5, .h6) > *:not(.tax-note) {
 
 .spacing-style,
 .inherit-spacing {
-  padding-block: calc(var(--padding-block-start) + var(--section-top-offset, 0px)) var(--padding-block-end);
+  padding-block: calc(
+      var(--padding-block-start) + var(--section-top-offset, 0px)
+    )
+    var(--padding-block-end);
   padding-inline: var(--padding-inline-start) var(--padding-inline-end);
   margin-block: var(--margin-block-start) var(--margin-block-end);
   margin-inline: var(--margin-inline-start) var(--margin-inline-end);
+}
+
+/* Override spacing-style padding for logo-block in aligned sections - must come after .spacing-style rule */
+@media screen and (min-width: 990px) {
+  .section > .custom-section-content .logo-block.spacing-style {
+    padding-inline: 0 !important;
+  }
+}
+
+/* Override spacing-style padding for blocks in aligned sections on desktop */
+@media screen and (min-width: 990px) {
+  .section > .custom-section-content .text-block.spacing-style,
+  .section > .custom-section-content .logo-block.spacing-style {
+    padding-inline: 0 !important;
+  }
 }
 
 /* Size style */
@@ -2379,7 +2701,8 @@ product-price.text-block:is(.h1, .h2, .h3, .h4, .h5, .h6) > *:not(.tax-note) {
   flex-grow: 1;
   text-align: left;
   border-radius: var(--style-border-radius-inputs);
-  transition: box-shadow var(--animation-speed) ease, background-color var(--animation-speed) ease;
+  transition: box-shadow var(--animation-speed) ease,
+    background-color var(--animation-speed) ease;
   padding: var(--input-padding);
   box-shadow: var(--input-box-shadow);
   background-color: var(--color-input-background);
@@ -2416,7 +2739,8 @@ product-price.text-block:is(.h1, .h2, .h3, .h4, .h5, .h6) > *:not(.tax-note) {
   margin-bottom: 0;
   pointer-events: none;
   position: absolute;
-  transition: top var(--animation-speed) ease, font-size var(--animation-speed) ease;
+  transition: top var(--animation-speed) ease,
+    font-size var(--animation-speed) ease;
 }
 
 /* RTE styles */
@@ -2446,7 +2770,8 @@ product-price.text-block:is(.h1, .h2, .h3, .h4, .h5, .h6) > *:not(.tax-note) {
     margin-inline: 1.5em 2.3em;
     margin-block: 3.8em;
     padding-inline-start: 0.8em;
-    border-inline-start: 1.5px solid rgb(var(--color-foreground-rgb) / var(--opacity-25));
+    border-inline-start: 1.5px solid
+      rgb(var(--color-foreground-rgb) / var(--opacity-25));
     font-style: italic;
     font-weight: 500;
   }
@@ -2469,7 +2794,8 @@ product-price.text-block:is(.h1, .h2, .h3, .h4, .h5, .h6) > *:not(.tax-note) {
   }
 
   tr:has(td) {
-    border-bottom: 1px solid rgb(var(--color-foreground-rgb) / var(--opacity-10));
+    border-bottom: 1px solid
+      rgb(var(--color-foreground-rgb) / var(--opacity-10));
   }
 
   th,
@@ -2493,7 +2819,8 @@ product-price.text-block:is(.h1, .h2, .h3, .h4, .h5, .h6) > *:not(.tax-note) {
   --checkbox-label-padding: 8px;
   --checkbox-path-opacity: 0;
   --checkbox-cursor: pointer;
-  --checkbox-border: 1px solid rgb(var(--color-foreground-rgb) / var(--opacity-35-55));
+  --checkbox-border: 1px solid
+    rgb(var(--color-foreground-rgb) / var(--opacity-35-55));
 
   position: relative;
   display: flex;
@@ -2577,7 +2904,7 @@ product-price.text-block:is(.h1, .h2, .h3, .h4, .h5, .h6) > *:not(.tax-note) {
 }
 
 /* Add to cart button */
-.button[id^='BuyButtons-ProductSubmitButton-'] {
+.button[id^="BuyButtons-ProductSubmitButton-"] {
   position: relative;
   overflow: hidden;
 }
@@ -2635,7 +2962,8 @@ product-price.text-block:is(.h1, .h2, .h3, .h4, .h5, .h6) > *:not(.tax-note) {
   }
 }
 
-.product-form-buttons:has(.add-to-cart-button.button-secondary) .quantity-selector {
+.product-form-buttons:has(.add-to-cart-button.button-secondary)
+  .quantity-selector {
   border-radius: var(--style-border-radius-buttons-secondary);
 }
 
@@ -2691,32 +3019,36 @@ product-price.text-block:is(.h1, .h2, .h3, .h4, .h5, .h6) > *:not(.tax-note) {
   transform: scale(0.9);
 }
 
-.quantity-selector input[type='number'] {
+.quantity-selector input[type="number"] {
   margin: 0;
   text-align: center;
   border: none;
   appearance: none;
-  max-width: calc(var(--quantity-selector-width) - var(--minimum-touch-target) * 2);
+  max-width: calc(
+    var(--quantity-selector-width) - var(--minimum-touch-target) * 2
+  );
   border-radius: var(--style-border-radius-buttons);
   color: var(--color-input-text);
   background-color: transparent;
 }
 
 /* Chrome, Safari, Edge, Opera */
-.quantity-selector input[type='number']::-webkit-inner-spin-button,
-.quantity-selector input[type='number']::-webkit-outer-spin-button {
+.quantity-selector input[type="number"]::-webkit-inner-spin-button,
+.quantity-selector input[type="number"]::-webkit-outer-spin-button {
   appearance: none;
 }
 
 /* Firefox */
-.quantity-selector input[type='number'] {
+.quantity-selector input[type="number"] {
   appearance: textfield;
 }
 
 /* Pills (used in facets and predictive search) */
 
 .pills__pill {
-  --pills-pill-background-color: rgb(var(--color-foreground-rgb) / var(--opacity-5-15));
+  --pills-pill-background-color: rgb(
+    var(--color-foreground-rgb) / var(--opacity-5-15)
+  );
 
   color: var(--color-foreground);
   display: flex;
@@ -2731,7 +3063,9 @@ product-price.text-block:is(.h1, .h2, .h3, .h4, .h5, .h6) > *:not(.tax-note) {
   transition: background-color var(--animation-speed) var(--animation-easing);
 
   &:hover {
-    --pills-pill-background-color: rgb(var(--color-foreground-rgb) / var(--opacity-10-25));
+    --pills-pill-background-color: rgb(
+      var(--color-foreground-rgb) / var(--opacity-10-25)
+    );
   }
 
   @media screen and (max-width: 749px) {
@@ -3124,7 +3458,7 @@ fly-to-cart {
 }
 
 .top-shadow::before {
-  content: '';
+  content: "";
   box-shadow: 0 0 10px var(--color-shadow);
   position: absolute;
   z-index: var(--layer-lowest);
@@ -3139,7 +3473,7 @@ fly-to-cart {
 }
 
 .bottom-shadow::before {
-  content: '';
+  content: "";
   box-shadow: 0 0 10px var(--color-shadow);
   position: absolute;
   z-index: var(--layer-lowest);
@@ -3223,34 +3557,34 @@ slideshow-slides {
     border: none;
   }
 
-  &[size='small'] {
+  &[size="small"] {
     min-height: 17.5rem;
   }
 
-  &[size='medium'] {
+  &[size="medium"] {
     min-height: 21.25rem;
   }
 
-  &[size='large'] {
+  &[size="large"] {
     min-height: 25rem;
   }
 
   @media screen and (min-width: 750px) {
-    &[size='small'] {
+    &[size="small"] {
       min-height: 26.25rem;
     }
 
-    &[size='medium'] {
+    &[size="medium"] {
       min-height: 35rem;
     }
 
-    &[size='large'] {
+    &[size="large"] {
       min-height: 45rem;
     }
   }
 }
 
-slideshow-component[disabled='true'] slideshow-slides {
+slideshow-component[disabled="true"] slideshow-slides {
   overflow: hidden;
 }
 
@@ -3271,11 +3605,11 @@ slideshow-slide {
   contain-intrinsic-size: auto none;
 
   slideshow-component[actioned] &,
-  &[aria-hidden='false'] {
+  &[aria-hidden="false"] {
     content-visibility: visible;
   }
 
-  slideshow-component slideshow-slide:not([aria-hidden='false']) {
+  slideshow-component slideshow-slide:not([aria-hidden="false"]) {
     content-visibility: hidden;
   }
 
@@ -3292,8 +3626,8 @@ slideshow-slide.product-media-container--tallest {
   /* Media gallery has a peeking slide on the right side always, and on the left side when the current slide is the last one */
   .media-gallery--hint
     :is(
-      slideshow-slide:has(+ slideshow-slide[aria-hidden='false']:last-of-type),
-      slideshow-slide[aria-hidden='false'] + slideshow-slide
+      slideshow-slide:has(+ slideshow-slide[aria-hidden="false"]:last-of-type),
+      slideshow-slide[aria-hidden="false"] + slideshow-slide
     ) {
     content-visibility: auto;
 
@@ -3310,8 +3644,8 @@ slideshow-slide.product-media-container--tallest {
  */
 :is(.resource-list__carousel, .card-gallery)
   :is(
-    slideshow-slide:has(+ slideshow-slide[aria-hidden='false']),
-    slideshow-slide[aria-hidden='false'] + slideshow-slide
+    slideshow-slide:has(+ slideshow-slide[aria-hidden="false"]),
+    slideshow-slide[aria-hidden="false"] + slideshow-slide
   ) {
   content-visibility: auto;
 
@@ -3324,16 +3658,19 @@ slideshow-slide.product-media-container--tallest {
  * Be specific about HTML children structure to avoid targeting nested slideshows.
  * Ensure that the content is 'visible' while scrolling instead of 'auto' to avoid issues in Safari.
  */
-slideshow-component:is([dragging], [transitioning], :hover) > slideshow-container > slideshow-slides > slideshow-slide {
+slideshow-component:is([dragging], [transitioning], :hover)
+  > slideshow-container
+  > slideshow-slides
+  > slideshow-slide {
   content-visibility: visible;
 }
 
-slideshow-slides[gutters*='start'] {
+slideshow-slides[gutters*="start"] {
   padding-inline-start: var(--gutter-slide-width, 0);
   scroll-padding-inline-start: var(--gutter-slide-width, 0);
 }
 
-slideshow-slides[gutters*='end'] {
+slideshow-slides[gutters*="end"] {
   padding-inline-end: var(--gutter-slide-width, 0);
 }
 
@@ -3394,42 +3731,49 @@ slideshow-controls .icon {
   height: var(--icon-size-xs);
 }
 
-slideshow-controls[pagination-position='center'] {
+slideshow-controls[pagination-position="center"] {
   align-items: center;
   justify-content: center;
 }
 
-slideshow-controls[pagination-position='center'][thumbnails] {
+slideshow-controls[pagination-position="center"][thumbnails] {
   width: 100%;
 }
 
-slideshow-controls[pagination-position='center']:not([controls-on-media], [thumbnails], [icons-on-media]) {
+slideshow-controls[pagination-position="center"]:not(
+    [controls-on-media],
+    [thumbnails],
+    [icons-on-media]
+  ) {
   justify-content: space-between;
 }
 
 slideshow-component:has(slideshow-controls[thumbnails]) {
-  &:has(slideshow-controls[pagination-position='right']) {
+  &:has(slideshow-controls[pagination-position="right"]) {
     display: grid;
     grid-template:
-      'container controls' auto
-      'arrows controls' min-content
+      "container controls" auto
+      "arrows controls" min-content
       / 1fr auto;
   }
 
-  &:has(slideshow-controls[pagination-position='left']) {
+  &:has(slideshow-controls[pagination-position="left"]) {
     display: grid;
     grid-template:
-      'controls container' auto
-      'controls arrows' min-content
+      "controls container" auto
+      "controls arrows" min-content
       / auto 1fr;
   }
 
-  slideshow-controls[pagination-position='left'] {
+  slideshow-controls[pagination-position="left"] {
     order: -1;
   }
 }
 
-slideshow-controls[thumbnails]:is([pagination-position='right'], [pagination-position='left']) {
+slideshow-controls[thumbnails]:is(
+    [pagination-position="right"],
+    [pagination-position="left"]
+  ) {
   display: flex;
   flex-direction: column;
   height: 0;
@@ -3452,30 +3796,39 @@ slideshow-controls[thumbnails]:is([pagination-position='right'], [pagination-pos
 }
 
 slideshow-controls:not([controls-on-media])[icons-on-media] {
-  &[pagination-position='right'] {
+  &[pagination-position="right"] {
     justify-content: flex-end;
   }
 
-  &[pagination-position='left'] {
+  &[pagination-position="left"] {
     justify-content: flex-start;
   }
 }
 
-slideshow-controls:not([controls-on-media]):is([pagination-position='left'], [pagination-position='right'])
+slideshow-controls:not([controls-on-media]):is(
+    [pagination-position="left"],
+    [pagination-position="right"]
+  )
   .slideshow-controls__thumbnails {
   padding-block: var(--padding-2xs);
 }
 
 slideshow-controls:not([controls-on-media]) {
-  &:is([pagination-position='right']) {
+  &:is([pagination-position="right"]) {
     .slideshow-controls__thumbnails {
-      padding-inline-end: var(--slideshow-thumbnails-padding-inline, var(--focus-outline-offset));
+      padding-inline-end: var(
+        --slideshow-thumbnails-padding-inline,
+        var(--focus-outline-offset)
+      );
     }
   }
 
-  &:is([pagination-position='left']) {
+  &:is([pagination-position="left"]) {
     .slideshow-controls__thumbnails {
-      padding-inline-start: var(--slideshow-thumbnails-padding-inline, var(--focus-outline-offset));
+      padding-inline-start: var(
+        --slideshow-thumbnails-padding-inline,
+        var(--focus-outline-offset)
+      );
     }
   }
 }
@@ -3488,30 +3841,33 @@ slideshow-controls[controls-on-media] {
     --color-foreground-rgb: var(--color-white-rgb);
   }
 
-  &[pagination-position='right'] {
+  &[pagination-position="right"] {
     right: 0;
   }
 
-  &[pagination-position='left'] {
+  &[pagination-position="left"] {
     left: 0;
   }
 
-  &[pagination-position='center'] {
+  &[pagination-position="center"] {
     width: 100%;
   }
 
-  &:not([thumbnails])[pagination-position='left'] {
+  &:not([thumbnails])[pagination-position="left"] {
     width: fit-content;
     align-self: flex-start;
   }
 
-  &:not([thumbnails])[pagination-position='right'] {
+  &:not([thumbnails])[pagination-position="right"] {
     width: fit-content;
     align-self: flex-end;
   }
 }
 
-slideshow-controls:is([pagination-position='right'], [pagination-position='left']) {
+slideshow-controls:is(
+    [pagination-position="right"],
+    [pagination-position="left"]
+  ) {
   .slideshow-controls__thumbnails {
     flex-direction: column;
   }
@@ -3567,7 +3923,7 @@ slideshow-component[autoplay] slideshow-controls {
     border-radius: calc(var(--size));
 
     &::after {
-      content: '';
+      content: "";
       display: block;
       background-color: var(--color);
       height: var(--size);
@@ -3577,7 +3933,7 @@ slideshow-component[autoplay] slideshow-controls {
       border-radius: calc(var(--size) / 2);
 
       @supports not (view-timeline-axis: inline) {
-        &[aria-selected='true'] {
+        &[aria-selected="true"] {
           --color: var(--color-active);
         }
       }
@@ -3587,7 +3943,7 @@ slideshow-component[autoplay] slideshow-controls {
       }
     }
 
-    &[aria-selected='true'] {
+    &[aria-selected="true"] {
       --color: var(--color-active);
     }
   }
@@ -3691,10 +4047,11 @@ slideshow-component[autoplay] slideshow-controls {
       border-radius: var(--media-radius);
     }
 
-    &:is([aria-selected='true']) {
+    &:is([aria-selected="true"]) {
       outline: var(--focus-outline-width) solid currentcolor;
       outline-offset: calc(var(--focus-outline-offset) / 2);
-      border: var(--style-border-width) solid rgb(var(--color-border-rgb) / var(--media-border-opacity));
+      border: var(--style-border-width) solid
+        rgb(var(--color-border-rgb) / var(--media-border-opacity));
     }
   }
 }
@@ -3764,17 +4121,17 @@ slideshow-arrows {
   mix-blend-mode: difference;
   align-items: flex-end;
 
-  &[position='left'] {
+  &[position="left"] {
     justify-content: flex-start;
     padding-inline: var(--padding-xs);
   }
 
-  &[position='right'] {
+  &[position="right"] {
     justify-content: flex-end;
     padding-inline: var(--padding-xs);
   }
 
-  &[position='center'] {
+  &[position="center"] {
     justify-content: space-between;
     align-items: center;
   }
@@ -3785,7 +4142,7 @@ slideshow-arrows:has(.slideshow-control--shape-circle) {
   mix-blend-mode: normal;
 }
 
-slideshow-component[disabled='true'] slideshow-arrows {
+slideshow-component[disabled="true"] slideshow-arrows {
   display: none;
 }
 
@@ -3820,11 +4177,14 @@ slideshow-arrows .slideshow-control.slideshow-control--style-none {
 }
 
 :not(.media-gallery--carousel)
-  > :is(slideshow-component:hover, slideshow-component:focus-within):not(:has(slideshow-controls:hover))
+  > :is(slideshow-component:hover, slideshow-component:focus-within):not(
+    :has(slideshow-controls:hover)
+  )
   > slideshow-container
   > slideshow-arrows
   .slideshow-control {
-  animation: arrowsSlideIn var(--animation-speed) var(--animation-easing) forwards;
+  animation: arrowsSlideIn var(--animation-speed) var(--animation-easing)
+    forwards;
 }
 
 @keyframes arrowsSlideIn {
@@ -3886,8 +4246,14 @@ slideshow-arrows .slideshow-control.slideshow-control--style-none {
 
 .resource-list {
   --resource-list-mobile-gap-max: 9999px;
-  --resource-list-column-gap: min(var(--resource-list-column-gap-desktop), var(--resource-list-mobile-gap-max));
-  --resource-list-row-gap: min(var(--resource-list-row-gap-desktop), var(--resource-list-mobile-gap-max));
+  --resource-list-column-gap: min(
+    var(--resource-list-column-gap-desktop),
+    var(--resource-list-mobile-gap-max)
+  );
+  --resource-list-row-gap: min(
+    var(--resource-list-row-gap-desktop),
+    var(--resource-list-mobile-gap-max)
+  );
 
   width: 100%;
 
@@ -3933,7 +4299,11 @@ slideshow-arrows .slideshow-control.slideshow-control--style-none {
       --resource-list-columns-per-row: 5;
     }
 
-    &:has(.resource-list__item:first-child:nth-last-child(n + 7):nth-last-child(-n + 8)) {
+    &:has(
+        .resource-list__item:first-child:nth-last-child(n + 7):nth-last-child(
+            -n + 8
+          )
+      ) {
       --resource-list-columns-per-row: 4;
     }
 
@@ -3982,17 +4352,27 @@ slideshow-arrows .slideshow-control.slideshow-control--style-none {
 
 @container resource-list-carousel (max-width: 749px) {
   .resource-list__carousel .resource-list__slide {
-    --slide-width: clamp(150px, var(--mobile-card-size, 60cqw), var(--slide-width-max));
+    --slide-width: clamp(
+      150px,
+      var(--mobile-card-size, 60cqw),
+      var(--slide-width-max)
+    );
   }
 }
 
 @container resource-list-carousel (min-width: 750px) {
   .resource-list__carousel .resource-list__slide {
     --section-slide-width: calc(
-      (100% - (var(--resource-list-column-gap) * (var(--column-count) - 1)) - var(--peek-next-slide-size)) /
-        var(--column-count)
+      (
+          100% - (var(--resource-list-column-gap) * (var(--column-count) - 1)) -
+            var(--peek-next-slide-size)
+        ) / var(--column-count)
     );
-    --fallback-slide-width: clamp(150px, var(--mobile-card-size, 60cqw), var(--slide-width-max));
+    --fallback-slide-width: clamp(
+      150px,
+      var(--mobile-card-size, 60cqw),
+      var(--slide-width-max)
+    );
     --slide-width: var(--section-slide-width, var(--fallback-slide-width));
   }
 }
@@ -4039,7 +4419,8 @@ slideshow-arrows .slideshow-control.slideshow-control--style-none {
 }
 
 /* Container styles */
-.section-content-wrapper.section-content-wrapper:where(.layout-panel-flex) .group-block--fill {
+.section-content-wrapper.section-content-wrapper:where(.layout-panel-flex)
+  .group-block--fill {
   flex: 1;
 }
 
@@ -4120,13 +4501,13 @@ accordion-custom {
   }
 }
 
-accordion-custom[data-disable-on-mobile='true'] summary {
+accordion-custom[data-disable-on-mobile="true"] summary {
   @media screen and (max-width: 749px) {
     cursor: auto;
   }
 }
 
-accordion-custom[data-disable-on-desktop='true'] summary {
+accordion-custom[data-disable-on-desktop="true"] summary {
   @media screen and (min-width: 750px) {
     cursor: auto;
   }
@@ -4188,11 +4569,13 @@ text-component {
 }
 
 .transition-transform {
-  transition: transform var(--animation-speed-medium) var(--animation-timing-bounce);
+  transition: transform var(--animation-speed-medium)
+    var(--animation-timing-bounce);
 }
 
 .transition-border-color {
-  transition: border-color var(--animation-speed-medium) var(--animation-timing-hover);
+  transition: border-color var(--animation-speed-medium)
+    var(--animation-timing-hover);
 }
 
 /* Global scrollbar styles */
@@ -4225,7 +4608,9 @@ text-component {
 }
 
 /* Product card title truncation - applied only to zoom-out view */
-[product-grid-view='zoom-out'] :is(.product-card, .product-grid__card) :is(h4, .h4) {
+[product-grid-view="zoom-out"]
+  :is(.product-card, .product-grid__card)
+  :is(h4, .h4) {
   display: -webkit-box;
   -webkit-box-orient: vertical;
   overflow: hidden;
@@ -4251,7 +4636,8 @@ text-component {
 .predictive-search-results__card:hover {
   position: relative;
   z-index: var(--layer-raised);
-  transition: transform var(--hover-transition-duration) var(--hover-transition-timing),
+  transition: transform var(--hover-transition-duration)
+      var(--hover-transition-timing),
     box-shadow var(--hover-transition-duration) var(--hover-transition-timing);
 }
 
