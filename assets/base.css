@@ -348,16 +348,7 @@ p:empty {
   --page-margin: 16px;
 }
 
-@media screen and (min-width: 750px) {
-  .page-width-wide,
-  .page-width-normal,
-  .page-width-narrow,
-  .page-width-content {
-    --page-margin: 40px;
-  }
-}
-
-@media screen and (min-width: 990px) {
+@media (pointer: fine) and (hover: hover) and (min-width: 990px) {
   .page-width-wide,
   .page-width-normal,
   .page-width-narrow,
@@ -447,7 +438,7 @@ p:empty {
   position: relative;
 }
 
-@media screen and (min-width: 990px) {
+@media (pointer: fine) and (hover: hover) and (min-width: 990px) {
   .shopify-section:has(.section) {
     padding-left: var(--page-margin);
     padding-right: var(--page-margin);
@@ -461,7 +452,7 @@ p:empty {
   z-index: var(--layer-section-background);
 }
 
-@media screen and (min-width: 990px) {
+@media (pointer: fine) and (hover: hover) and (min-width: 990px) {
   .shopify-section:not(.header-section):has(.section) .section-background {
     left: var(--page-margin);
     right: var(--page-margin);
@@ -478,8 +469,60 @@ p:empty {
   grid-column: 1 / -1;
 }
 
-/* Override for footer content to align with header/hero - must come after all section width rules */
+/* On tablets (750px+), align header/footer/large logo to match hero overlay text (40px) */
+@media screen and (min-width: 750px) and (max-width: 989px) {
+  .section--page-width > .footer-content,
+  .section--page-width > .utilities,
+  .section--page-width > .logo-section,
+  .section--page-width > .custom-section-content,
+  .section--full-width > .footer-content,
+  .section--full-width > .utilities,
+  .section--full-width > .logo-section,
+  .section--full-width > .custom-section-content {
+    grid-column: 1 / -1 !important;
+    --padding-inline-start: 40px !important;
+    --padding-inline-end: 40px !important;
+    padding-inline: 40px !important;
+    padding-left: 40px !important;
+    padding-right: 40px !important;
+  }
+
+  .header-section .section--full-width-margin > * {
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+  }
+}
+
+/* On touch devices at 990px+ (iPad Pro, etc.), align header/footer with hero overlay (40px) */
+/* Account for 16px grid margin, so padding should be 24px */
+/* This applies when pointer/hover detection fails (touch devices without fine pointer/hover) */
 @media screen and (min-width: 990px) {
+  @media not ((pointer: fine) and (hover: hover)) {
+    .header-section .section--full-width-margin > * {
+      padding-left: 24px !important;
+      padding-right: 24px !important;
+    }
+
+    .section--page-width > .footer-content,
+    .section--page-width > .utilities,
+    .section--page-width > .logo-section,
+    .section--page-width > .custom-section-content,
+    .section--full-width > .footer-content,
+    .section--full-width > .utilities,
+    .section--full-width > .logo-section,
+    .section--full-width > .custom-section-content {
+      grid-column: 1 / -1 !important;
+      --padding-inline-start: 40px !important;
+      --padding-inline-end: 40px !important;
+      padding-inline: 40px !important;
+      padding-left: 40px !important;
+      padding-right: 40px !important;
+    }
+  }
+}
+
+/* Override for footer content to align with header/hero - must come after all section width rules */
+@media (pointer: fine) and (hover: hover) and (min-width: 990px) {
   .section--page-width > .footer-content,
   .section--page-width > .utilities,
   .section--page-width > .logo-section,
@@ -649,10 +692,10 @@ p:empty {
 
 /* On desktop, header sections get 160px padding from wrapper */
 /* Header columns need 40px padding to align with hero overlay text (which is 40px from section edge) */
-@media screen and (min-width: 990px) {
+@media (pointer: fine) and (hover: hover) and (min-width: 990px) {
   .header-section .section--full-width-margin > * {
-    padding-left: 40px;
-    padding-right: 40px;
+    padding-left: 40px !important;
+    padding-right: 40px !important;
   }
 }
 
