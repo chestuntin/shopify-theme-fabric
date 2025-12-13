@@ -18,6 +18,11 @@
   if section.settings.top_divider_enable
     assign media_class_modifier = media_class_modifier | append: ' media-with-content--has-top-divider'
   endif
+
+  # Force mobile behavior on tablets for what-we-make-v2 page
+  if page.handle == 'what-we-make-v2'
+    assign media_class_modifier = media_class_modifier | append: ' force-mobile-on-tablet'
+  endif
 %}
 
 <div class="section-background color-{{ section.settings.color_scheme }}"></div>
@@ -606,6 +611,42 @@
     --hero-min-height: 500px;
 
     min-height: 500px;
+  }
+
+  /* Force mobile behavior on tablets for what-we-make-v2 page */
+  @media screen and (min-width: 750px) and (max-width: 1024px) {
+    .force-mobile-on-tablet.media-with-content {
+      grid-template-areas: 'media media media' 'content content content' !important;
+    }
+
+    /* Show mobile image dividers on tablets */
+    .force-mobile-on-tablet .media-with-content__mobile-image-top-divider,
+    .force-mobile-on-tablet .media-with-content__mobile-image-bottom-divider {
+      display: block !important;
+    }
+
+    /* Hide desktop dividers on tablets */
+    .force-mobile-on-tablet .media-with-content__divider,
+    .force-mobile-on-tablet .media-with-content__top-divider {
+      display: none !important;
+    }
+
+    /* Force stacked layout for all variants */
+    .force-mobile-on-tablet.section--page-width.media-with-content {
+      grid-template-areas: 'margin-left media margin-right' 'margin-left content margin-right' !important;
+    }
+
+    .force-mobile-on-tablet.section--full-width.media-with-content {
+      grid-template-areas: 'media media media' 'content content content' !important;
+    }
+
+    .force-mobile-on-tablet.media-with-content--media-right {
+      grid-template-areas: 'media media media' 'content content content' !important;
+    }
+
+    .force-mobile-on-tablet.section--page-width.media-with-content--media-right {
+      grid-template-areas: 'margin-left media margin-right' 'margin-left content margin-right' !important;
+    }
   }
 {% endstylesheet %}
 
