@@ -394,6 +394,8 @@
   .header[data-sticky-state] {
     transition: opacity var(--animation-speed) var(--animation-easing);
     opacity: 1;
+    /* Help Safari optimize rendering and prevent flicker */
+    will-change: opacity, transform;
   }
 
   .header[data-sticky-state='active'] {
@@ -410,6 +412,8 @@
 
     /* will default to bg from its color scheme unless --header-bg-color is transparent */
     background-color: var(--header-bg-color, var(--color-background));
+    /* Optimize background color transitions on Safari to prevent flicker */
+    will-change: background-color;
   }
 
   .header__row--top:not(.divider--page-width),
