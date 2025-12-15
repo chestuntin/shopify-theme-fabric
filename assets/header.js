@@ -1,11 +1,6 @@
 import { calculateHeaderGroupHeight } from "@theme/critical";
 import { Component } from "@theme/component";
-import {
-  onDocumentLoaded,
-  changeMetaThemeColor,
-  debounce,
-  throttle,
-} from "@theme/utilities";
+import { onDocumentLoaded, changeMetaThemeColor } from "@theme/utilities";
 
 /**
  * @typedef {Object} HeaderComponentRefs
@@ -64,18 +59,6 @@ class HeaderComponent extends Component {
   #animationDelay = 150;
 
   /**
-   * Whether we're on iOS Safari specifically (not Chrome on iOS)
-   * @type {boolean}
-   */
-  #isIOSSafari = false;
-
-  /**
-   * RequestAnimationFrame ID for Safari iOS state updates
-   * @type {number | null}
-   */
-  #safariIntersectionTimeout = null;
-
-  /**
    * Keeps the global `--header-height` custom property up to date,
    * which other theme components can then consume
    */
@@ -95,32 +78,6 @@ class HeaderComponent extends Component {
   });
 
   /**
-   * Handles intersection observer entry updates
-   * @param {IntersectionObserverEntry} entry
-   * @param {boolean} alwaysSticky
-   */
-  #handleIntersectionUpdate = (entry, alwaysSticky) => {
-    if (!entry) return;
-
-    const { isIntersecting } = entry;
-
-    if (alwaysSticky) {
-      // On Safari iOS, completely ignore intersection observer for state management
-      // The scroll handler will manage state instead to avoid rapid toggling
-      if (this.#isIOSSafari) {
-        return;
-      }
-
-      const newState = isIntersecting ? "inactive" : "active";
-      this.dataset.stickyState = newState;
-      changeMetaThemeColor(this.refs.headerRowTop);
-    } else {
-      this.#offscreen =
-        !isIntersecting || this.dataset.stickyState === "active";
-    }
-  };
-
-  /**
    * Observes the header while scrolling the viewport to track when its actively sticky
    * @param {Boolean} alwaysSticky - Determines if we need to observe when the header is offscreen
    */
@@ -128,25 +85,22 @@ class HeaderComponent extends Component {
     if (this.#intersectionObserver) return;
 
     const config = {
-      // Use 0.95 instead of 1.0 to prevent oscillation at the boundary
-      // This gives a 5% buffer to prevent rapid toggling during momentum scrolling
-      threshold: alwaysSticky ? 0.95 : 0,
+      threshold: alwaysSticky ? 1 : 0,
     };
 
-    /** @type {(entries: IntersectionObserverEntry[]) => void} */
-    const intersectionCallback = (entries) => {
-      const entry = entries?.[0];
-      if (entry) {
-        this.#handleIntersectionUpdate(entry, alwaysSticky);
+    this.#intersectionObserver = new IntersectionObserver(([entry]) => {
+      if (!entry) return;
+
+      const { isIntersecting } = entry;
+
+      if (alwaysSticky) {
+        this.dataset.stickyState = isIntersecting ? "inactive" : "active";
+        changeMetaThemeColor(this.refs.headerRowTop);
+      } else {
+        this.#offscreen =
+          !isIntersecting || this.dataset.stickyState === "active";
       }
-    };
-
-    // IntersectionObserver callback receives an array of entries
-    // Type definition is incorrect, actual API uses array
-    this.#intersectionObserver = new IntersectionObserver(
-      /** @type {any} */ (intersectionCallback),
-      config
-    );
+    }, config);
 
     this.#intersectionObserver.observe(this);
   };
@@ -188,33 +142,6 @@ class HeaderComponent extends Component {
 
     if (stickyMode === "always") {
       const isAtTop = this.getBoundingClientRect().top >= 0;
-
-      // On Safari iOS, scroll handler manages state (intersection observer is bypassed)
-      if (this.#isIOSSafari) {
-        // Use a threshold buffer to prevent oscillation - within 5px of top = "at top"
-        // This prevents rapid toggling during momentum scrolling
-        const headerTop = this.getBoundingClientRect().top;
-        const scrollTopNow = document.scrollingElement?.scrollTop ?? 0;
-        const isAtTopWithThreshold = headerTop >= -5 && scrollTopNow <= 5;
-        const newState = isAtTopWithThreshold ? "inactive" : "active";
-
-        // Use requestAnimationFrame to batch updates and prevent rapid toggling
-        if (this.#safariIntersectionTimeout === null) {
-          this.#safariIntersectionTimeout = requestAnimationFrame(() => {
-            this.#safariIntersectionTimeout = null;
-            // Double-check with threshold to prevent false positives
-            const currentHeaderTop = this.getBoundingClientRect().top;
-            const currentScrollTop = document.scrollingElement?.scrollTop ?? 0;
-            const currentIsAtTop =
-              currentHeaderTop >= -5 && currentScrollTop <= 5;
-            const currentNewState = currentIsAtTop ? "inactive" : "active";
-            if (this.dataset.stickyState !== currentNewState) {
-              this.dataset.stickyState = currentNewState;
-              changeMetaThemeColor(this.refs.headerRowTop);
-            }
-          });
-        }
-      }
 
       if (isAtTop) {
         this.dataset.scrollDirection = "none";
@@ -265,15 +192,6 @@ class HeaderComponent extends Component {
     this.#resizeObserver.observe(this);
     this.addEventListener("overflowMinimum", this.#handleOverflowMinimum);
 
-    // Detect iOS Safari specifically (not Chrome on iOS)
-    const userAgent = navigator.userAgent;
-    // @ts-expect-error - MSStream is a legacy IE property not in Window type
-    const hasMSStream = window.MSStream;
-    const isIOS = /iPhone|iPad|iPod/.test(userAgent) && !hasMSStream;
-    // Only apply Safari-specific fixes, not Chrome on iOS
-    this.#isIOSSafari =
-      isIOS && /Safari/.test(userAgent) && !/CriOS|FxiOS/.test(userAgent);
-
     const stickyMode = this.getAttribute("sticky");
     if (stickyMode) {
       this.#observeStickyPosition(stickyMode === "always");
@@ -293,10 +211,6 @@ class HeaderComponent extends Component {
     if (this.#timeout) {
       clearTimeout(this.#timeout);
       this.#timeout = null;
-    }
-    if (this.#safariIntersectionTimeout !== null) {
-      cancelAnimationFrame(this.#safariIntersectionTimeout);
-      this.#safariIntersectionTimeout = null;
     }
     document.body.style.setProperty("--header-height", "0px");
   }

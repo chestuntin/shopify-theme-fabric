@@ -328,7 +328,7 @@
           ]
         }
       },
-      "name": "section-1-title",
+      "name": "section-0-title",
       "settings": {
         "media_position": "right",
         "media_width": "medium",
@@ -472,7 +472,7 @@
                 "text_w3gBqR": {
                   "type": "text",
                   "settings": {
-                    "text": "<p>WE CREATE CONTEMPORARY PRINTS DESIGNED TO ELEVATE ANY SPACE. AVAILABLE AS POSTERS OR FRAMED PRINTS IN TWO SIZES — A3 AND A2.</p><p><br/>DESIGNED AND MADE IN SRI LANKA.</p>",
+                    "text": "<p>WE CREATE CONTEMPORARY PRINTS DESIGNED TO ELEVATE ANY SPACE. AVAILABLE AS POSTERS OR FRAMED PRINTS IN TWO SIZES.<br/><br/>DESIGNED AND MADE IN SRI LANKA.</p>",
                     "width": "fit-content",
                     "max_width": "narrow",
                     "alignment": "left",
@@ -523,7 +523,7 @@
           ]
         }
       },
-      "name": "section-2-what-we-make",
+      "name": "section-1-what-we-make",
       "settings": {
         "media_position": "right",
         "media_width": "medium",
@@ -718,7 +718,7 @@
           ]
         }
       },
-      "name": "section-3-why-we-make-it",
+      "name": "section-2-why-we-make-it",
       "settings": {
         "media_position": "left",
         "media_width": "medium",
@@ -768,7 +768,7 @@
             "gap": 24
           },
           "blocks": {
-            "text_8KyjJL": {
+            "text_3j4tkt": {
               "type": "text",
               "name": "t:names.caption",
               "settings": {
@@ -893,28 +893,55 @@
             "button_izKQmE": {
               "type": "button",
               "settings": {
-                "label": "VIEW COLLECTIONS →",
-                "link": "shopify://collections/all",
+                "label": "EXPLORE →",
+                "link": "shopify://collections",
                 "open_in_new_tab": false,
-                "style_class": "link",
+                "style_class": "button-secondary",
                 "width": "fit-content",
                 "custom_width": 100,
-                "width_mobile": "fit-content",
+                "width_mobile": "custom",
                 "custom_width_mobile": 100
+              },
+              "blocks": {}
+            },
+            "text_hBUCCb": {
+              "type": "text",
+              "name": "t:names.caption",
+              "settings": {
+                "text": "<p>POSTERS & FRAMED PRINTS — ACCESSIBLY PRICED.</p>",
+                "width": "fit-content",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "h6",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
               },
               "blocks": {}
             }
           },
           "block_order": [
-            "text_8KyjJL",
+            "text_3j4tkt",
             "group_Pi9xFq",
-            "button_izKQmE"
+            "button_izKQmE",
+            "text_hBUCCb"
           ]
         }
       },
-      "name": "section-4-start-w-the-art",
+      "name": "section-3-start-w-the-art",
       "settings": {
-        "media_position": "right",
+        "media_position": "left",
         "media_width": "medium",
         "media_height": "80svh",
         "section_width": "full-width",
@@ -944,7 +971,7 @@
           "static": true,
           "settings": {
             "media_type": "image",
-            "image": "shopify://shop_images/wwm-hero-5-1-2.jpg",
+            "image": "shopify://shop_images/wwm-hero-5-5-1.jpg",
             "link": "",
             "video_loop": true,
             "video_autoplay": false,
@@ -1056,7 +1083,7 @@
                 "text_w7pFNn": {
                   "type": "text",
                   "settings": {
-                    "text": "<p>PRINTED ON PREMIUM MATTE ART PAPER WITH RICH COLOR.<br/>MINIMAL, LIGHTWEIGHT, AND EASY TO PLACE ANYWHERE.<br/>MATERIAL — 300 GSM ARTBOARD.</p>",
+                    "text": "<p>PRINTED ON PREMIUM MATTE ART PAPER WITH RICH COLOR.<br/>MINIMAL, LIGHTWEIGHT, AND EASY TO PLACE ANYWHERE.<br/>MATERIAL.</p>",
                     "width": "fit-content",
                     "max_width": "none",
                     "alignment": "left",
@@ -1107,7 +1134,8 @@
           ]
         }
       },
-      "name": "section-5-posters",
+      "disabled": true,
+      "name": "section-4-posters",
       "settings": {
         "media_position": "left",
         "media_width": "medium",
@@ -1302,7 +1330,8 @@
           ]
         }
       },
-      "name": "section-6-framed-prints",
+      "disabled": true,
+      "name": "section-5-framed-prints",
       "settings": {
         "media_position": "right",
         "media_width": "medium",
@@ -1495,7 +1524,8 @@
           ]
         }
       },
-      "name": "section-7-a3-or-a2",
+      "disabled": true,
+      "name": "section-6-a3-or-a2",
       "settings": {
         "media_position": "right",
         "media_width": "medium",
@@ -1509,7 +1539,7 @@
         "top_divider_enable": true,
         "top_divider_color_scheme": "scheme-5",
         "top_divider_thickness": 1,
-        "mobile_image_top_divider_enable": true,
+        "mobile_image_top_divider_enable": false,
         "mobile_image_top_divider_color_scheme": "",
         "mobile_image_top_divider_thickness": 1,
         "mobile_image_bottom_divider_enable": true,
@@ -1688,7 +1718,8 @@
           ]
         }
       },
-      "name": "section-8-quality-that-lasts",
+      "disabled": true,
+      "name": "section-7-quality-that-lasts",
       "settings": {
         "media_position": "right",
         "media_width": "medium",
@@ -1881,7 +1912,8 @@
           ]
         }
       },
-      "name": "section-9-packaged-w-care",
+      "disabled": true,
+      "name": "section-8-packaged-w-care",
       "settings": {
         "media_position": "right",
         "media_width": "medium",
@@ -2074,7 +2106,8 @@
           ]
         }
       },
-      "name": "section-10-ready-to-exlore",
+      "disabled": true,
+      "name": "section-9-ready-to-exlore",
       "settings": {
         "media_position": "right",
         "media_width": "medium",
@@ -2098,14 +2131,234 @@
         "padding-block-end": 0
       }
     },
-    "section_8UDHjr": {
+    "divider_mEE6fT": {
+      "type": "divider",
+      "name": "t:names.divider_section",
+      "settings": {
+        "color_scheme": "scheme-5",
+        "section_width": "full-width",
+        "thickness": 1,
+        "corner_radius": "square",
+        "width_percent": 100,
+        "alignment_horizontal": "center",
+        "padding-block-start": 0,
+        "padding-block-end": 0
+      }
+    },
+    "divider_TzPmzD": {
+      "type": "divider",
+      "disabled": true,
+      "name": "t:names.divider_section",
+      "settings": {
+        "color_scheme": "scheme-7",
+        "section_width": "full-width",
+        "thickness": 1,
+        "corner_radius": "square",
+        "width_percent": 100,
+        "alignment_horizontal": "center",
+        "padding-block-start": 0,
+        "padding-block-end": 0
+      }
+    },
+    "marquee_aJeDmb": {
+      "type": "marquee",
+      "blocks": {
+        "text_VEBjUF": {
+          "type": "text",
+          "settings": {
+            "text": "<p>We make things that work better and last longer.</p>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "custom",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "tight",
+            "letter_spacing": "tight",
+            "case": "none",
+            "wrap": "nowrap",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "text_VEBjUF"
+      ],
+      "disabled": true,
+      "name": "t:names.marquee_section",
+      "settings": {
+        "movement_direction": "normal",
+        "color_scheme": "scheme-5",
+        "padding-block-start": 24,
+        "padding-block-end": 24,
+        "gap_between_elements": 24
+      }
+    },
+    "divider_jbUitP": {
+      "type": "divider",
+      "disabled": true,
+      "name": "t:names.divider_section",
+      "settings": {
+        "color_scheme": "",
+        "section_width": "full-width",
+        "thickness": 1,
+        "corner_radius": "square",
+        "width_percent": 100,
+        "alignment_horizontal": "center",
+        "padding-block-start": 0,
+        "padding-block-end": 0
+      }
+    },
+    "section_49bfKb": {
       "type": "section",
       "blocks": {
-        "image_F7iytD": {
+        "image_h8MCbm": {
+          "type": "image",
+          "name": "t:names.image",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/kultjur-banner-inverted_031aaedf-a5bd-4554-9b5d-e371b988c059.svg",
+            "link": "",
+            "image_ratio": "adapt",
+            "width": "custom",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "logo_MzBYVe": {
+          "type": "logo",
+          "disabled": true,
+          "settings": {
+            "inverse": false,
+            "font": "accent",
+            "unit": "percent",
+            "percent_width": 100,
+            "pixel_height": 320,
+            "custom_mobile_size": false,
+            "unit_mobile": "percent",
+            "percent_width_mobile": 100,
+            "pixel_height_mobile": 120,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "text_XfRh9z": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "<p>Culture, design and modern identity — curated through our work.</p>",
+            "width": "100%",
+            "max_width": "normal",
+            "alignment": "center",
+            "type_preset": "h6",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "uppercase",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "button_eYnizb": {
+          "type": "button",
+          "name": "t:names.button",
+          "disabled": true,
+          "settings": {
+            "label": "BROWSE COLLECTION →",
+            "link": "shopify://collections/all",
+            "open_in_new_tab": false,
+            "style_class": "button-secondary",
+            "width": "custom",
+            "custom_width": 100,
+            "width_mobile": "custom",
+            "custom_width_mobile": 100
+          },
+          "blocks": {}
+        },
+        "button_Xnp4YU": {
+          "type": "button",
+          "name": "t:names.button",
+          "disabled": true,
+          "settings": {
+            "label": "OUR STORY →",
+            "link": "shopify://collections/all",
+            "open_in_new_tab": false,
+            "style_class": "button-secondary",
+            "width": "custom",
+            "custom_width": 100,
+            "width_mobile": "custom",
+            "custom_width_mobile": 100
+          },
+          "blocks": {}
+        },
+        "button_emnDjD": {
+          "type": "button",
+          "name": "t:names.button",
+          "disabled": true,
+          "settings": {
+            "label": "WRITE TO US →",
+            "link": "shopify://collections/all",
+            "open_in_new_tab": false,
+            "style_class": "button-secondary",
+            "width": "custom",
+            "custom_width": 100,
+            "width_mobile": "custom",
+            "custom_width_mobile": 100
+          },
+          "blocks": {}
+        },
+        "button_a6THMt": {
+          "type": "button",
+          "name": "t:names.button",
+          "disabled": true,
+          "settings": {
+            "label": "BACK HOME →",
+            "link": "/",
+            "open_in_new_tab": false,
+            "style_class": "button-secondary",
+            "width": "custom",
+            "custom_width": 100,
+            "width_mobile": "custom",
+            "custom_width_mobile": 100
+          },
+          "blocks": {}
+        },
+        "image_emcKAg": {
           "type": "image",
           "name": "KULTJUR",
           "settings": {
-            "image": "shopify://shop_images/kultjur-banner-inverted_7fe0bfe1-9c90-454d-a6e6-32c120c6bd68.svg",
+            "image": "shopify://shop_images/kultjur-banner-black.svg",
             "link": "",
             "image_ratio": "adapt",
             "width": "custom",
@@ -2123,7 +2376,51 @@
             "padding-inline-end": 0
           },
           "blocks": {}
-        },
+        }
+      },
+      "block_order": [
+        "image_h8MCbm",
+        "logo_MzBYVe",
+        "text_XfRh9z",
+        "button_eYnizb",
+        "button_Xnp4YU",
+        "button_emnDjD",
+        "button_a6THMt",
+        "image_emcKAg"
+      ],
+      "name": "footer",
+      "settings": {
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "center",
+        "vertical_alignment_flex_direction_column": "flex-start",
+        "gap": 16,
+        "section_width": "page-width",
+        "section_height": "",
+        "section_height_custom": 68,
+        "color_scheme": "scheme-1",
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image": "shopify://shop_images/hero-footer.jpg",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 0,
+        "toggle_overlay": false,
+        "overlay_color": "#582c04",
+        "overlay_style": "gradient",
+        "gradient_direction": "to bottom",
+        "padding-block-start": 40,
+        "padding-block-end": 0
+      }
+    },
+    "section_8UDHjr": {
+      "type": "section",
+      "blocks": {
         "image_JDrLAp": {
           "type": "image",
           "name": "t:names.image",
@@ -2199,7 +2496,7 @@
           "name": "t:names.button",
           "settings": {
             "label": "BROWSE COLLECTION →",
-            "link": "shopify://collections/all",
+            "link": "shopify://collections",
             "open_in_new_tab": false,
             "style_class": "button-secondary",
             "width": "custom",
@@ -2227,6 +2524,7 @@
         "button_kGfJRe": {
           "type": "button",
           "name": "t:names.button",
+          "disabled": true,
           "settings": {
             "label": "WRITE TO US →",
             "link": "shopify://collections/all",
@@ -2253,19 +2551,43 @@
             "custom_width_mobile": 100
           },
           "blocks": {}
+        },
+        "image_F7iytD": {
+          "type": "image",
+          "name": "KULTJUR",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/kultjur-banner-inverted_7fe0bfe1-9c90-454d-a6e6-32c120c6bd68.svg",
+            "link": "",
+            "image_ratio": "adapt",
+            "width": "custom",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 15,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
         }
       },
       "block_order": [
-        "image_F7iytD",
         "image_JDrLAp",
         "logo_WEFE8a",
         "text_ErNHrL",
         "button_T7LTdH",
         "button_UUxHHm",
         "button_kGfJRe",
-        "button_ziwnbH"
+        "button_ziwnbH",
+        "image_F7iytD"
       ],
-      "name": "Large logo-full width-1",
+      "name": "footer",
       "settings": {
         "content_direction": "column",
         "vertical_on_mobile": true,
@@ -2278,7 +2600,7 @@
         "section_width": "page-width",
         "section_height": "",
         "section_height_custom": 68,
-        "color_scheme": "scheme-5",
+        "color_scheme": "scheme-7",
         "background_media": "none",
         "video_position": "cover",
         "background_image": "shopify://shop_images/hero-footer.jpg",
@@ -2291,7 +2613,7 @@
         "overlay_color": "#582c04",
         "overlay_style": "gradient",
         "gradient_direction": "to bottom",
-        "padding-block-start": 90,
+        "padding-block-start": 40,
         "padding-block-end": 40
       }
     }
@@ -2310,6 +2632,11 @@
     "media_with_content_RiQMbT",
     "media_with_content_LeTx4B",
     "media_with_content_YVbRkd",
+    "divider_mEE6fT",
+    "divider_TzPmzD",
+    "marquee_aJeDmb",
+    "divider_jbUitP",
+    "section_49bfKb",
     "section_8UDHjr"
   ]
 }

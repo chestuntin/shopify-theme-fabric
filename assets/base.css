@@ -26,8 +26,7 @@ body {
 html {
   /* Firefox */
   scrollbar-width: thin;
-  scrollbar-color: rgb(var(--color-foreground-rgb) / var(--opacity-40))
-    var(--color-background);
+  scrollbar-color: rgb(var(--color-foreground-rgb) / var(--opacity-40)) var(--color-background);
   scroll-behavior: smooth;
 }
 
@@ -72,8 +71,7 @@ select {
 .predictive-search-results__card--product,
 .predictive-search-results__card {
   position: relative;
-  transition: transform var(--hover-transition-duration)
-      var(--hover-transition-timing),
+  transition: transform var(--hover-transition-duration) var(--hover-transition-timing),
     box-shadow var(--hover-transition-duration) var(--hover-transition-timing);
   will-change: transform, box-shadow;
   z-index: var(--layer-flat);
@@ -104,6 +102,7 @@ select {
 }
 
 @media (any-pointer: fine) and (prefers-reduced-motion: no-preference) {
+
   .card-hover-effect-lift .product-card:hover,
   .card-hover-effect-lift .collection-card:hover,
   .card-hover-effect-lift .resource-card:hover,
@@ -141,8 +140,7 @@ select {
   .card-hover-effect-subtle-zoom .product-card__image,
   .card-hover-effect-subtle-zoom .resource-card__image {
     overflow: hidden;
-    transition: transform var(--hover-transition-duration)
-      var(--hover-transition-timing);
+    transition: transform var(--hover-transition-duration) var(--hover-transition-timing);
   }
 
   .predictive-search-results__card .card-gallery,
@@ -161,34 +159,13 @@ select {
   }
 
   .card-hover-effect-subtle-zoom .header .product-card:hover .card-gallery,
-  .card-hover-effect-subtle-zoom
-    .header
-    .collection-card:hover
-    .collection-card__image,
-  .card-hover-effect-subtle-zoom
-    .header
-    .product-card:hover
-    .product-card__image,
-  .card-hover-effect-subtle-zoom
-    .header
-    .resource-card:hover
-    .resource-card__image,
-  .card-hover-effect-subtle-zoom
-    .header-drawer
-    .product-card:hover
-    .card-gallery,
-  .card-hover-effect-subtle-zoom
-    .header-drawer
-    .collection-card:hover
-    .collection-card__image,
-  .card-hover-effect-subtle-zoom
-    .header-drawer
-    .product-card:hover
-    .product-card__image,
-  .card-hover-effect-subtle-zoom
-    .header-drawer
-    .resource-card:hover
-    .resource-card__image {
+  .card-hover-effect-subtle-zoom .header .collection-card:hover .collection-card__image,
+  .card-hover-effect-subtle-zoom .header .product-card:hover .product-card__image,
+  .card-hover-effect-subtle-zoom .header .resource-card:hover .resource-card__image,
+  .card-hover-effect-subtle-zoom .header-drawer .product-card:hover .card-gallery,
+  .card-hover-effect-subtle-zoom .header-drawer .collection-card:hover .collection-card__image,
+  .card-hover-effect-subtle-zoom .header-drawer .product-card:hover .product-card__image,
+  .card-hover-effect-subtle-zoom .header-drawer .resource-card:hover .resource-card__image {
     transform: none;
   }
 
@@ -235,7 +212,7 @@ p:empty {
 }
 
 :first-child:is(p, h1, h2, h3, h4, h5, h6),
-:first-child:empty + :where(p, h1, h2, h3, h4, h5, h6) {
+:first-child:empty+ :where(p, h1, h2, h3, h4, h5, h6) {
   margin-block-start: 0;
 }
 
@@ -266,13 +243,11 @@ p:empty {
     pointer-events: none;
   }
 
-  html:active-view-transition-type(page-navigation)
-    main[data-page-transition-enabled="true"] {
+  html:active-view-transition-type(page-navigation) main[data-page-transition-enabled="true"] {
     view-transition-name: main-content;
   }
 
-  html:active-view-transition-type(page-navigation)
-    main[data-product-transition="true"][data-template*="product"] {
+  html:active-view-transition-type(page-navigation) main[data-product-transition="true"][data-template*="product"] {
     view-transition-name: none;
   }
 
@@ -349,6 +324,7 @@ p:empty {
 }
 
 @media screen and (min-width: 750px) {
+
   .page-width-wide,
   .page-width-normal,
   .page-width-narrow,
@@ -385,33 +361,19 @@ p:empty {
    full-width background image even if the section content is constrained by the page width. Do not try
    to rewrite this to max-width: --page-width; margin: 0 auto;, it doesn't work. */
 .section {
-  --full-page-grid-central-column-width: min(
-    var(--page-width) - var(--page-margin) * 2,
-    calc(100% - var(--page-margin) * 2)
-  );
+  --full-page-grid-central-column-width: min(var(--page-width) - var(--page-margin) * 2,
+      calc(100% - var(--page-margin) * 2));
   --full-page-grid-margin: minmax(var(--page-margin), 1fr);
-  --full-page-grid-with-margins: var(--full-page-grid-margin)
-    var(--full-page-grid-central-column-width) var(--full-page-grid-margin);
+  --full-page-grid-with-margins: var(--full-page-grid-margin) var(--full-page-grid-central-column-width) var(--full-page-grid-margin);
 
   /* Utility variable gives the grid's first column width. Provides an offset width for components like carousels */
-  --util-page-margin-offset: max(
-    var(--page-margin),
-    calc(
-      (
-          100% -
-            min(
-              var(--page-content-width),
-              calc(100% - (var(--page-margin) * 2))
-            )
-        ) / 2
-    )
-  );
+  --util-page-margin-offset: max(var(--page-margin),
+      calc((100% - min(var(--page-content-width),
+            calc(100% - (var(--page-margin) * 2)))) / 2));
 
   /* Offset for full-width sections to account for the page margin,
   used for Marquee — note that --util-page-margin-offset doesn't work here */
-  --full-page-margin-inline-offset: calc(
-    ((100vw - var(--full-page-grid-central-column-width)) / 2) * -1
-  );
+  --full-page-margin-inline-offset: calc(((100vw - var(--full-page-grid-central-column-width)) / 2) * -1);
 
   width: 100%;
 
@@ -425,7 +387,7 @@ p:empty {
 }
 
 /* Place all direct children in the center column by default */
-.section > * {
+.section>* {
   grid-column: 2;
 }
 
@@ -446,22 +408,22 @@ p:empty {
 }
 
 /* For page-width sections, all content goes in the center column */
-.section--page-width > * {
+.section--page-width>* {
   grid-column: 2;
 }
 
 /* For full-width sections, content spans all columns */
-.section--full-width > * {
+.section--full-width>* {
   grid-column: 1 / -1;
 }
 
 /* Some page-width sections should still extend all the way to the right edge of the page, e.g. collection carousel */
-.section--page-width.section--full-width-right > * {
+.section--page-width.section--full-width-right>* {
   grid-column: 2 / 4;
 }
 
 /* For full-width sections with margin, content still spans full width but with space on the sides */
-.section--full-width.section--full-width-margin > * {
+.section--full-width.section--full-width-margin>* {
   grid-column: 1 / -1;
 
   @media screen and (min-width: 750px) {
@@ -471,7 +433,7 @@ p:empty {
 }
 
 /* Some section content break out to full width of the page */
-.section > .force-full-width {
+.section>.force-full-width {
   grid-column: 1 / -1;
 }
 
@@ -492,9 +454,7 @@ p:empty {
 }
 
 .section-content-wrapper.section-content-wrapper {
-  min-height: calc(
-    var(--section-min-height, "auto") - var(--section-height-offset, 0px)
-  );
+  min-height: calc(var(--section-min-height, "auto") - var(--section-height-offset, 0px));
   position: relative;
   width: 100%;
   height: 100%;
@@ -508,6 +468,7 @@ p:empty {
 }
 
 @media screen and (max-width: 749px) {
+
   .hidden--mobile,
   .mobile\:hidden {
     /* stylelint-disable-next-line declaration-no-important */
@@ -516,6 +477,7 @@ p:empty {
 }
 
 @media screen and (min-width: 750px) {
+
   .hidden--desktop,
   .desktop\:hidden {
     /* stylelint-disable-next-line declaration-no-important */
@@ -581,10 +543,8 @@ p:empty {
   .grid {
     display: grid;
     gap: 0;
-    grid-template-columns: var(--margin-4xl) repeat(
-        var(--centered-column-number),
-        minmax(0, 1fr)
-      ) var(--margin-4xl);
+    grid-template-columns: var(--margin-4xl) repeat(var(--centered-column-number),
+        minmax(0, 1fr)) var(--margin-4xl);
     grid-template-areas: "column-0 column-1 column-2 column-3 column-4 column-5 column-6 column-7 column-8 column-9 column-10 column-11 column-12 column-13";
   }
 }
@@ -592,17 +552,9 @@ p:empty {
 @media screen and (min-width: 1400px) {
   .grid {
     grid-template-columns:
-      1fr repeat(
-        var(--centered-column-number),
-        minmax(
-          0,
-          calc(
-            (var(--page-width) - var(--page-margin) * 2) /
-              var(--centered-column-number)
-          )
-        )
-      )
-      1fr;
+      1fr repeat(var(--centered-column-number),
+        minmax(0,
+          calc((var(--page-width) - var(--page-margin) * 2) / var(--centered-column-number)))) 1fr;
   }
 }
 
@@ -729,7 +681,7 @@ p:empty {
   height: var(--icon-size-xs);
 }
 
-.svg-wrapper > svg {
+.svg-wrapper>svg {
   width: var(--icon-size-sm);
   height: var(--icon-size-sm);
 }
@@ -771,7 +723,7 @@ placeholder-image[data-type="product"]:not(:has(> img)) {
   height: 350px;
 }
 
-placeholder-image > img {
+placeholder-image>img {
   object-fit: cover;
   aspect-ratio: var(--ratio);
   height: 100%;
@@ -788,7 +740,7 @@ slideshow-component [data-placeholder="true"] * {
 /* Base text and heading styles */
 body,
 .paragraph:not(.button),
-.paragraph > * {
+.paragraph>* {
   font-family: var(--font-paragraph--family);
   font-style: var(--font-paragraph--style);
   font-weight: var(--font-paragraph--weight);
@@ -801,6 +753,7 @@ body,
 
 /* Ensure inputs with type presets maintain minimum 16px on mobile to prevent iOS zoom */
 @media screen and (max-width: 1200px) {
+
   input.paragraph.paragraph,
   input.paragraph.paragraph:not([type]),
   textarea.paragraph.paragraph,
@@ -809,7 +762,7 @@ body,
   }
 }
 
-.paragraph > small {
+.paragraph>small {
   font-size: smaller;
 }
 
@@ -817,7 +770,7 @@ body,
 
 h1,
 .h1.h1,
-.text-block.h1 > * {
+.text-block.h1>* {
   font-family: var(--font-h1--family);
   font-style: var(--font-h1--style);
   font-weight: var(--font-h1--weight);
@@ -829,6 +782,7 @@ h1,
 }
 
 @media screen and (max-width: 1200px) {
+
   input.h1.h1,
   textarea.h1.h1,
   select.h1.h1 {
@@ -838,7 +792,7 @@ h1,
 
 h2,
 .h2.h2,
-.text-block.h2 > * {
+.text-block.h2>* {
   font-family: var(--font-h2--family);
   font-style: var(--font-h2--style);
   font-weight: var(--font-h2--weight);
@@ -850,6 +804,7 @@ h2,
 }
 
 @media screen and (max-width: 1200px) {
+
   input.h2.h2,
   textarea.h2.h2,
   select.h2.h2 {
@@ -860,7 +815,7 @@ h2,
 h3,
 .h3,
 .h3.h3,
-.text-block.h3 > * {
+.text-block.h3>* {
   font-family: var(--font-h3--family);
   font-style: var(--font-h3--style);
   font-weight: var(--font-h3--weight);
@@ -872,6 +827,7 @@ h3,
 }
 
 @media screen and (max-width: 1200px) {
+
   input.h3,
   textarea.h3,
   select.h3 {
@@ -881,7 +837,7 @@ h3,
 
 h4,
 .h4.h4,
-.text-block.h4 > * {
+.text-block.h4>* {
   font-family: var(--font-h4--family);
   font-style: var(--font-h4--style);
   font-weight: var(--font-h4--weight);
@@ -893,6 +849,7 @@ h4,
 }
 
 @media screen and (max-width: 1200px) {
+
   input.h4.h4,
   textarea.h4.h4,
   select.h4.h4 {
@@ -902,7 +859,7 @@ h4,
 
 h5,
 .h5.h5,
-.text-block.h5 > * {
+.text-block.h5>* {
   font-family: var(--font-h5--family);
   font-style: var(--font-h5--style);
   font-weight: var(--font-h5--weight);
@@ -914,6 +871,7 @@ h5,
 }
 
 @media screen and (max-width: 1200px) {
+
   input.h5.h5,
   textarea.h5.h5,
   select.h5.h5 {
@@ -923,7 +881,7 @@ h5,
 
 h6,
 .h6.h6,
-.text-block.h6 > * {
+.text-block.h6>* {
   font-family: var(--font-h6--family);
   font-style: var(--font-h6--style);
   font-weight: var(--font-h6--weight);
@@ -935,6 +893,7 @@ h6,
 }
 
 @media screen and (max-width: 1200px) {
+
   input.h6.h6,
   textarea.h6.h6,
   select.h6.h6 {
@@ -958,21 +917,17 @@ a {
   text-decoration-color: transparent;
   text-decoration-thickness: 0.075em;
   text-underline-offset: 0.125em;
-  transition: text-decoration-color var(--animation-speed)
-      var(--animation-easing),
+  transition: text-decoration-color var(--animation-speed) var(--animation-easing),
     color var(--animation-speed) var(--animation-easing);
 }
 
-:is(h1, h2, h3, h4, h5, h6, p) > a:hover {
+:is(h1, h2, h3, h4, h5, h6, p)>a:hover {
   --button-color: var(--color, var(--color-primary-hover));
 }
 
 /* Add underline to text using our paragraph styles only. */
-p:not(.h1, .h2, .h3, .h4, .h5, .h6)
-  a:where(:not(.button, .button-primary, .button-secondary)),
-.rte
-  :is(p, ul, ol, table):not(.h1, .h2, .h3, .h4, .h5, .h6)
-  a:where(:not(.button, .button-primary, .button-secondary)) {
+p:not(.h1, .h2, .h3, .h4, .h5, .h6) a:where(:not(.button, .button-primary, .button-secondary)),
+.rte :is(p, ul, ol, table):not(.h1, .h2, .h3, .h4, .h5, .h6) a:where(:not(.button, .button-primary, .button-secondary)) {
   text-decoration-color: currentcolor;
 
   &:hover {
@@ -995,7 +950,7 @@ details:not([open]) .summary-open {
   display: none;
 }
 
-details[open] > summary .icon-animated > svg {
+details[open]>summary .icon-animated>svg {
   transform: rotate(180deg);
 }
 
@@ -1005,19 +960,17 @@ summary::-webkit-details-marker {
 }
 
 /* When header is transparent, pull the first main content section up to sit under the floating header */
-body:has(.header[transparent])
-  .content-for-layout
-  > .shopify-section:first-child {
+body:has(.header[transparent]) .content-for-layout>.shopify-section:first-child {
   margin-top: calc(var(--header-group-height) * -1);
 }
 
-body:has(.header[transparent]) #header-group > .header-section {
+body:has(.header[transparent]) #header-group>.header-section {
   z-index: var(--layer-sticky);
 }
 
 /* All other header group content should be beneath the floating header,
 but above the rest of the page content */
-body:has(.header[transparent]) #header-group > *:not(.header-section) {
+body:has(.header[transparent]) #header-group>*:not(.header-section) {
   z-index: calc(var(--layer-sticky) - 1);
 }
 
@@ -1057,8 +1010,7 @@ body:has(.header[transparent]) #header-group > *:not(.header-section) {
 }
 
 .product-grid__item {
-  border: var(--product-card-border-width) solid
-    rgb(var(--color-border-rgb) / var(--product-card-border-opacity));
+  border: var(--product-card-border-width) solid rgb(var(--color-border-rgb) / var(--product-card-border-opacity));
 }
 
 .product-grid--organic[product-grid-view="default"] .product-grid__item {
@@ -1100,13 +1052,13 @@ body:has(.header[transparent]) #header-group > *:not(.header-section) {
   }
 }
 
-.product-grid__card .group-block > * {
+.product-grid__card .group-block>* {
   @media screen and (max-width: 749px) {
     flex-direction: column;
   }
 }
 
-ul[product-grid-view="zoom-out"] .product-grid__card > * {
+ul[product-grid-view="zoom-out"] .product-grid__card>* {
   display: none;
 }
 
@@ -1114,28 +1066,20 @@ ul[product-grid-view="zoom-out"] .product-grid__card .card-gallery {
   display: block;
 }
 
-[product-grid-view="zoom-out"]
-  .card-gallery
-  > :is(
-    quick-add-component,
-    .product-badges,
-    slideshow-component > slideshow-controls
-  ) {
+[product-grid-view="zoom-out"] .card-gallery> :is(quick-add-component,
+  .product-badges,
+  slideshow-component > slideshow-controls) {
   display: none;
 }
 
-ul[product-grid-view="zoom-out"] .card-gallery > img {
+ul[product-grid-view="zoom-out"] .card-gallery>img {
   display: block;
 }
 
 [product-grid-view="zoom-out"] {
-  --product-grid-columns-desktop: repeat(
-    10,
-    minmax(
-      clamp(50px, calc(100% - 9 * var(--product-grid-gap)) / 10, 80px),
-      1fr
-    )
-  );
+  --product-grid-columns-desktop: repeat(10,
+      minmax(clamp(50px, calc(100% - 9 * var(--product-grid-gap)) / 10, 80px),
+        1fr));
 }
 
 .product-grid-view-zoom-out--details {
@@ -1158,15 +1102,15 @@ ul[product-grid-view="zoom-out"] .card-gallery > img {
   font-weight: 400;
 }
 
-.product-grid-view-zoom-out--details > span.h6,
-.product-grid-view-zoom-out--details > div.h6 > product-price {
+.product-grid-view-zoom-out--details>span.h6,
+.product-grid-view-zoom-out--details>div.h6>product-price {
   display: inline-block;
   line-height: 0;
   margin-top: var(--margin-2xs);
 }
 
-.product-grid-view-zoom-out--details > span.h6 > *,
-.product-grid-view-zoom-out--details > div.h6 > * > * {
+.product-grid-view-zoom-out--details>span.h6>*,
+.product-grid-view-zoom-out--details>div.h6>*>* {
   line-height: 1.2;
 }
 
@@ -1264,18 +1208,18 @@ results-list[initialized] {
   width: 100%;
 }
 
-.text-block > *:first-child,
-.text-block > *:first-child:empty + * {
+.text-block>*:first-child,
+.text-block>*:first-child:empty+* {
   margin-block-start: 0;
 }
 
-.text-block > *:last-child,
-.text-block > *:has(+ *:last-child:empty) {
+.text-block>*:last-child,
+.text-block>*:has(+ *:last-child:empty) {
   margin-block-end: 0;
 }
 
 /* This is to deal with the margin applied to the p when custom styles are enabled. The p isn't the first child anymore due to the style tag */
-.text-block > style + * {
+.text-block>style+* {
   margin-block-start: 0;
 }
 
@@ -1305,19 +1249,16 @@ results-list[initialized] {
 }
 
 .dialog-modal[open] {
-  animation: elementSlideInTop var(--animation-speed) var(--animation-easing)
-    forwards;
+  animation: elementSlideInTop var(--animation-speed) var(--animation-easing) forwards;
 
   &::backdrop {
-    animation: backdropFilter var(--animation-speed) var(--animation-easing)
-      forwards;
+    animation: backdropFilter var(--animation-speed) var(--animation-easing) forwards;
     transition: opacity var(--animation-speed) var(--animation-easing);
   }
 }
 
 .dialog-modal.dialog-closing {
-  animation: elementSlideOutTop var(--animation-speed) var(--animation-easing)
-    forwards;
+  animation: elementSlideOutTop var(--animation-speed) var(--animation-easing) forwards;
 
   &::backdrop {
     opacity: 0;
@@ -1334,16 +1275,15 @@ results-list[initialized] {
   --dialog-drawer-opening-animation: slideInRight;
   --dialog-drawer-closing-animation: slideOutRight;
 }
+
 /* stylelint-enable value-keyword-case */
 
 .dialog-drawer[open] {
-  animation: var(--dialog-drawer-opening-animation) var(--animation-speed)
-    var(--animation-easing) forwards;
+  animation: var(--dialog-drawer-opening-animation) var(--animation-speed) var(--animation-easing) forwards;
 }
 
 .dialog-drawer.dialog-closing {
-  animation: var(--dialog-drawer-closing-animation) var(--animation-speed)
-    var(--animation-easing);
+  animation: var(--dialog-drawer-closing-animation) var(--animation-speed) var(--animation-easing);
 }
 
 /* Buttons */
@@ -1523,17 +1463,12 @@ button.shopify-payment-button__button--unbranded:hover:not([disabled]) {
 
 shopify-accelerated-checkout,
 shopify-accelerated-checkout-cart {
-  --shopify-accelerated-checkout-button-border-radius: var(
-    --style-border-radius-buttons-primary
-  );
+  --shopify-accelerated-checkout-button-border-radius: var(--style-border-radius-buttons-primary);
   --shopify-accelerated-checkout-button-block-size: var(--height-buy-buttons);
 }
 
-.product-form-buttons:has(.add-to-cart-button.button-secondary)
-  :is(shopify-accelerated-checkout, shopify-accelerated-checkout-cart) {
-  --shopify-accelerated-checkout-button-border-radius: var(
-    --style-border-radius-buttons-secondary
-  );
+.product-form-buttons:has(.add-to-cart-button.button-secondary) :is(shopify-accelerated-checkout, shopify-accelerated-checkout-cart) {
+  --shopify-accelerated-checkout-button-border-radius: var(--style-border-radius-buttons-secondary);
   --shopify-accelerated-checkout-button-block-size: var(--height-buy-buttons);
 }
 
@@ -1579,21 +1514,15 @@ summary .icon-plus :is(.horizontal, .vertical),
   opacity: 1;
 }
 
-details[open] > summary .icon-plus .horizontal,
-.details-open > summary .icon-plus .horizontal,
-.show-more:where([data-expanded="true"])
-  .show-more__button
-  .icon-plus
-  .horizontal {
+details[open]>summary .icon-plus .horizontal,
+.details-open>summary .icon-plus .horizontal,
+.show-more:where([data-expanded="true"]) .show-more__button .icon-plus .horizontal {
   transform: rotate(90deg);
 }
 
-details[open] > summary .icon-plus .vertical,
-.details-open > summary .icon-plus .vertical,
-.show-more:where([data-expanded="true"])
-  .show-more__button
-  .icon-plus
-  .vertical {
+details[open]>summary .icon-plus .vertical,
+.details-open>summary .icon-plus .vertical,
+.show-more:where([data-expanded="true"]) .show-more__button .icon-plus .vertical {
   transform: rotate(90deg);
   opacity: 0;
 }
@@ -1617,7 +1546,7 @@ media-gallery {
   }
 }
 
-:not(.dialog-zoomed-gallery) > .product-media-container {
+:not(.dialog-zoomed-gallery)>.product-media-container {
   /* width and overflow forces children to shrink to parent width */
   --slide-width: round(up, 100%, 1px);
 
@@ -1634,10 +1563,8 @@ media-gallery {
     /* arbitrary offset value based on average theme spacing and header height */
     --viewport-offset: 400px;
     --constrained-min-height: 300px;
-    --constrained-height: max(
-      var(--constrained-min-height),
-      calc(100vh - var(--viewport-offset))
-    );
+    --constrained-height: max(var(--constrained-min-height),
+        calc(100vh - var(--viewport-offset)));
 
     margin-right: auto;
     margin-left: auto;
@@ -1648,9 +1575,7 @@ media-gallery:where(.media-gallery--grid) .media-gallery__grid {
   display: none;
 }
 
-media-gallery.media-gallery--grid
-  .media-gallery__grid
-  .product-media-container {
+media-gallery.media-gallery--grid .media-gallery__grid .product-media-container {
   /* Needed for safari to stretch to full grid height */
   height: 100%;
 }
@@ -1671,8 +1596,7 @@ media-gallery.media-gallery--grid
     --constrained-min-height: 500px;
   }
 
-  body:has(header-component[transparent])
-    .product-media-container.constrain-height {
+  body:has(header-component[transparent]) .product-media-container.constrain-height {
     --viewport-offset: 0px;
   }
 
@@ -1803,8 +1727,7 @@ zoom-dialog dialog {
 }
 
 .dialog--closed .close-button {
-  animation: elementSlideOutBottom calc(var(--animation-speed) * 0.5)
-    var(--animation-easing) forwards;
+  animation: elementSlideOutBottom calc(var(--animation-speed) * 0.5) var(--animation-easing) forwards;
 }
 
 .dialog-thumbnails-list-container {
@@ -1826,14 +1749,12 @@ zoom-dialog dialog {
   padding: var(--padding-lg);
   margin-inline: auto;
   scrollbar-width: none;
-  animation: thumbnailsSlideInBottom calc(var(--animation-speed) * 0.75)
-    var(--animation-easing) forwards;
+  animation: thumbnailsSlideInBottom calc(var(--animation-speed) * 0.75) var(--animation-easing) forwards;
   animation-delay: calc(var(--animation-speed) * 1.5);
 }
 
 .dialog--closed .dialog-thumbnails-list {
-  animation: thumbnailsSlideOutBottom var(--animation-speed)
-    var(--animation-easing) forwards;
+  animation: thumbnailsSlideOutBottom var(--animation-speed) var(--animation-easing) forwards;
 }
 
 @media screen and (min-width: 750px) {
@@ -1844,14 +1765,12 @@ zoom-dialog dialog {
     right: 0;
     max-height: calc(100vh - 200px);
     overflow-y: auto;
-    animation: thumbnailsSlideInTop calc(var(--animation-speed) * 0.5)
-      var(--animation-easing) forwards;
+    animation: thumbnailsSlideInTop calc(var(--animation-speed) * 0.5) var(--animation-easing) forwards;
     animation-delay: calc(var(--animation-speed) * 2);
   }
 
   .dialog--closed .dialog-thumbnails-list {
-    animation: thumbnailsSlideOutTop var(--animation-speed)
-      var(--animation-easing) forwards;
+    animation: thumbnailsSlideOutTop var(--animation-speed) var(--animation-easing) forwards;
   }
 }
 
@@ -1872,8 +1791,7 @@ zoom-dialog dialog {
   &:is([aria-selected="true"]) {
     outline: var(--focus-outline-width) solid currentcolor;
     outline-offset: calc(var(--focus-outline-offset) / 2);
-    border: var(--style-border-width) solid
-      rgb(var(--color-border-rgb) / var(--media-border-opacity));
+    border: var(--style-border-width) solid rgb(var(--color-border-rgb) / var(--media-border-opacity));
   }
 }
 
@@ -1894,7 +1812,7 @@ zoom-dialog dialog {
 }
 
 /* If the product media is already providing an image cover, hide images provided by sibling deferred-media */
-.product-media__image ~ * .deferred-media__poster-image {
+.product-media__image~* .deferred-media__poster-image {
   display: none;
 }
 
@@ -1915,7 +1833,7 @@ zoom-dialog dialog {
 product-model model-viewer,
 /* Media that have a poster button sibling providing the size should be absolute-positioned.
 Otherwise, it should be a block to rely on its own size */
-:is(deferred-media, product-model) > .deferred-media__poster-button ~ *:not(template) {
+:is(deferred-media, product-model)>.deferred-media__poster-button~*:not(template) {
   display: block;
   position: absolute;
   top: 0;
@@ -1928,45 +1846,31 @@ Otherwise, it should be a block to rely on its own size */
   padding: inherit;
 }
 
-slideshow-slide
-  .shopify-model-viewer-ui__controls-area.shopify-model-viewer-ui__controls-area {
+slideshow-slide .shopify-model-viewer-ui__controls-area.shopify-model-viewer-ui__controls-area {
   bottom: var(--padding-sm);
   right: var(--padding-sm);
 }
 
-.dialog-zoomed-gallery
-  .shopify-model-viewer-ui__controls-area.shopify-model-viewer-ui__controls-area {
+.dialog-zoomed-gallery .shopify-model-viewer-ui__controls-area.shopify-model-viewer-ui__controls-area {
   /* Move the controls above the thumbnails. Need to calculate the height of the thumbnails list */
-  bottom: calc(
-    var(--thumbnail-width) / calc(var(--media-preview-ratio)) +
-      var(--padding-lg) * 2
-  );
+  bottom: calc(var(--thumbnail-width) / calc(var(--media-preview-ratio)) + var(--padding-lg) * 2);
   right: var(--padding-lg);
 }
 
 @media screen and (max-width: 749px) {
-  slideshow-component:has(
-      :not(.mobile\:hidden)
-        :is(.slideshow-controls__dots, .slideshow-controls__counter)
-    )
-    .shopify-model-viewer-ui__controls-area {
+  slideshow-component:has( :not(.mobile\:hidden) :is(.slideshow-controls__dots, .slideshow-controls__counter)) .shopify-model-viewer-ui__controls-area {
     /* Position the controls just above the counter */
     bottom: calc(var(--minimum-touch-target) + var(--padding-sm));
   }
 }
 
 @media screen and (min-width: 750px) {
-  slideshow-component:has(
-      :not(.desktop\:hidden)
-        :is(.slideshow-controls__dots, .slideshow-controls__counter)
-    )
-    .shopify-model-viewer-ui__controls-area {
+  slideshow-component:has( :not(.desktop\:hidden) :is(.slideshow-controls__dots, .slideshow-controls__counter)) .shopify-model-viewer-ui__controls-area {
     /* Position the controls just above the counter */
     bottom: calc(var(--minimum-touch-target) + var(--padding-sm));
   }
 
-  .dialog-zoomed-gallery
-    .shopify-model-viewer-ui__controls-area.shopify-model-viewer-ui__controls-area {
+  .dialog-zoomed-gallery .shopify-model-viewer-ui__controls-area.shopify-model-viewer-ui__controls-area {
     /* Move the controls up to match the padding on the thumbnails */
     bottom: var(--padding-lg);
 
@@ -1981,6 +1885,7 @@ slideshow-slide
 }
 
 deferred-media {
+
   /* The overflow hidden in the deferred-media won't let the button show the focus ring */
   &:has(:focus-visible) {
     outline: var(--focus-outline-width) solid currentcolor;
@@ -2052,11 +1957,8 @@ deferred-media[data-media-loaded] img {
   }
 }
 
-deferred-media[class]
-  :is(
-    .deferred-media__poster-button img,
-    .deferred-media__poster-button ~ video
-  ) {
+deferred-media[class] :is(.deferred-media__poster-button img,
+  .deferred-media__poster-button ~ video) {
   /* only apply this on the video block not product media */
   object-fit: cover;
   height: 100%;
@@ -2071,7 +1973,7 @@ deferred-media[class]
   padding: var(--padding-md);
 }
 
-.button-shopify-xr > svg {
+.button-shopify-xr>svg {
   width: var(--icon-size-sm);
   height: var(--icon-size-sm);
   fill: currentcolor;
@@ -2084,11 +1986,11 @@ deferred-media[class]
 
 /* Swatches */
 .swatch {
-  --color-border: rgb(
-    var(--color-foreground-rgb) / var(--style-border-swatch-opacity)
-  );
-  --min-width-unitless: 15.9999; /* want to avoid division by 0 */
-  --min-height-unitless: 15.9999; /* want to avoid division by 0 */
+  --color-border: rgb(var(--color-foreground-rgb) / var(--style-border-swatch-opacity));
+  --min-width-unitless: 15.9999;
+  /* want to avoid division by 0 */
+  --min-height-unitless: 15.9999;
+  /* want to avoid division by 0 */
   --min-height: 16px;
   --min-width: 16px;
 
@@ -2099,12 +2001,8 @@ deferred-media[class]
   --max-filter-size: 32px;
 
   /* From the settings */
-  --offset-swatch-width: calc(
-    var(--variant-picker-swatch-width-unitless) - var(--min-width-unitless)
-  );
-  --offset-swatch-height: calc(
-    var(--variant-picker-swatch-height-unitless) - var(--min-height-unitless)
-  );
+  --offset-swatch-width: calc(var(--variant-picker-swatch-width-unitless) - var(--min-width-unitless));
+  --offset-swatch-height: calc(var(--variant-picker-swatch-height-unitless) - var(--min-height-unitless));
 
   /**
     Offset values are obtained from the following formulas:
@@ -2121,42 +2019,25 @@ deferred-media[class]
     We also want the result to always be smaller than the input (pdp > everywhere else)
     by some scaling factor.
   */
-  --offset-scaled-width: calc(
-    var(--scaling-factor) * var(--offset-swatch-width) /
-      var(--offset-swatch-height) * var(--offset-max-swatch-size)
-  );
-  --offset-scaled-height: calc(
-    var(--scaling-factor) * var(--offset-swatch-height) /
-      var(--offset-swatch-width) * var(--offset-max-swatch-size)
-  );
+  --offset-scaled-width: calc(var(--scaling-factor) * var(--offset-swatch-width) / var(--offset-swatch-height) * var(--offset-max-swatch-size));
+  --offset-scaled-height: calc(var(--scaling-factor) * var(--offset-swatch-height) / var(--offset-swatch-width) * var(--offset-max-swatch-size));
   --offset-max-swatch-size: calc(var(--max-swatch-size) - var(--min-width));
 
   /* width = min(m + sU, (m + s * W'/H' * M'), M) */
-  --swatch-width: min(
-    calc(
-      var(--min-width) +
-        calc(var(--scaling-factor) * var(--offset-swatch-width) * 1px)
-    ),
-    calc(var(--min-width) + var(--offset-scaled-width)),
-    var(--max-swatch-size)
-  );
+  --swatch-width: min(calc(var(--min-width) + calc(var(--scaling-factor) * var(--offset-swatch-width) * 1px)),
+      calc(var(--min-width) + var(--offset-scaled-width)),
+      var(--max-swatch-size));
 
   /* height = min(m + sV, (m + s * H'/W' * M'), M) */
-  --swatch-height: min(
-    calc(
-      var(--min-height) +
-        calc(var(--scaling-factor) * var(--offset-swatch-height) * 1px)
-    ),
-    calc(var(--min-height) + var(--offset-scaled-height)),
-    var(--max-swatch-size)
-  );
+  --swatch-height: min(calc(var(--min-height) + calc(var(--scaling-factor) * var(--offset-swatch-height) * 1px)),
+      calc(var(--min-height) + var(--offset-scaled-height)),
+      var(--max-swatch-size));
 
   display: block;
   background: var(--swatch-background);
   background-position: var(--swatch-focal-point, center);
   border-radius: var(--variant-picker-swatch-radius);
-  border: var(--style-border-swatch-width) var(--style-border-swatch-style)
-    var(--color-border);
+  border: var(--style-border-swatch-width) var(--style-border-swatch-style) var(--color-border);
   width: var(--swatch-width);
   height: var(--swatch-height);
 
@@ -2194,9 +2075,7 @@ deferred-media[class]
   &.swatch--pill {
     --style-border-swatch-width: var(--variant-picker-border-width);
     --style-border-swatch-style: var(--variant-picker-border-style);
-    --color-border: rgb(
-      var(--color-foreground-rgb) / var(--variant-picker-border-opacity)
-    );
+    --color-border: rgb(var(--color-foreground-rgb) / var(--variant-picker-border-opacity));
   }
 
   @media screen and (min-width: 750px) {
@@ -2219,8 +2098,9 @@ deferred-media[class]
 }
 
 @media screen and (min-width: 750px) {
+
   .sticky-content--desktop,
-  .sticky-content--desktop.full-height--desktop > .group-block {
+  .sticky-content--desktop.full-height--desktop>.group-block {
     position: sticky;
     top: var(--sticky-header-offset, 0);
     z-index: var(--layer-flat);
@@ -2245,7 +2125,7 @@ deferred-media[class]
   color: rgb(var(--color-foreground-rgb) / var(--opacity-subdued-text));
 }
 
-product-price.text-block:is(.h1, .h2, .h3, .h4, .h5, .h6) > *:not(.tax-note) {
+product-price.text-block:is(.h1, .h2, .h3, .h4, .h5, .h6)>*:not(.tax-note) {
   margin-block: 0;
 }
 
@@ -2260,6 +2140,7 @@ product-price.text-block:is(.h1, .h2, .h3, .h4, .h5, .h6) > *:not(.tax-note) {
 }
 
 @media screen and (min-width: 750px) {
+
   product-card:focus-within .quick-add__button,
   .card-gallery:hover .quick-add__button {
     display: grid;
@@ -2362,10 +2243,7 @@ product-price.text-block:is(.h1, .h2, .h3, .h4, .h5, .h6) > *:not(.tax-note) {
 
 .spacing-style,
 .inherit-spacing {
-  padding-block: calc(
-      var(--padding-block-start) + var(--section-top-offset, 0px)
-    )
-    var(--padding-block-end);
+  padding-block: calc(var(--padding-block-start) + var(--section-top-offset, 0px)) var(--padding-block-end);
   padding-inline: var(--padding-inline-start) var(--padding-inline-end);
   margin-block: var(--margin-block-start) var(--margin-block-end);
   margin-inline: var(--margin-inline-start) var(--margin-inline-end);
@@ -2384,7 +2262,7 @@ product-price.text-block:is(.h1, .h2, .h3, .h4, .h5, .h6) > *:not(.tax-note) {
 
 /* Custom Typography style */
 .custom-typography,
-.custom-typography > * {
+.custom-typography>* {
   font-family: var(--font-family);
   font-weight: var(--font-weight);
   text-transform: var(--text-transform);
@@ -2410,12 +2288,12 @@ product-price.text-block:is(.h1, .h2, .h3, .h4, .h5, .h6) > *:not(.tax-note) {
 }
 
 .custom-font-size,
-.custom-font-size > * {
+.custom-font-size>* {
   font-size: var(--font-size);
 }
 
 .custom-font-weight,
-.custom-font-weight > * {
+.custom-font-weight>* {
   font-weight: var(--weight);
 }
 
@@ -2465,19 +2343,19 @@ product-price.text-block:is(.h1, .h2, .h3, .h4, .h5, .h6) > *:not(.tax-note) {
   .layout-panel-flex--row:not(.mobile-column) {
     flex-wrap: var(--flex-wrap-mobile);
 
-    > .menu {
+    >.menu {
       flex: 1 1 min-content;
     }
 
-    > .text-block {
+    >.text-block {
       flex: 1 1 var(--max-width--display-tight);
     }
 
-    > .image-block {
+    >.image-block {
       flex: 1 1 var(--size-style-width-mobile-min);
     }
 
-    > .button {
+    >.button {
       flex: 0 0 fit-content;
     }
   }
@@ -2551,7 +2429,7 @@ product-price.text-block:is(.h1, .h2, .h3, .h4, .h5, .h6) > *:not(.tax-note) {
   }
 
   :first-child:is(p, h1, h2, h3, h4, h5, h6),
-  :first-child:empty + :is(p, h1, h2, h3, h4, h5, h6) {
+  :first-child:empty+ :is(p, h1, h2, h3, h4, h5, h6) {
     margin-block-start: 0;
   }
 
@@ -2570,8 +2448,7 @@ product-price.text-block:is(.h1, .h2, .h3, .h4, .h5, .h6) > *:not(.tax-note) {
     margin-inline: 1.5em 2.3em;
     margin-block: 3.8em;
     padding-inline-start: 0.8em;
-    border-inline-start: 1.5px solid
-      rgb(var(--color-foreground-rgb) / var(--opacity-25));
+    border-inline-start: 1.5px solid rgb(var(--color-foreground-rgb) / var(--opacity-25));
     font-style: italic;
     font-weight: 500;
   }
@@ -2594,8 +2471,7 @@ product-price.text-block:is(.h1, .h2, .h3, .h4, .h5, .h6) > *:not(.tax-note) {
   }
 
   tr:has(td) {
-    border-bottom: 1px solid
-      rgb(var(--color-foreground-rgb) / var(--opacity-10));
+    border-bottom: 1px solid rgb(var(--color-foreground-rgb) / var(--opacity-10));
   }
 
   th,
@@ -2619,8 +2495,7 @@ product-price.text-block:is(.h1, .h2, .h3, .h4, .h5, .h6) > *:not(.tax-note) {
   --checkbox-label-padding: 8px;
   --checkbox-path-opacity: 0;
   --checkbox-cursor: pointer;
-  --checkbox-border: 1px solid
-    rgb(var(--color-foreground-rgb) / var(--opacity-35-55));
+  --checkbox-border: 1px solid rgb(var(--color-foreground-rgb) / var(--opacity-35-55));
 
   position: relative;
   display: flex;
@@ -2653,17 +2528,17 @@ product-price.text-block:is(.h1, .h2, .h3, .h4, .h5, .h6) > *:not(.tax-note) {
     outline: none;
   }
 
-  &:focus-visible + .checkbox__label .icon-checkmark {
+  &:focus-visible+.checkbox__label .icon-checkmark {
     outline: var(--focus-outline-width) solid currentcolor;
     outline-offset: var(--focus-outline-offset);
   }
 
-  &:checked + .checkbox__label .icon-checkmark {
+  &:checked+.checkbox__label .icon-checkmark {
     background-color: var(--color-foreground);
     border-color: var(--color-foreground);
   }
 
-  &:disabled + .checkbox__label .icon-checkmark {
+  &:disabled+.checkbox__label .icon-checkmark {
     background-color: var(--input-disabled-background-color);
     border-color: var(--input-disabled-border-color);
   }
@@ -2699,7 +2574,7 @@ product-price.text-block:is(.h1, .h2, .h3, .h4, .h5, .h6) > *:not(.tax-note) {
   transition: opacity var(--animation-speed) var(--animation-easing);
 }
 
-.checkbox__input:disabled + .checkbox__label {
+.checkbox__input:disabled+.checkbox__label {
   color: var(--input-disabled-text-color);
 }
 
@@ -2762,8 +2637,7 @@ product-price.text-block:is(.h1, .h2, .h3, .h4, .h5, .h6) > *:not(.tax-note) {
   }
 }
 
-.product-form-buttons:has(.add-to-cart-button.button-secondary)
-  .quantity-selector {
+.product-form-buttons:has(.add-to-cart-button.button-secondary) .quantity-selector {
   border-radius: var(--style-border-radius-buttons-secondary);
 }
 
@@ -2824,9 +2698,7 @@ product-price.text-block:is(.h1, .h2, .h3, .h4, .h5, .h6) > *:not(.tax-note) {
   text-align: center;
   border: none;
   appearance: none;
-  max-width: calc(
-    var(--quantity-selector-width) - var(--minimum-touch-target) * 2
-  );
+  max-width: calc(var(--quantity-selector-width) - var(--minimum-touch-target) * 2);
   border-radius: var(--style-border-radius-buttons);
   color: var(--color-input-text);
   background-color: transparent;
@@ -2846,9 +2718,7 @@ product-price.text-block:is(.h1, .h2, .h3, .h4, .h5, .h6) > *:not(.tax-note) {
 /* Pills (used in facets and predictive search) */
 
 .pills__pill {
-  --pills-pill-background-color: rgb(
-    var(--color-foreground-rgb) / var(--opacity-5-15)
-  );
+  --pills-pill-background-color: rgb(var(--color-foreground-rgb) / var(--opacity-5-15));
 
   color: var(--color-foreground);
   display: flex;
@@ -2863,9 +2733,7 @@ product-price.text-block:is(.h1, .h2, .h3, .h4, .h5, .h6) > *:not(.tax-note) {
   transition: background-color var(--animation-speed) var(--animation-easing);
 
   &:hover {
-    --pills-pill-background-color: rgb(
-      var(--color-foreground-rgb) / var(--opacity-10-25)
-    );
+    --pills-pill-background-color: rgb(var(--color-foreground-rgb) / var(--opacity-10-25));
   }
 
   @media screen and (max-width: 749px) {
@@ -2873,7 +2741,7 @@ product-price.text-block:is(.h1, .h2, .h3, .h4, .h5, .h6) > *:not(.tax-note) {
   }
 }
 
-.pills__pill > .svg-wrapper {
+.pills__pill>.svg-wrapper {
   --close-icon-opacity: 0.4;
   --icon-stroke-width: 1px;
 
@@ -3173,6 +3041,7 @@ fly-to-cart {
 }
 
 @keyframes thumbnail-selected {
+
   0%,
   100% {
     box-shadow: 0 0 0 2px transparent;
@@ -3263,7 +3132,8 @@ fly-to-cart {
   position: absolute;
   z-index: var(--layer-lowest);
   inset: 0;
-  clip-path: inset(-50px 0 0 0); /* stylelint-disable-line */
+  clip-path: inset(-50px 0 0 0);
+  /* stylelint-disable-line */
 }
 
 @media (min-width: 750px) {
@@ -3278,7 +3148,8 @@ fly-to-cart {
   position: absolute;
   z-index: var(--layer-lowest);
   inset: 0;
-  clip-path: inset(0 0 -50px 0); /* stylelint-disable-line */
+  clip-path: inset(0 0 -50px 0);
+  /* stylelint-disable-line */
 }
 
 @media (min-width: 750px) {
@@ -3294,11 +3165,11 @@ fly-to-cart {
   aspect-ratio: var(--size-style-aspect-ratio, auto);
 }
 
-:not(deferred-media) > .video-placeholder-wrapper {
+:not(deferred-media)>.video-placeholder-wrapper {
   width: var(--video-placeholder-width);
 }
 
-.video-placeholder-wrapper > * {
+.video-placeholder-wrapper>* {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -3423,12 +3294,10 @@ slideshow-slide.product-media-container--tallest {
 }
 
 @media screen and (max-width: 749px) {
+
   /* Media gallery has a peeking slide on the right side always, and on the left side when the current slide is the last one */
-  .media-gallery--hint
-    :is(
-      slideshow-slide:has(+ slideshow-slide[aria-hidden="false"]:last-of-type),
-      slideshow-slide[aria-hidden="false"] + slideshow-slide
-    ) {
+  .media-gallery--hint :is(slideshow-slide:has(+ slideshow-slide[aria-hidden="false"]:last-of-type),
+    slideshow-slide[aria-hidden="false"] + slideshow-slide) {
     content-visibility: auto;
 
     slideshow-component[actioned] & {
@@ -3442,11 +3311,8 @@ slideshow-slide.product-media-container--tallest {
  * Card galleries preview the next or previous images on 'pointerenter', so we
  * try to kick load them beforehand (they are lazy loaded otherwise).
  */
-:is(.resource-list__carousel, .card-gallery)
-  :is(
-    slideshow-slide:has(+ slideshow-slide[aria-hidden="false"]),
-    slideshow-slide[aria-hidden="false"] + slideshow-slide
-  ) {
+:is(.resource-list__carousel, .card-gallery) :is(slideshow-slide:has(+ slideshow-slide[aria-hidden="false"]),
+  slideshow-slide[aria-hidden="false"] + slideshow-slide) {
   content-visibility: auto;
 
   slideshow-component[actioned] & {
@@ -3458,10 +3324,7 @@ slideshow-slide.product-media-container--tallest {
  * Be specific about HTML children structure to avoid targeting nested slideshows.
  * Ensure that the content is 'visible' while scrolling instead of 'auto' to avoid issues in Safari.
  */
-slideshow-component:is([dragging], [transitioning], :hover)
-  > slideshow-container
-  > slideshow-slides
-  > slideshow-slide {
+slideshow-component:is([dragging], [transitioning], :hover)>slideshow-container>slideshow-slides>slideshow-slide {
   content-visibility: visible;
 }
 
@@ -3540,11 +3403,9 @@ slideshow-controls[pagination-position="center"][thumbnails] {
   width: 100%;
 }
 
-slideshow-controls[pagination-position="center"]:not(
-    [controls-on-media],
-    [thumbnails],
-    [icons-on-media]
-  ) {
+slideshow-controls[pagination-position="center"]:not([controls-on-media],
+  [thumbnails],
+  [icons-on-media]) {
   justify-content: space-between;
 }
 
@@ -3570,10 +3431,8 @@ slideshow-component:has(slideshow-controls[thumbnails]) {
   }
 }
 
-slideshow-controls[thumbnails]:is(
-    [pagination-position="right"],
-    [pagination-position="left"]
-  ) {
+slideshow-controls[thumbnails]:is([pagination-position="right"],
+  [pagination-position="left"]) {
   display: flex;
   flex-direction: column;
   height: 0;
@@ -3605,30 +3464,23 @@ slideshow-controls:not([controls-on-media])[icons-on-media] {
   }
 }
 
-slideshow-controls:not([controls-on-media]):is(
-    [pagination-position="left"],
-    [pagination-position="right"]
-  )
-  .slideshow-controls__thumbnails {
+slideshow-controls:not([controls-on-media]):is([pagination-position="left"],
+  [pagination-position="right"]) .slideshow-controls__thumbnails {
   padding-block: var(--padding-2xs);
 }
 
 slideshow-controls:not([controls-on-media]) {
   &:is([pagination-position="right"]) {
     .slideshow-controls__thumbnails {
-      padding-inline-end: var(
-        --slideshow-thumbnails-padding-inline,
-        var(--focus-outline-offset)
-      );
+      padding-inline-end: var(--slideshow-thumbnails-padding-inline,
+          var(--focus-outline-offset));
     }
   }
 
   &:is([pagination-position="left"]) {
     .slideshow-controls__thumbnails {
-      padding-inline-start: var(
-        --slideshow-thumbnails-padding-inline,
-        var(--focus-outline-offset)
-      );
+      padding-inline-start: var(--slideshow-thumbnails-padding-inline,
+          var(--focus-outline-offset));
     }
   }
 }
@@ -3664,10 +3516,8 @@ slideshow-controls[controls-on-media] {
   }
 }
 
-slideshow-controls:is(
-    [pagination-position="right"],
-    [pagination-position="left"]
-  ) {
+slideshow-controls:is([pagination-position="right"],
+  [pagination-position="left"]) {
   .slideshow-controls__thumbnails {
     flex-direction: column;
   }
@@ -3850,8 +3700,7 @@ slideshow-component[autoplay] slideshow-controls {
     &:is([aria-selected="true"]) {
       outline: var(--focus-outline-width) solid currentcolor;
       outline-offset: calc(var(--focus-outline-offset) / 2);
-      border: var(--style-border-width) solid
-        rgb(var(--color-border-rgb) / var(--media-border-opacity));
+      border: var(--style-border-width) solid rgb(var(--color-border-rgb) / var(--media-border-opacity));
     }
   }
 }
@@ -3896,13 +3745,13 @@ slideshow-component[autoplay] slideshow-controls {
 
 slideshow-component:is([autoplay]) {
   &:is([paused]) {
-    .icon-play > svg {
+    .icon-play>svg {
       display: block;
     }
   }
 
   &:not([paused]) {
-    .icon-pause > svg {
+    .icon-pause>svg {
       display: block;
     }
   }
@@ -3976,15 +3825,8 @@ slideshow-arrows .slideshow-control.slideshow-control--style-none {
   opacity: 1;
 }
 
-:not(.media-gallery--carousel)
-  > :is(slideshow-component:hover, slideshow-component:focus-within):not(
-    :has(slideshow-controls:hover)
-  )
-  > slideshow-container
-  > slideshow-arrows
-  .slideshow-control {
-  animation: arrowsSlideIn var(--animation-speed) var(--animation-easing)
-    forwards;
+:not(.media-gallery--carousel)> :is(slideshow-component:hover, slideshow-component:focus-within):not( :has(slideshow-controls:hover))>slideshow-container>slideshow-arrows .slideshow-control {
+  animation: arrowsSlideIn var(--animation-speed) var(--animation-easing) forwards;
 }
 
 @keyframes arrowsSlideIn {
@@ -4029,10 +3871,9 @@ slideshow-arrows .slideshow-control.slideshow-control--style-none {
   display: none;
 }
 
-.section-resource-list.section--full-width product-card-link > .group-block {
+.section-resource-list.section--full-width product-card-link>.group-block {
   @media screen and (max-width: 749px) {
-    padding-inline: max(var(--padding-xs), var(--padding-inline-start))
-      max(var(--padding-xs), var(--padding-inline-end));
+    padding-inline: max(var(--padding-xs), var(--padding-inline-start)) max(var(--padding-xs), var(--padding-inline-end));
   }
 }
 
@@ -4046,14 +3887,10 @@ slideshow-arrows .slideshow-control.slideshow-control--style-none {
 
 .resource-list {
   --resource-list-mobile-gap-max: 9999px;
-  --resource-list-column-gap: min(
-    var(--resource-list-column-gap-desktop),
-    var(--resource-list-mobile-gap-max)
-  );
-  --resource-list-row-gap: min(
-    var(--resource-list-row-gap-desktop),
-    var(--resource-list-mobile-gap-max)
-  );
+  --resource-list-column-gap: min(var(--resource-list-column-gap-desktop),
+      var(--resource-list-mobile-gap-max));
+  --resource-list-row-gap: min(var(--resource-list-row-gap-desktop),
+      var(--resource-list-mobile-gap-max));
 
   width: 100%;
 
@@ -4099,11 +3936,7 @@ slideshow-arrows .slideshow-control.slideshow-control--style-none {
       --resource-list-columns-per-row: 5;
     }
 
-    &:has(
-        .resource-list__item:first-child:nth-last-child(n + 7):nth-last-child(
-            -n + 8
-          )
-      ) {
+    &:has(.resource-list__item:first-child:nth-last-child(n + 7):nth-last-child(-n + 8)) {
       --resource-list-columns-per-row: 4;
     }
 
@@ -4152,27 +3985,18 @@ slideshow-arrows .slideshow-control.slideshow-control--style-none {
 
 @container resource-list-carousel (max-width: 749px) {
   .resource-list__carousel .resource-list__slide {
-    --slide-width: clamp(
-      150px,
-      var(--mobile-card-size, 60cqw),
-      var(--slide-width-max)
-    );
+    --slide-width: clamp(150px,
+        var(--mobile-card-size, 60cqw),
+        var(--slide-width-max));
   }
 }
 
 @container resource-list-carousel (min-width: 750px) {
   .resource-list__carousel .resource-list__slide {
-    --section-slide-width: calc(
-      (
-          100% - (var(--resource-list-column-gap) * (var(--column-count) - 1)) -
-            var(--peek-next-slide-size)
-        ) / var(--column-count)
-    );
-    --fallback-slide-width: clamp(
-      150px,
-      var(--mobile-card-size, 60cqw),
-      var(--slide-width-max)
-    );
+    --section-slide-width: calc((100% - (var(--resource-list-column-gap) * (var(--column-count) - 1)) - var(--peek-next-slide-size)) / var(--column-count));
+    --fallback-slide-width: clamp(150px,
+        var(--mobile-card-size, 60cqw),
+        var(--slide-width-max));
     --slide-width: var(--section-slide-width, var(--fallback-slide-width));
   }
 }
@@ -4219,21 +4043,20 @@ slideshow-arrows .slideshow-control.slideshow-control--style-none {
 }
 
 /* Container styles */
-.section-content-wrapper.section-content-wrapper:where(.layout-panel-flex)
-  .group-block--fill {
+.section-content-wrapper.section-content-wrapper:where(.layout-panel-flex) .group-block--fill {
   flex: 1;
 }
 
 /* Flex behavior for width variants */
-.layout-panel-flex--row > .group-block--width-fit {
+.layout-panel-flex--row>.group-block--width-fit {
   flex: 0;
 }
 
-.layout-panel-flex--row > .group-block--width-fill {
+.layout-panel-flex--row>.group-block--width-fill {
   flex: 1;
 }
 
-.layout-panel-flex--row > .group-block--width-custom {
+.layout-panel-flex--row>.group-block--width-custom {
   flex-basis: var(--size-style-width);
 }
 
@@ -4248,20 +4071,21 @@ slideshow-arrows .slideshow-control.slideshow-control--style-none {
 }
 
 /* Flex behavior for height variants */
-.layout-panel-flex--column > .group-block--height-fit {
+.layout-panel-flex--column>.group-block--height-fit {
   flex: 0 1 auto;
 }
 
-.layout-panel-flex--column > .group-block--height-fill {
+.layout-panel-flex--column>.group-block--height-fill {
   flex: 1;
 }
 
-.layout-panel-flex--column > .group-block--height-custom {
+.layout-panel-flex--column>.group-block--height-custom {
   flex-basis: var(--size-style-height);
 }
 
 accordion-custom {
   details {
+
     &::details-content,
     .details-content {
       block-size: 0;
@@ -4275,6 +4099,7 @@ accordion-custom {
     }
 
     &:not([open]) {
+
       &::details-content,
       .details-content {
         padding-block: 0;
@@ -4282,6 +4107,7 @@ accordion-custom {
     }
 
     &[open] {
+
       &::details-content,
       .details-content {
         opacity: 1;
@@ -4331,12 +4157,10 @@ text-component {
     opacity: 0;
     transition: opacity var(--animation-speed-slow) var(--animation-easing);
     pointer-events: none;
-    background-image: linear-gradient(
-      -85deg,
-      var(--shimmer-text-color) 10%,
-      var(--shimmer-color-light) 50%,
-      var(--shimmer-text-color) 90%
-    );
+    background-image: linear-gradient(-85deg,
+        var(--shimmer-text-color) 10%,
+        var(--shimmer-color-light) 50%,
+        var(--shimmer-text-color) 90%);
     background-clip: text;
     background-size: 200% 100%;
     background-position: 100% 0;
@@ -4369,13 +4193,11 @@ text-component {
 }
 
 .transition-transform {
-  transition: transform var(--animation-speed-medium)
-    var(--animation-timing-bounce);
+  transition: transform var(--animation-speed-medium) var(--animation-timing-bounce);
 }
 
 .transition-border-color {
-  transition: border-color var(--animation-speed-medium)
-    var(--animation-timing-hover);
+  transition: border-color var(--animation-speed-medium) var(--animation-timing-hover);
 }
 
 /* Global scrollbar styles */
@@ -4408,9 +4230,7 @@ text-component {
 }
 
 /* Product card title truncation - applied only to zoom-out view */
-[product-grid-view="zoom-out"]
-  :is(.product-card, .product-grid__card)
-  :is(h4, .h4) {
+[product-grid-view="zoom-out"] :is(.product-card, .product-grid__card) :is(h4, .h4) {
   display: -webkit-box;
   -webkit-box-orient: vertical;
   overflow: hidden;
@@ -4436,8 +4256,7 @@ text-component {
 .predictive-search-results__card:hover {
   position: relative;
   z-index: var(--layer-raised);
-  transition: transform var(--hover-transition-duration)
-      var(--hover-transition-timing),
+  transition: transform var(--hover-transition-duration) var(--hover-transition-timing),
     box-shadow var(--hover-transition-duration) var(--hover-transition-timing);
 }
 
@@ -4454,6 +4273,7 @@ text-component {
 
 /* Prevent iOS zoom on input focus by ensuring minimum 16px font size on mobile */
 @media screen and (max-width: 1200px) {
+
   input,
   textarea,
   select,
@@ -4480,5 +4300,30 @@ text-component {
   .h6.h6 textarea,
   .h6.h6 select {
     font-size: max(1rem, 100%);
+  }
+}
+
+/* Safari-only fix for variant picker grid layout */
+@supports (-webkit-touch-callout: none) {
+  .variant-option--equal-width-buttons {
+    /* Prevent row collapse and ensure correct grid behavior on iOS Safari */
+    grid-auto-rows: minmax(min-content, auto) !important;
+    display: grid !important;
+  }
+
+  .variant-option--equal-width-buttons .variant-option__button-label {
+    /* Allow natural sizing and prevent 100% height from stretching button weirdly if container is wrong */
+    height: auto !important;
+    min-height: calc(3ch + 1.3em) !important;
+    /* Ensure text doesn't overflow */
+    overflow: visible !important;
+  }
+
+  /* Reset input height to avoid layout interference */
+  .variant-option__button-label input {
+    position: absolute;
+    inset: 0;
+    height: 100%;
+    width: 100%;
   }
 }

@@ -491,6 +491,11 @@
     grid-template-columns: var(--media-with-content-grid-columns);
     grid-template-areas: 'media media media' 'content content content';
 
+    /* Flip order for what-we-make-v2 page on mobile */
+    &.force-mobile-on-tablet {
+      grid-template-areas: 'content content content' 'media media media';
+    }
+
     @media screen and (min-width: 750px) {
       --media-with-content-grid-columns: 3.5fr 2.5fr;
 
@@ -616,7 +621,7 @@
   /* Force mobile behavior on tablets for what-we-make-v2 page */
   @media screen and (min-width: 750px) and (max-width: 1024px) {
     .force-mobile-on-tablet.media-with-content {
-      grid-template-areas: 'media media media' 'content content content' !important;
+      grid-template-areas: 'content content content' 'media media media' !important;
     }
 
     /* Show mobile image dividers on tablets */
@@ -633,19 +638,19 @@
 
     /* Force stacked layout for all variants */
     .force-mobile-on-tablet.section--page-width.media-with-content {
-      grid-template-areas: 'margin-left media margin-right' 'margin-left content margin-right' !important;
+      grid-template-areas: 'margin-left content margin-right' 'margin-left media margin-right' !important;
     }
 
     .force-mobile-on-tablet.section--full-width.media-with-content {
-      grid-template-areas: 'media media media' 'content content content' !important;
+      grid-template-areas: 'content content content' 'media media media' !important;
     }
 
     .force-mobile-on-tablet.media-with-content--media-right {
-      grid-template-areas: 'media media media' 'content content content' !important;
+      grid-template-areas: 'content content content' 'media media media' !important;
     }
 
     .force-mobile-on-tablet.section--page-width.media-with-content--media-right {
-      grid-template-areas: 'margin-left media margin-right' 'margin-left content margin-right' !important;
+      grid-template-areas: 'margin-left content margin-right' 'margin-left media margin-right' !important;
     }
   }
 {% endstylesheet %}
