@@ -49,7 +49,6 @@
           "blocks": {}
         }
       },
-      "disabled": true,
       "name": "Header",
       "settings": {
         "logo_position": "left",

@@ -129,7 +129,25 @@ class HeaderComponent extends Component {
     }
   }
 
+  /**
+   * Detects if the browser is iOS Safari (excluding Chrome on iOS)
+   * @returns {boolean}
+   */
+  isIOSSafari() {
+    const ua = window.navigator.userAgent;
+    const isIOS = /iPad|iPhone|iPod/.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+    const isChrome = /CriOS|Fxios/.test(ua); // Exclude Chrome (CriOS) and Firefox (FxiOS) on iOS
+    const isSafari = /Safari/.test(ua);
+
+    return isIOS && isSafari && !isChrome;
+  }
+
   #handleWindowScroll = () => {
+    // FIX: Check for iOS Safari and transparent header to prevent flickering
+    if (this.isIOSSafari() && this.hasAttribute("transparent")) {
+      return;
+    }
+
     const stickyMode = this.getAttribute("sticky");
     if (!this.#offscreen && stickyMode !== "always") return;
 
@@ -191,6 +209,10 @@ class HeaderComponent extends Component {
     super.connectedCallback();
     this.#resizeObserver.observe(this);
     this.addEventListener("overflowMinimum", this.#handleOverflowMinimum);
+
+    if (this.isIOSSafari()) {
+      this.classList.add("is-ios-safari");
+    }
 
     const stickyMode = this.getAttribute("sticky");
     if (stickyMode) {

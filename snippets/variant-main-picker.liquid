@@ -67,6 +67,7 @@
                 <span class="variant-option__swatch-value">{{ product_option.selected_value }}</span>
               {%- endif %}
             </legend>
+            <div class="variant-picker__option-values">
             {%- for product_option_value in product_option.values -%}
               {% if product_option_value.size > longest_value and option_id_attribute %}
                 {% assign longest_value = product_option_value.size %}
@@ -124,6 +125,7 @@
                 {% render 'strikethrough-variant', product_option: product_option_value %}
               </label>
             {%- endfor -%}
+            </div>
             {% if option_id_attribute %}
               {% style %}
                 [data-option-id="{{ fieldset_id }}"] {
@@ -244,12 +246,15 @@
   }
 
   .variant-option--buttons {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--gap-sm);
     margin: 0;
     padding: 0;
     border: none;
+  }
+
+  .variant-option--buttons .variant-picker__option-values {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--gap-sm);
   }
 
   .variant-option--buttons legend {
@@ -401,7 +406,7 @@
 
   /* wrap around only for 3 or more variants in a row */
   /* the more complex selector rules here produce the wrap around effect for first/last variants */
-  .variant-option--buttons:has(:nth-of-type(3)) {
+  .variant-option--buttons .variant-picker__option-values:has(:nth-of-type(3)) {
     .variant-option__button-label:has([data-current-checked='true']):first-of-type ~ label:last-of-type {
       --pill-offset: calc(100% + 1px);
     }
@@ -433,8 +438,10 @@
   .variant-option--equal-width-buttons {
     --variant-min-width: clamp(44px, calc(var(--variant-option-padding-inline) * 2 + var(--variant-ch)), 100%);
 
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(var(--variant-min-width), 1fr));
+    .variant-picker__option-values {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(var(--variant-min-width), 1fr));
+    }
 
     .variant-option__button-label {
       min-width: var(--variant-min-width);

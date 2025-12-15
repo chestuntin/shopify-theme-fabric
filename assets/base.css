@@ -4302,28 +4302,3 @@ text-component {
     font-size: max(1rem, 100%);
   }
 }
-
-/* Safari-only fix for variant picker grid layout */
-@supports (-webkit-touch-callout: none) {
-  .variant-option--equal-width-buttons {
-    /* Prevent row collapse and ensure correct grid behavior on iOS Safari */
-    grid-auto-rows: minmax(min-content, auto) !important;
-    display: grid !important;
-  }
-
-  .variant-option--equal-width-buttons .variant-option__button-label {
-    /* Allow natural sizing and prevent 100% height from stretching button weirdly if container is wrong */
-    height: auto !important;
-    min-height: calc(3ch + 1.3em) !important;
-    /* Ensure text doesn't overflow */
-    overflow: visible !important;
-  }
-
-  /* Reset input height to avoid layout interference */
-  .variant-option__button-label input {
-    position: absolute;
-    inset: 0;
-    height: 100%;
-    width: 100%;
-  }
-}

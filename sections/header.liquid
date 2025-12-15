@@ -20,7 +20,7 @@
   elsif section.settings.enable_transparent_header_product and template.name == 'product'
     assign transparent = 'always'
     assign transparent_color_scheme = section.settings.product_color_scheme
-  elsif section.settings.enable_transparent_header_collection and template.name == 'collection'
+  elsif section.settings.enable_transparent_header_collection and template.name == 'collection' or section.settings.enable_transparent_header_collection and template.name == 'list-collections'
     assign transparent = 'always'
     assign transparent_color_scheme = section.settings.collection_color_scheme
   endif
