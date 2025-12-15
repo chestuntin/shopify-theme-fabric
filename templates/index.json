@@ -3319,6 +3319,7 @@
         "layout_type": "carousel",
         "carousel_on_mobile": false,
         "max_products": 16,
+        "mobile_max_products": 4,
         "columns": 4,
         "mobile_columns": "2",
         "mobile_card_size": "60cqw",
@@ -4439,7 +4440,7 @@
         },
         "button_XcwykK": {
           "type": "button",
-          "name": "t:names.button",
+          "name": "browse-collection",
           "settings": {
             "label": "BROWSE COLLECTION →",
             "link": "shopify://collections",

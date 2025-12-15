@@ -25,11 +25,28 @@
   </div>
 
   {% capture list_items %}
+    {% liquid
+      assign desktop_limit = section.settings.max_products
+      assign mobile_limit = section.settings.mobile_max_products
+      assign max_items = desktop_limit
+      if mobile_limit > max_items
+        assign max_items = mobile_limit
+      endif
+    %}
     {% if section.settings.collection != blank and shop.products_count != 0 %}
       {% paginate section.settings.collection.products by max_items %}
         {% for product in section.settings.collection.products limit: max_items %}
+          {% liquid
+            assign item_classes = "resource-list__item"
+            if forloop.index > mobile_limit
+              assign item_classes = item_classes | append: " hidden--mobile"
+            endif
+            if forloop.index > desktop_limit
+              assign item_classes = item_classes | append: " hidden--desktop"
+            endif
+          %}
           <div
-            class="resource-list__item"
+            class="{{ item_classes }}"
           >
             {% # theme-check-disable UniqueStaticBlockId %}
               {% content_for 'block', type: '_product-card', id: 'static-product-card', closest.product: product %}
@@ -43,8 +60,17 @@
       {% endpaginate %}
     {% else %}
       {% for i in (1..max_items) %}
+        {% liquid
+          assign item_classes = "resource-list__item"
+          if forloop.index > mobile_limit
+            assign item_classes = item_classes | append: " hidden--mobile"
+          endif
+          if forloop.index > desktop_limit
+            assign item_classes = item_classes | append: " hidden--desktop"
+          endif
+        %}
         <div
-          class="resource-list__item"
+          class="{{ item_classes }}"
         >
           {% # theme-check-disable UniqueStaticBlockId %}
             {% content_for 'block', type: '_product-card', id: 'static-product-card', closest.product: null %}
@@ -59,7 +85,7 @@
   {% endcapture %}
 
   {% liquid
-    # Create an array from the list items to be used for different layout types
+    # Create an array from the list items to be used for different layouts
     assign list_items_array = list_items | strip | split: '<!--@list/split-->'
   %}
 
@@ -134,7 +160,16 @@
     {
       "type": "range",
       "id": "max_products",
-      "label": "t:settings.product_count",
+      "label": "Desktop product count",
+      "min": 1,
+      "max": 16,
+      "step": 1,
+      "default": 4
+    },
+    {
+      "type": "range",
+      "id": "mobile_max_products",
+      "label": "Mobile product count",
       "min": 1,
       "max": 16,
       "step": 1,
@@ -143,7 +178,7 @@
     {
       "type": "range",
       "id": "columns",
-      "label": "t:settings.columns",
+      "label": "Desktop columns",
       "min": 1,
       "max": 8,
       "step": 1,
@@ -153,7 +188,7 @@
     {
       "type": "select",
       "id": "mobile_columns",
-      "label": "t:settings.mobile_columns",
+      "label": "Mobile columns",
       "options": [
         {
           "value": "1",
