@@ -187,11 +187,16 @@
   }
 
   /* Collapse borders for grid items where gap is 0 */
-  .product-recommendations .resource-list__item .card-gallery {
-    /* Ensure borders collapse by pulling adjacent items over 1px */
-    margin-right: -1px; 
-    margin-bottom: -1px;
-    /* Optional: Ensure z-index handling if needed for overlap, but default stacking usually works */
+  /* Remove negative margins as they caused clipping and thickness issues */
+  
+  /* For CAROUSEL mode: Remove right border for all items to prevent double borders */
+  .resource-list__carousel .card-gallery {
+    border-right-width: 0 !important;
+  }
+  
+  /* Restore right border for the LAST slide in the carousel so it's not open-ended */
+  .resource-list__carousel slideshow-slide:last-child .card-gallery {
+    border-right-width: var(--border-width, 1px) !important;
   }
 
   /* Disable global card hover effects for this section */
@@ -214,9 +219,37 @@
      transform: none !important;
   }
   
-  /* Restore smoothed opacity transition for secondary image */
-  .product-recommendations .product-card .product-media-container img {
-    transition: opacity var(--duration-default, 0.3s) ease-in-out !important;
+  /* Stack slides for fade effect - Scoped to card gallery ONLY */
+  .product-recommendations .card-gallery slideshow-slides {
+    display: grid !important;
+    grid-template-areas: "slide";
+    scroll-behavior: auto !important; /* Reset smooth scroll if set */
+  }
+
+  /* Target slides within the card gallery */
+  .product-recommendations .card-gallery slideshow-slide {
+    grid-area: slide;
+    width: 100%;
+    opacity: 0;
+    transition: opacity 0.6s ease-in-out;
+    pointer-events: none; 
+    z-index: 0;
+    /* Force visibility override to bypass JS toggling */
+    visibility: visible !important;
+    content-visibility: visible !important;
+    display: block !important;
+  }
+
+  /* Always show the first slide by default */
+  .product-recommendations .card-gallery slideshow-slide:first-child {
+    opacity: 1;
+    z-index: 1;
+  }
+
+  /* Key: Show the SECOND slide on hover of the gallery container */
+  .product-recommendations .card-gallery:hover slideshow-slide:nth-child(2) {
+    opacity: 1;
+    z-index: 2;
   }
 {% endstylesheet %}
 
