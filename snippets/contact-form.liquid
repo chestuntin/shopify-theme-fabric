@@ -23,6 +23,17 @@
   {% assign form_id = block.id | default: section.id | prepend: 'ContactForm-' %}
 
   {%- form 'contact', id: form_id, class: 'contact-form__form' -%}
+    {%- if settings.heading != blank or settings.text != blank -%}
+      <div class="contact-form__header">
+        {%- if settings.heading != blank -%}
+          <h2 class="contact-form__heading {{ settings.heading_type_preset }}">{{ settings.heading }}</h2>
+        {%- endif -%}
+        {%- if settings.text != blank -%}
+          <div class="contact-form__text {{ settings.text_type_preset }}">{{ settings.text }}</div>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
     {%- if form.errors -%}
       <div
         class="contact-form__error"
@@ -127,12 +138,37 @@
 </div>
 
 {% stylesheet %}
+  /* The form itself is now the grid container */
   .contact-form__form {
     display: grid;
     grid-template-columns: 1fr;
     gap: 0;
     border-top: 1px solid rgb(0, 0, 0);
     border-left: 1px solid rgb(0, 0, 0);
+  }
+
+  /* Header Styling */
+  .contact-form__header {
+    grid-column: 1 / -1;
+    border-right: 1px solid rgb(0, 0, 0);
+    border-bottom: 1px solid rgb(0, 0, 0);
+    padding: var(--padding-lg) var(--padding-xl);
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-xs);
+  }
+
+  .contact-form__heading {
+    font-weight: normal;
+    margin: 0;
+  }
+
+  .contact-form__text {
+    color: var(--color-foreground-75); /* Slight deemphasis */
+    margin: 0;
+  }
+  .contact-form__text p {
+    margin: 0;
   }
 
   /* Make the row wrapper transparent to the grid */

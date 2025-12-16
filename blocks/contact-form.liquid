@@ -12,6 +12,42 @@
   "tag": null,
   "settings": [
     {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "CONTACT"
+    },
+    {
+      "type": "select",
+      "id": "heading_type_preset",
+      "label": "Heading Type",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" }
+      ],
+      "default": "h2"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text",
+      "default": "<p>FOR QUESTIONS ABOUT ORDERS, SHIPPING, OR THE WORK ITSELF.</p>"
+    },
+    {
+      "type": "select",
+      "id": "text_type_preset",
+      "label": "Text Type",
+      "options": [
+        { "value": "paragraph", "label": "Paragraph" },
+        { "value": "rte", "label": "Rich Text" }
+      ],
+      "default": "paragraph"
+    },
+    {
       "type": "select",
       "id": "width",
       "label": "t:settings.width_desktop",
