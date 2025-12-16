@@ -442,7 +442,7 @@
         class="hero__overlay-text hero__overlay-text--left{% if section.settings.left_hide_mobile %} hero__overlay-text--hide-mobile{% endif %}{% if section.settings.left_hide_desktop %} hero__overlay-text--hide-desktop{% endif %}" 
         data-testid="hero-overlay-text-left"
         style="
-          --hero-overlay-left-top: {{ section.settings.overlay_left_top_offset }}vh;
+          --hero-overlay-left-offset: {{ section.settings.overlay_left_top_offset }}px;
           --hero-overlay-left-font-family: {% if section.settings.left_font_type == 'heading' %}var(--font-heading--family){% elsif section.settings.left_font_type == 'subheading' %}var(--font-subheading--family){% elsif section.settings.left_font_type == 'body' %}var(--font-body--family){% elsif section.settings.left_font_type == 'accent' %}var(--font-accent--family){% else %}var(--font-body--family){% endif %};
           --hero-overlay-left-font-weight: {{ section.settings.left_font_weight }};
           --hero-overlay-left-letter-spacing: {{ section.settings.left_letter_spacing | divided_by: 10.0 }}px;
@@ -464,7 +464,7 @@
         class="hero__overlay-text hero__overlay-text--right{% if section.settings.right_hide_mobile %} hero__overlay-text--hide-mobile{% endif %}{% if section.settings.right_hide_desktop %} hero__overlay-text--hide-desktop{% endif %}" 
         data-testid="hero-overlay-text-right"
         style="
-          --hero-overlay-right-top: {{ section.settings.overlay_right_top_offset }}vh;
+          --hero-overlay-right-offset: {{ section.settings.overlay_right_top_offset }}px;
           --hero-overlay-right-font-family: {% if section.settings.right_font_type == 'heading' %}var(--font-heading--family){% elsif section.settings.right_font_type == 'subheading' %}var(--font-subheading--family){% elsif section.settings.right_font_type == 'body' %}var(--font-body--family){% elsif section.settings.right_font_type == 'accent' %}var(--font-accent--family){% else %}var(--font-body--family){% endif %};
           --hero-overlay-right-font-weight: {{ section.settings.right_font_weight }};
           --hero-overlay-right-letter-spacing: {{ section.settings.right_letter_spacing | divided_by: 10.0 }}px;
@@ -746,7 +746,8 @@
 
   .hero .hero__overlay-text--left {
     left: var(--hero-page-margin);
-    top: var(--hero-overlay-left-top, 20vh);
+    top: var(--hero-page-margin);
+    top: var(--hero-overlay-left-offset);
     text-align: left;
     font-family: var(--hero-overlay-left-font-family, var(--font-body--family));
     font-weight: var(--hero-overlay-left-font-weight, 400);
@@ -768,7 +769,8 @@
 
   .hero .hero__overlay-text--right {
     right: var(--hero-page-margin);
-    top: var(--hero-overlay-right-top, 20vh);
+    bottom: var(--hero-overlay-right-offset);
+    top: auto;
     text-align: right;
     font-family: var(--hero-overlay-right-font-family, var(--font-body--family));
     font-weight: var(--hero-overlay-right-font-weight, 400);
@@ -1370,12 +1372,12 @@
     {
       "type": "range",
       "id": "overlay_left_top_offset",
-      "label": "Vertical position",
+      "label": "Distance from top",
       "min": 0,
       "max": 100,
       "step": 1,
-      "unit": "%",
-      "default": 20
+      "unit": "px",
+      "default": 40
     },
     {
       "type": "checkbox",
@@ -1530,12 +1532,12 @@
     {
       "type": "range",
       "id": "overlay_right_top_offset",
-      "label": "Vertical position",
+      "label": "Distance from bottom",
       "min": 0,
       "max": 100,
       "step": 1,
-      "unit": "%",
-      "default": 20
+      "unit": "px",
+      "default": 40
     },
     {
       "type": "checkbox",
