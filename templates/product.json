@@ -25,9 +25,9 @@
             "slideshow_mobile_controls_style": "counter",
             "thumbnail_position": "bottom",
             "thumbnail_width": 44,
-            "aspect_ratio": "1",
+            "aspect_ratio": "adapt",
             "constrain_to_viewport": false,
-            "media_fit": "cover",
+            "media_fit": "contain",
             "media_radius": 0,
             "extend_media": true,
             "zoom": true,
@@ -78,7 +78,7 @@
                 "align_baseline": false,
                 "horizontal_alignment_flex_direction_column": "flex-start",
                 "vertical_alignment_flex_direction_column": "center",
-                "gap": 12,
+                "gap": 0,
                 "width": "fill",
                 "custom_width": 100,
                 "width_mobile": "fill",
@@ -180,15 +180,15 @@
                         "show_sale_price_first": true,
                         "show_installments": false,
                         "show_tax_info": false,
-                        "type_preset": "h4",
+                        "type_preset": "custom",
                         "width": "fit-content",
                         "alignment": "left",
-                        "font": "var(--font-body--family)",
-                        "font_size": "1rem",
+                        "font": "var(--font-subheading--family)",
+                        "font_size": "1.25rem",
                         "line_height": "normal",
-                        "letter_spacing": "normal",
-                        "case": "none",
-                        "color": "var(--color-foreground)",
+                        "letter_spacing": "loose",
+                        "case": "uppercase",
+                        "color": "var(--color-foreground-heading)",
                         "padding-block-start": 0,
                         "padding-block-end": 0,
                         "padding-inline-start": 0,
@@ -291,8 +291,249 @@
                 "padding-inline-end": 0
               },
               "blocks": {
+                "accordion_row_izUt9n": {
+                  "type": "_accordion-row",
+                  "name": "t:names.accordion_row",
+                  "settings": {
+                    "heading": "UNFRAMED OR FRAMED",
+                    "open_by_default": true,
+                    "icon": "none",
+                    "width": 20
+                  },
+                  "blocks": {
+                    "text_qjHqCQ": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<h6>Choose how you want this piece to feel in your space.<br/><br/>Unframed prints offer a clean, minimal presentation that works beautifully in flexible or evolving interiors.<br/><br/>Framed prints arrive finished and ready to hang, giving the artwork a more permanent, gallery-like presence.<br/></h6>",
+                        "width": "fit-content",
+                        "max_width": "none",
+                        "alignment": "left",
+                        "type_preset": "custom",
+                        "font": "var(--font-subheading--family)",
+                        "font_size": "0.75rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "uppercase",
+                        "wrap": "balance",
+                        "color": "var(--color-primary)",
+                        "background": false,
+                        "background_color": "#933a8926",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "text_qjHqCQ"
+                  ]
+                },
+                "accordion_row_KkLkxf": {
+                  "type": "_accordion-row",
+                  "name": "t:names.accordion_row",
+                  "settings": {
+                    "heading": "CHOOSE YOUR SIZE",
+                    "open_by_default": false,
+                    "icon": "none",
+                    "width": 20
+                  },
+                  "blocks": {
+                    "text_9RfQrP": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>Available in two sizes.<br/><br/>A3 works well for desks, shelves, and smaller wall spaces.<br/><br/>A2 makes a stronger visual statement and suits bedrooms, living rooms, and offices.</p>",
+                        "width": "fit-content",
+                        "max_width": "none",
+                        "alignment": "left",
+                        "type_preset": "custom",
+                        "font": "var(--font-subheading--family)",
+                        "font_size": "0.75rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "uppercase",
+                        "wrap": "balance",
+                        "color": "var(--color-primary)",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "text_9RfQrP"
+                  ]
+                },
+                "accordion_row_38prhi": {
+                  "type": "_accordion-row",
+                  "name": "t:names.accordion_row",
+                  "settings": {
+                    "heading": "ABOUT THE PRINT",
+                    "open_by_default": false,
+                    "icon": "none",
+                    "width": 20
+                  },
+                  "blocks": {
+                    "text_tN87Gm": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>Each piece is printed with rich detail and balanced colour.<br/><br/>Designed to look good up close and from a distance, and to sit comfortably in everyday spaces.</p>",
+                        "width": "fit-content",
+                        "max_width": "none",
+                        "alignment": "left",
+                        "type_preset": "custom",
+                        "font": "var(--font-subheading--family)",
+                        "font_size": "0.75rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "uppercase",
+                        "wrap": "balance",
+                        "color": "var(--color-primary)",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "text_tN87Gm"
+                  ]
+                },
+                "accordion_row_g7Kckx": {
+                  "type": "_accordion-row",
+                  "name": "t:names.accordion_row",
+                  "settings": {
+                    "heading": "FRAME DETAILS",
+                    "open_by_default": false,
+                    "icon": "none",
+                    "width": 20
+                  },
+                  "blocks": {
+                    "text_YW8FqE": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>Framed prints come in a clean, modern white frame.<br/><br/>The frame enhances focus and gives the artwork a finished, intentional look.</p>",
+                        "width": "fit-content",
+                        "max_width": "none",
+                        "alignment": "left",
+                        "type_preset": "custom",
+                        "font": "var(--font-subheading--family)",
+                        "font_size": "0.75rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "uppercase",
+                        "wrap": "balance",
+                        "color": "var(--color-primary)",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "text_YW8FqE"
+                  ]
+                },
+                "accordion_row_qjgnBF": {
+                  "type": "_accordion-row",
+                  "name": "t:names.accordion_row",
+                  "settings": {
+                    "heading": "SHIPPING & PACKAGING",
+                    "open_by_default": false,
+                    "icon": "none",
+                    "width": 20
+                  },
+                  "blocks": {
+                    "text_GpRpJT": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>Ships next business day.<br/>Delivered within 1–2 business days across Sri Lanka.<br/><br/>Carefully packaged to arrive safely.<br/><br/>Posters are delivered flat or rolled depending on size.<br/>Framed prints arrive protected and ready to display.</p>",
+                        "width": "fit-content",
+                        "max_width": "none",
+                        "alignment": "left",
+                        "type_preset": "custom",
+                        "font": "var(--font-subheading--family)",
+                        "font_size": "0.75rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "uppercase",
+                        "wrap": "balance",
+                        "color": "var(--color-primary)",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "text_GpRpJT"
+                  ]
+                },
+                "accordion_row_eJgEXX": {
+                  "type": "_accordion-row",
+                  "name": "t:names.accordion_row",
+                  "settings": {
+                    "heading": "RETURNS & SUPPORT",
+                    "open_by_default": false,
+                    "icon": "none",
+                    "width": 20
+                  },
+                  "blocks": {
+                    "text_Uk6M9M": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>IF SOMETHING ISN’T RIGHT, WE’RE HERE TO HELP. REACH OUT TO US AND WE’LL ASSIST YOU PROMPTLY. </p>",
+                        "width": "fit-content",
+                        "max_width": "none",
+                        "alignment": "left",
+                        "type_preset": "custom",
+                        "font": "var(--font-subheading--family)",
+                        "font_size": "0.75rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "uppercase",
+                        "wrap": "balance",
+                        "color": "var(--color-primary)",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "text_Uk6M9M"
+                  ]
+                },
                 "accordion_row_TbgNUF": {
                   "type": "_accordion-row",
+                  "disabled": true,
                   "settings": {
                     "heading": "Product Details",
                     "open_by_default": false,
@@ -332,6 +573,7 @@
                 },
                 "accordion_row_XMFatY": {
                   "type": "_accordion-row",
+                  "disabled": true,
                   "settings": {
                     "heading": "Care & Maintenance",
                     "open_by_default": false,
@@ -371,6 +613,7 @@
                 },
                 "accordion_row_kmdwc8": {
                   "type": "_accordion-row",
+                  "disabled": true,
                   "settings": {
                     "heading": "Size & Fit",
                     "open_by_default": false,
@@ -410,6 +653,12 @@
                 }
               },
               "block_order": [
+                "accordion_row_izUt9n",
+                "accordion_row_KkLkxf",
+                "accordion_row_38prhi",
+                "accordion_row_g7Kckx",
+                "accordion_row_qjgnBF",
+                "accordion_row_eJgEXX",
                 "accordion_row_TbgNUF",
                 "accordion_row_XMFatY",
                 "accordion_row_kmdwc8"
@@ -427,7 +676,7 @@
       "settings": {
         "content_width": "content-center-aligned",
         "desktop_media_position": "left",
-        "equal_columns": true,
+        "equal_columns": false,
         "limit_details_width": false,
         "gap": 40,
         "color_scheme": "scheme-1",
@@ -565,6 +814,7 @@
         "button_xE98TF": {
           "type": "button",
           "name": "WHAT WE MAKE (AND WHY) →",
+          "disabled": true,
           "settings": {
             "label": "WHAT WE MAKE (AND WHY) →",
             "link": "shopify://pages/what-we-make-v2",
@@ -580,6 +830,7 @@
         "button_XVcaJQ": {
           "type": "button",
           "name": "t:names.button",
+          "disabled": true,
           "settings": {
             "label": "OUR STORY →",
             "link": "shopify://collections/all",
@@ -595,6 +846,7 @@
         "button_MW4xy4": {
           "type": "button",
           "name": "t:names.button",
+          "disabled": true,
           "settings": {
             "label": "WRITE TO US →",
             "link": "shopify://collections/all",
@@ -939,9 +1191,26 @@
           },
           "blocks": {}
         },
+        "button_iQkWGg": {
+          "type": "button",
+          "name": "WHAT WE MAKE (AND WHY) →",
+          "disabled": true,
+          "settings": {
+            "label": "WHAT WE MAKE (AND WHY) →",
+            "link": "shopify://pages/what-we-make-v2",
+            "open_in_new_tab": false,
+            "style_class": "button-secondary",
+            "width": "custom",
+            "custom_width": 100,
+            "width_mobile": "custom",
+            "custom_width_mobile": 100
+          },
+          "blocks": {}
+        },
         "button_6NwVeD": {
           "type": "button",
           "name": "t:names.button",
+          "disabled": true,
           "settings": {
             "label": "OUR STORY →",
             "link": "shopify://collections/all",
@@ -973,6 +1242,7 @@
         "button_PbAT66": {
           "type": "button",
           "name": "t:names.button",
+          "disabled": true,
           "settings": {
             "label": "BACK HOME →",
             "link": "/",
@@ -1015,6 +1285,7 @@
         "logo_a3Gd4w",
         "text_qMTFFF",
         "button_qAgAyJ",
+        "button_iQkWGg",
         "button_6NwVeD",
         "button_yqW3kE",
         "button_PbAT66",
@@ -1148,8 +1419,8 @@
                 "open_in_new_tab": false,
                 "padding-block-start": 0,
                 "padding-block-end": 0,
-                "padding-inline-start": 16,
-                "padding-inline-end": 16
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
               },
               "blocks": {
                 "product_title_mDe6FU": {
@@ -1158,7 +1429,7 @@
                   "settings": {
                     "width": "100%",
                     "max_width": "normal",
-                    "alignment": "center",
+                    "alignment": "left",
                     "type_preset": "paragraph",
                     "font": "var(--font-body--family)",
                     "font_size": "1rem",
@@ -1179,7 +1450,6 @@
                 },
                 "price_Qww9yQ": {
                   "type": "price",
-                  "disabled": true,
                   "settings": {
                     "show_sale_price_first": true,
                     "show_installments": false,

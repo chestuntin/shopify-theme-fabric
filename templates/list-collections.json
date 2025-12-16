@@ -2355,6 +2355,7 @@
         "button_aPTiWQ": {
           "type": "button",
           "name": "t:names.button",
+          "disabled": true,
           "settings": {
             "label": "HOW TO ORDER →",
             "link": "/",
@@ -2402,6 +2403,7 @@
         "button_PY8CMX": {
           "type": "button",
           "name": "WHAT WE MAKE (AND WHY) →",
+          "disabled": true,
           "settings": {
             "label": "WHAT WE MAKE (AND WHY) →",
             "link": "shopify://pages/what-we-make-v2",
@@ -2417,6 +2419,7 @@
         "button_JECUAN": {
           "type": "button",
           "name": "t:names.button",
+          "disabled": true,
           "settings": {
             "label": "OUR STORY →",
             "link": "shopify://collections/all",
@@ -2432,6 +2435,7 @@
         "button_t7jcUV": {
           "type": "button",
           "name": "t:names.button",
+          "disabled": true,
           "settings": {
             "label": "WRITE TO US →",
             "link": "shopify://collections/all",
@@ -2447,6 +2451,7 @@
         "button_Hj9dJr": {
           "type": "button",
           "name": "t:names.button",
+          "disabled": true,
           "settings": {
             "label": "BACK HOME →",
             "link": "/",

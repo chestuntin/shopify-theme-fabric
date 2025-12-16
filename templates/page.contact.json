@@ -6,7 +6,8 @@
  * or related systems. Please exercise caution as any changes
  * made to this file may be overwritten.
  * ------------------------------------------------------------
- */{
+ */
+{
   "sections": {
     "section": {
       "type": "section",
@@ -15,7 +16,6 @@
           "type": "group",
           "name": "Header",
           "settings": {
-            "open_in_new_tab": false,
             "content_direction": "column",
             "vertical_on_mobile": true,
             "horizontal_alignment": "flex-start",
@@ -43,6 +43,9 @@
             "overlay_color": "#00000026",
             "overlay_style": "solid",
             "gradient_direction": "to top",
+            "link": "",
+            "open_in_new_tab": false,
+            "placeholder": "",
             "padding-block-start": 0,
             "padding-block-end": 24,
             "padding-inline-start": 0,
@@ -53,7 +56,7 @@
               "type": "text",
               "name": "Heading",
               "settings": {
-                "text": "<h1>{{ closest.page.title }}</h1>",
+                "text": "<p>CONTACT</p>",
                 "width": "fit-content",
                 "max_width": "normal",
                 "alignment": "center",
@@ -78,7 +81,7 @@
             "text_76qxEV": {
               "type": "text",
               "settings": {
-                "text": "{{ closest.page.content }}",
+                "text": "<p>FOR QUESTIONS ABOUT ORDERS, SHIPPING, OR THE WORK ITSELF.</p>",
                 "width": "fit-content",
                 "max_width": "narrow",
                 "alignment": "left",
@@ -125,7 +128,7 @@
               "type": "contact-form-submit-button",
               "static": true,
               "settings": {
-                "label": "Send us a note",
+                "label": "SEND US A NOTE",
                 "style_class": "button",
                 "width": "fit-content",
                 "custom_width": 100,

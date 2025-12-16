@@ -65,6 +65,21 @@ class AccordionCustom extends HTMLElement {
       event.preventDefault();
       return;
     }
+
+    // Exclusive behavior: Close siblings
+    // Check if we are opening (if details.open is currently false, it will become true after this click)
+    // We use parentElement to automatically group adjacent accordions
+    if (!this.details.open) {
+      const parent = this.parentElement;
+      if (parent) {
+        const siblings = parent.querySelectorAll('accordion-custom');
+        for (const sibling of siblings) {
+          if (sibling !== this && sibling instanceof AccordionCustom && sibling.details.open) {
+            sibling.details.open = false;
+          }
+        }
+      }
+    }
   };
 
   /**
