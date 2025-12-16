@@ -128,43 +128,80 @@
 
 {% stylesheet %}
   .contact-form__form {
-    display: flex;
-    flex-direction: column;
-    gap: var(--gap-md);
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+    border-top: 1px solid rgb(0, 0, 0);
+    border-left: 1px solid rgb(0, 0, 0);
   }
 
+  /* Make the row wrapper transparent to the grid */
   .contact-form__form-row {
-    display: flex;
-    flex-direction: column;
-    gap: var(--gap-md);
+    display: contents;
+  }
 
-    @media screen and (min-width: 750px) {
-      flex-direction: row;
-      align-items: center;
+  @media screen and (min-width: 750px) {
+    .contact-form__form {
+      grid-template-columns: 1fr 1fr;
     }
   }
 
+  /* Inputs and Textareas */
   .contact-form__input {
     width: 100%;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    height: 100%;
     color: var(--color-input-text);
     background-color: var(--color-input-background);
     padding: var(--padding-lg) var(--padding-xl);
-    border-radius: var(--style-border-radius-inputs);
-    border: var(--style-border-width-inputs) solid var(--color-input-border);
+    border: none;
+    border-right: 1px solid rgb(0, 0, 0);
+    border-bottom: 1px solid rgb(0, 0, 0);
+    border-radius: 0;
     -webkit-font-smoothing: antialiased;
+    /* Ensure visual consistency */
+    appearance: none;
+    -webkit-appearance: none;
+    margin: 0;
+    box-shadow: none;
+  }
+
+  /* Input Focus States - maintain accessibility but don't double borders */
+  .contact-form__input:focus,
+  .contact-form__input:focus-visible {
+    outline: 2px solid rgb(0, 0, 0);
+    outline-offset: -2px;
+    z-index: 2; /* Bring to front on focus */
   }
 
   .contact-form__input--textarea {
     resize: vertical;
     min-height: var(--input-textarea-min-height);
+    grid-column: 1 / -1; /* Span full width */
+  }
+  
+  /* Ensure phone field also spans full width if it's not inside the row wrapper */
+  #ContactForm-phone {
+    grid-column: 1 / -1;
   }
 
   .contact-form__error,
   .contact-form__success {
-    display: flex;
-    align-items: center;
-    gap: var(--gap-xs);
+    grid-column: 1 / -1;
+    padding: var(--padding-sm); /* Add some padding since gaps are gone */
+    border-right: 1px solid rgb(0, 0, 0);
+    border-bottom: 1px solid rgb(0, 0, 0);
   }
+
+  /* Force the submit button to fit the grid */
+  .contact-form__form .submit-button {
+    grid-column: 1 / -1;
+    width: 100%;
+    margin: 0;
+    border-radius: 0;
+    border: none;
+    border-right: 1px solid rgb(0, 0, 0);
+    border-bottom: 1px solid rgb(0, 0, 0);
+    box-shadow: none;
+  }
+
 {% endstylesheet %}
