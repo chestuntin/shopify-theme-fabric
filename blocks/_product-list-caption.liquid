@@ -1,139 +1,19 @@
 
+{% assign placeholder = 'content.caption' | t %}
+{% assign placeholder = '<p>' | append: placeholder | append: '</p>' %}
 
-{% assign placeholder = 'content.featured_products' | t %}
-{% assign placeholder = '<h3>' | append: placeholder | append: '</h3>' %}
-
-
-<div class="product-list-text-wrapper" style="display: flex; flex-direction: column; align-items: flex-start; width: fit-content;">
-  {% render 'text', fallback_text: placeholder, block: block %}
-
-  {% if block.settings.caption_text != blank %}
-    {% liquid
-       assign caption_font_size = block.settings.caption_font_size | default: '1rem'
-       if block.settings.caption_preset == 'custom'
-         assign caption_style = 'font-size: ' | append: caption_font_size | append: ';'
-         assign caption_style = caption_style | append: 'color: ' | append: block.settings.caption_color | append: ';'
-         assign caption_style = caption_style | append: 'font-family: ' | append: block.settings.caption_font.family | append: ', ' | append: block.settings.caption_font.fallback_families | append: ';'
-         assign caption_style = caption_style | append: 'line-height: ' | append: block.settings.caption_line_height | append: ';'
-         assign caption_style = caption_style | append: 'letter-spacing: ' | append: block.settings.caption_letter_spacing | append: ';'
-         assign caption_style = caption_style | append: 'text-transform: ' | append: block.settings.caption_case | append: ';'
-       endif
-    %}
-    <div class="product-list-caption {{ block.settings.caption_preset | default: 'paragraph' }}" style="margin: 0; padding: 0; text-align: left; {{ caption_style }}">
-      {{ block.settings.caption_text }}
-    </div>
-  {% endif %}
-</div>
+{% render 'text', fallback_text: placeholder, block: block %}
 
 {% schema %}
 {
-  "name": "t:names.collection_title",
+  "name": "Caption",
   "tag": null,
   "settings": [
     {
       "type": "richtext",
       "id": "text",
-      "label": "t:settings.text"
-    },
-    {
-      "type": "header",
-      "content": "Caption"
-    },
-    {
-      "type": "richtext",
-      "id": "caption_text",
-      "label": "Caption text"
-    },
-    {
-      "type": "select",
-      "id": "caption_preset",
-      "label": "Caption preset",
-      "options": [
-        { "value": "paragraph", "label": "Paragraph" },
-        { "value": "h1", "label": "H1" },
-        { "value": "h2", "label": "H2" },
-        { "value": "h3", "label": "H3" },
-        { "value": "h4", "label": "H4" },
-        { "value": "h5", "label": "H5" },
-        { "value": "h6", "label": "H6" },
-        { "value": "custom", "label": "Custom" }
-      ],
-      "default": "paragraph"
-    },
-    {
-      "type": "select",
-      "id": "caption_font",
-      "label": "Caption font",
-      "options": [
-        { "value": "var(--font-body--family)", "label": "Body" },
-        { "value": "var(--font-subheading--family)", "label": "Subheading" },
-        { "value": "var(--font-heading--family)", "label": "Heading" },
-        { "value": "var(--font-accent--family)", "label": "Accent" }
-      ],
-      "default": "var(--font-body--family)",
-      "visible_if": "{{ block.settings.caption_preset == 'custom' }}"
-    },
-    {
-       "type": "select",
-       "id": "caption_font_size",
-       "label": "Caption size",
-       "options": [
-         { "value": "0.75rem", "label": "12px" },
-         { "value": "0.875rem", "label": "14px" },
-         { "value": "1rem", "label": "16px" },
-         { "value": "1.125rem", "label": "18px" },
-         { "value": "1.25rem", "label": "20px" },
-         { "value": "1.5rem", "label": "24px" }
-       ],
-       "default": "1rem",
-       "visible_if": "{{ block.settings.caption_preset == 'custom' }}"
-    },
-    {
-      "type": "select",
-      "id": "caption_color",
-      "label": "Caption color",
-      "options": [
-        { "value": "var(--color-foreground)", "label": "Text" },
-        { "value": "var(--color-foreground-heading)", "label": "Heading" },
-        { "value": "var(--color-primary)", "label": "Link" }
-      ],
-      "default": "var(--color-foreground)",
-      "visible_if": "{{ block.settings.caption_preset == 'custom' }}"
-    },
-    {
-      "type": "select",
-      "id": "caption_line_height",
-      "label": "Caption line height",
-      "options": [
-        { "value": "tight", "label": "Tight" },
-        { "value": "normal", "label": "Normal" },
-        { "value": "loose", "label": "Loose" }
-      ],
-      "default": "normal",
-      "visible_if": "{{ block.settings.caption_preset == 'custom' }}"
-    },
-    {
-      "type": "select",
-      "id": "caption_letter_spacing",
-      "label": "Caption letter spacing",
-      "options": [
-        { "value": "tight", "label": "Tight" },
-        { "value": "normal", "label": "Normal" },
-        { "value": "loose", "label": "Loose" }
-      ],
-      "default": "normal",
-      "visible_if": "{{ block.settings.caption_preset == 'custom' }}"
-    },
-    {
-      "type": "select",
-      "id": "caption_case",
-      "label": "Caption case",
-      "options": [
-        { "value": "none", "label": "None" },
-        { "value": "uppercase", "label": "Uppercase" }
-      ],
-      "default": "none",
-      "visible_if": "{{ block.settings.caption_preset == 'custom' }}"
+      "label": "t:settings.text",
+      "default": "<p>Add a caption text here</p>"
     },
     {
       "type": "header",
@@ -228,7 +108,7 @@
           "label": "t:options.custom"
         }
       ],
-      "default": "rte",
+      "default": "paragraph",
       "info": "t:info.edit_presets_in_theme_settings"
     },
     {
@@ -508,11 +388,8 @@
   ],
   "presets": [
     {
-      "name": "t:names.collection_title",
-      "category": "t:categories.collection",
-      "settings": {
-        "text": "<h3>{{ closest.collection.title }}</h3>"
-      }
+      "name": "Caption",
+      "category": "t:categories.collection"
     }
   ]
 }

@@ -1,0 +1,375 @@
+{% doc %}
+  @prompt
+    Create a holographic glow effect for text with an iridescent, multi-colored shimmer. The effect should include animated rainbow-like colors (purple, blue, cyan, pink, magenta) that create a futuristic holographic appearance with a glowing aura around the text. The glow should be vibrant and eye-catching with smooth color transitions., make only the border hologrpahic. give border options.  also offer smaller font sizes.
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-holographic-text-{{ ai_gen_id }} {
+    display: block;
+    width: 100%;
+    text-align: {{ block.settings.text_alignment }};
+    padding: {{ block.settings.padding_top }}px {{ block.settings.padding_horizontal }}px {{ block.settings.padding_bottom }}px;
+    background-color: {{ block.settings.background_color }};
+  }
+
+  .ai-holographic-text__wrapper-{{ ai_gen_id }} {
+    display: inline-block;
+    position: relative;
+    padding: {{ block.settings.border_width }}px;
+    border-radius: {{ block.settings.border_radius }}px;
+    background: linear-gradient(
+      90deg,
+      #a855f7,
+      #3b82f6,
+      #06b6d4,
+      #ec4899,
+      #d946ef,
+      #a855f7
+    );
+    background-size: 200% 100%;
+    filter: drop-shadow(0 0 {{ block.settings.glow_intensity }}px rgba(168, 85, 247, 0.8))
+            drop-shadow(0 0 {{ block.settings.glow_intensity | times: 1.5 }}px rgba(59, 130, 246, 0.6))
+            drop-shadow(0 0 {{ block.settings.glow_intensity | times: 2 }}px rgba(236, 72, 153, 0.4));
+  }
+
+  {% if block.settings.enable_animation %}
+    .ai-holographic-text__wrapper-{{ ai_gen_id }} {
+      animation: ai-holographic-shimmer-{{ ai_gen_id }} {{ block.settings.animation_speed }}s linear infinite;
+    }
+
+    @keyframes ai-holographic-shimmer-{{ ai_gen_id }} {
+      0% {
+        background-position: 0% 50%;
+      }
+      100% {
+        background-position: 200% 50%;
+      }
+    }
+  {% endif %}
+
+  .ai-holographic-text__inner-{{ ai_gen_id }} {
+    background-color: {{ block.settings.background_color }};
+    border-radius: {{ block.settings.border_radius | minus: 2 }}px;
+    padding: {{ block.settings.text_padding_vertical }}px {{ block.settings.text_padding_horizontal }}px;
+  }
+
+  .ai-holographic-text__content-{{ ai_gen_id }} {
+    font-size: {{ block.settings.font_size }}px;
+    font-weight: {{ block.settings.font_weight }};
+    margin: 0;
+    color: {{ block.settings.text_color }};
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-holographic-text__content-{{ ai_gen_id }} {
+      font-size: {{ block.settings.font_size_mobile }}px;
+    }
+  }
+{% endstyle %}
+
+<holographic-text-{{ ai_gen_id }}
+  class="ai-holographic-text-{{ ai_gen_id }}"
+  {{ block.shopify_attributes }}
+>
+  <div class="ai-holographic-text__wrapper-{{ ai_gen_id }}">
+    <div class="ai-holographic-text__inner-{{ ai_gen_id }}">
+      {% if block.settings.heading_tag == 'h1' %}
+        <h1 class="ai-holographic-text__content-{{ ai_gen_id }}">{{ block.settings.text }}</h1>
+      {% elsif block.settings.heading_tag == 'h2' %}
+        <h2 class="ai-holographic-text__content-{{ ai_gen_id }}">{{ block.settings.text }}</h2>
+      {% elsif block.settings.heading_tag == 'h3' %}
+        <h3 class="ai-holographic-text__content-{{ ai_gen_id }}">{{ block.settings.text }}</h3>
+      {% elsif block.settings.heading_tag == 'h4' %}
+        <h4 class="ai-holographic-text__content-{{ ai_gen_id }}">{{ block.settings.text }}</h4>
+      {% elsif block.settings.heading_tag == 'h5' %}
+        <h5 class="ai-holographic-text__content-{{ ai_gen_id }}">{{ block.settings.text }}</h5>
+      {% elsif block.settings.heading_tag == 'h6' %}
+        <h6 class="ai-holographic-text__content-{{ ai_gen_id }}">{{ block.settings.text }}</h6>
+      {% else %}
+        <p class="ai-holographic-text__content-{{ ai_gen_id }}">{{ block.settings.text }}</p>
+      {% endif %}
+    </div>
+  </div>
+</holographic-text-{{ ai_gen_id }}>
+
+<script>
+  (function() {
+    class HolographicText{{ ai_gen_id }} extends HTMLElement {
+      constructor() {
+        super();
+      }
+
+      connectedCallback() {
+      }
+    }
+
+    customElements.define('holographic-text-{{ ai_gen_id }}', HolographicText{{ ai_gen_id }});
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Holographic text",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Text"
+    },
+    {
+      "type": "text",
+      "id": "text",
+      "label": "Text",
+      "default": "Holographic Glow"
+    },
+    {
+      "type": "select",
+      "id": "heading_tag",
+      "label": "Heading tag",
+      "options": [
+        {
+          "value": "h1",
+          "label": "H1"
+        },
+        {
+          "value": "h2",
+          "label": "H2"
+        },
+        {
+          "value": "h3",
+          "label": "H3"
+        },
+        {
+          "value": "h4",
+          "label": "H4"
+        },
+        {
+          "value": "h5",
+          "label": "H5"
+        },
+        {
+          "value": "h6",
+          "label": "H6"
+        },
+        {
+          "value": "p",
+          "label": "Paragraph"
+        }
+      ],
+      "default": "h2"
+    },
+    {
+      "type": "range",
+      "id": "font_size",
+      "label": "Desktop font size",
+      "min": 12,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "font_size_mobile",
+      "label": "Mobile font size",
+      "min": 12,
+      "max": 120,
+      "step": 2,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "select",
+      "id": "font_weight",
+      "label": "Font weight",
+      "options": [
+        {
+          "value": "400",
+          "label": "Normal"
+        },
+        {
+          "value": "500",
+          "label": "Medium"
+        },
+        {
+          "value": "600",
+          "label": "Semi bold"
+        },
+        {
+          "value": "700",
+          "label": "Bold"
+        },
+        {
+          "value": "800",
+          "label": "Extra bold"
+        },
+        {
+          "value": "900",
+          "label": "Black"
+        }
+      ],
+      "default": "700"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "select",
+      "id": "text_alignment",
+      "label": "Text alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "header",
+      "content": "Holographic border"
+    },
+    {
+      "type": "range",
+      "id": "border_width",
+      "label": "Border width",
+      "min": 1,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 3
+    },
+    {
+      "type": "range",
+      "id": "border_radius",
+      "label": "Border radius",
+      "min": 0,
+      "max": 50,
+      "step": 2,
+      "unit": "px",
+      "default": 8
+    },
+    {
+      "type": "range",
+      "id": "glow_intensity",
+      "label": "Glow intensity",
+      "min": 0,
+      "max": 50,
+      "step": 5,
+      "unit": "px",
+      "default": 15
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_animation",
+      "label": "Enable shimmer animation",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "animation_speed",
+      "label": "Animation speed",
+      "min": 2,
+      "max": 10,
+      "step": 1,
+      "unit": "s",
+      "default": 4
+    },
+    {
+      "type": "header",
+      "content": "Text padding"
+    },
+    {
+      "type": "range",
+      "id": "text_padding_vertical",
+      "label": "Vertical padding",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "text_padding_horizontal",
+      "label": "Horizontal padding",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "header",
+      "content": "Block spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Top padding",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Bottom padding",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_horizontal",
+      "label": "Horizontal padding",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "header",
+      "content": "Background"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "desktop_width_percent",
+      "label": "Desktop width",
+      "min": 50,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 100
+    }
+  ],
+  "presets": [
+    {
+      "name": "Holographic text"
+    }
+  ],
+  "tag": null
+}
+{% endschema %}
