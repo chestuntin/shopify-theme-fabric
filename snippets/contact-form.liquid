@@ -24,7 +24,7 @@
 
   {%- form 'contact', id: form_id, class: 'contact-form__form' -%}
     {%- if settings.heading != blank or settings.text != blank -%}
-      <div class="contact-form__header">
+      <div class="contact-form__header {{ settings.header_alignment }}">
         {%- if settings.heading != blank -%}
           <h2 class="contact-form__heading {{ settings.heading_type_preset }}">{{ settings.heading }}</h2>
         {%- endif -%}

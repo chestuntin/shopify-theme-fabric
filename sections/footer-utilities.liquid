@@ -2,7 +2,7 @@
 {% liquid
   # Override color scheme for what-we-make-v2 page
   assign footer_color_scheme = section.settings.color_scheme
-  if page.handle == 'what-we-make-v2' or template.name == 'product'
+  if page.handle == 'what-we-make-v2' or template.name == 'product' or page.handle == 'contact'
     assign footer_color_scheme = 'scheme-1'
   endif
 %}

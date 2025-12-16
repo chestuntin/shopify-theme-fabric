@@ -1,0 +1,36 @@
+/* Restricted 100vh layout for Contact Page */
+.page-contact-layout {
+    height: 100vh;
+    height: 100dvh;
+    /* Mobile viewport support */
+    overflow: hidden;
+    /* Prevent body scroll */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Ensure the header stays at the top and doesn't shrink */
+.page-contact-layout #header-group {
+    flex-shrink: 0;
+}
+
+/* Main content takes available space and scrolls internally */
+.page-contact-layout #MainContent {
+    flex: 1;
+    overflow-y: auto;
+    min-height: 0;
+    /* Important for flex child scrolling */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Ensure the section inside main stretches if needed, or use block behavior */
+.page-contact-layout #MainContent>.section {
+    flex: 1;
+    /* Optional: depending on if we want the section to stretch */
+}
+
+/* Footer stays at the bottom and doesn't shrink */
+.page-contact-layout .footer-utilities {
+    flex-shrink: 0;
+}

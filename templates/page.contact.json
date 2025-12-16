@@ -15,6 +15,11 @@
         "contact_form_jWxXkm": {
           "type": "contact-form",
           "settings": {
+            "heading": "CONTACT",
+            "heading_type_preset": "h2",
+            "text": "<p>FOR QUESTIONS ABOUT ORDERS, SHIPPING, OR THE WORK ITSELF.</p>",
+            "text_type_preset": "paragraph",
+            "header_alignment": "text-center",
             "width": "custom",
             "custom_width": 60,
             "width_mobile": "custom",
@@ -24,9 +29,7 @@
             "padding-block-start": 0,
             "padding-block-end": 0,
             "padding-inline-start": 0,
-            "padding-inline-end": 0,
-            "heading": "CONTACT",
-            "text": "<p>FOR QUESTIONS ABOUT ORDERS, SHIPPING, OR THE WORK ITSELF.<\/p>"
+            "padding-inline-end": 0
           },
           "blocks": {
             "submit-button": {
