@@ -753,6 +753,7 @@
     "border_opacity": "Border opacity",
     "border_radius": "Corner radius",
     "border_style": "Border style",
+    "border_color": "Border color",
     "border_thickness": "Border thickness",
     "border_width": "Border thickness",
     "borders": "Borders",
@@ -761,7 +762,6 @@
     "bottom_padding": "Bottom padding",
     "button": "Button",
     "button_text_case": "Text case",
-
     "card_hover_effect": "Card hover effect",
     "card_image_height": "Product image height",
     "card_size": "Card size",

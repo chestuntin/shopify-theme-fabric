@@ -185,6 +185,39 @@
   product-recommendations:has([data-has-recommendations='false']) {
     display: none;
   }
+
+  /* Collapse borders for grid items where gap is 0 */
+  .product-recommendations .resource-list__item .card-gallery {
+    /* Ensure borders collapse by pulling adjacent items over 1px */
+    margin-right: -1px; 
+    margin-bottom: -1px;
+    /* Optional: Ensure z-index handling if needed for overlap, but default stacking usually works */
+  }
+
+  /* Disable global card hover effects for this section */
+  /* The class is on the body, so we must target it as an ancestor */
+  
+  /* Disable Scale */
+  .card-hover-effect-scale .product-recommendations .product-card:hover {
+    transform: none !important;
+  }
+  
+  /* Disable Lift */
+  .card-hover-effect-lift .product-recommendations .product-card:hover {
+    transform: none !important;
+  }
+  
+  /* Disable Subtle Zoom */
+  .card-hover-effect-subtle-zoom .product-recommendations .product-card:hover .card-gallery,
+  .card-hover-effect-subtle-zoom .product-recommendations .product-card:hover .product-card__image,
+  .card-hover-effect-subtle-zoom .product-recommendations .product-card:hover .collection-card__image {
+     transform: none !important;
+  }
+  
+  /* Restore smoothed opacity transition for secondary image */
+  .product-recommendations .product-card .product-media-container img {
+    transition: opacity var(--duration-default, 0.3s) ease-in-out !important;
+  }
 {% endstylesheet %}
 
 {% schema %}
@@ -497,6 +530,7 @@
                 "border": "none",
                 "border_width": 1,
                 "border_opacity": 100,
+                "border_custom_color": "",
                 "border_radius": 0,
                 "padding-block-start": 0,
                 "padding-block-end": 0,
