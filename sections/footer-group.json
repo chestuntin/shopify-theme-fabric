@@ -114,6 +114,17 @@
     "footer_utilities_KiUxYM": {
       "type": "footer-utilities",
       "blocks": {
+        "footer_copyright_gPa7eF": {
+          "type": "footer-copyright",
+          "name": "t:names.copyright",
+          "disabled": true,
+          "settings": {
+            "show_powered_by": true,
+            "font_size": "0.75rem",
+            "case": "none"
+          },
+          "blocks": {}
+        },
         "footer_copyright_CiVbtG": {
           "type": "footer-copyright",
           "settings": {
@@ -134,6 +145,7 @@
         }
       },
       "block_order": [
+        "footer_copyright_gPa7eF",
         "footer_copyright_CiVbtG",
         "footer_policy_list_embjgg"
       ],

@@ -3172,6 +3172,7 @@
             "inherit_color_scheme": true,
             "color_scheme": "",
             "border": "none",
+            "border_custom_color": "",
             "border_width": 1,
             "border_opacity": 100,
             "border_radius": 0,
@@ -3189,6 +3190,7 @@
                 "border": "none",
                 "border_width": 1,
                 "border_opacity": 100,
+                "border_custom_color": "#000000",
                 "border_radius": 0,
                 "padding-block-start": 0,
                 "padding-block-end": 0,
@@ -4487,6 +4489,7 @@
         "button_EdyCYD": {
           "type": "button",
           "name": "t:names.button",
+          "disabled": true,
           "settings": {
             "label": "OUR STORY →",
             "link": "shopify://collections/all",
@@ -4502,6 +4505,7 @@
         "button_mXWRMD": {
           "type": "button",
           "name": "t:names.button",
+          "disabled": true,
           "settings": {
             "label": "WRITE TO US →",
             "link": "shopify://collections/all",
