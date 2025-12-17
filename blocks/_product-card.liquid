@@ -1,4 +1,45 @@
+{%- if template.name == 'collection' and block.settings.border == 'solid' -%}
+  {%- liquid
+    assign border_color = block.settings.border_custom_color
+    if border_color == blank
+      assign border_color = "rgb(var(--color-border-rgb) / " | append: block.settings.border_opacity | append: "%)"
+    endif
+    assign border_width = block.settings.border_width
+  -%}
+  <style>
+    /* Collapsed Border Strategy: Container owns outer, cards own inner dividers */
+    .product-grid--{{ section.id }} {
+      /* Zero gap - borders will touch */
+      --product-grid-gap-mobile: 0 0;
+      --product-grid-gap-desktop: 0 0;
+      
+      /* Container owns TOP and LEFT outer borders */
+      border-top: {{ border_width }}px solid {{ border_color }};
+      border-left: {{ border_width }}px solid {{ border_color }};
+      border-right: none;
+      border-bottom: none;
+      padding: 0;
+    }
+    
+    .product-grid--{{ section.id }} .product-grid__item {
+      /* Each item owns its RIGHT and BOTTOM borders only */
+      border: none !important;
+      border-right: {{ border_width }}px solid {{ border_color }} !important;
+      border-bottom: {{ border_width }}px solid {{ border_color }} !important;
+      border-radius: 0 !important;
+      box-shadow: none !important;
+      margin: 0 !important;
+    }
 
+    /* Remove all borders from inner elements */
+    .product-grid--{{ section.id }} .product-card,
+    .product-grid--{{ section.id }} .product-card__content,
+    .product-grid--{{ section.id }} .product-card__content > * {
+      border: none !important;
+      border-radius: 0 !important;
+    }
+  </style>
+{%- endif -%}
 
 {% liquid
   assign product = closest.product
@@ -96,6 +137,12 @@
         }
       ],
       "default": "none"
+    },
+    {
+      "type": "color",
+      "id": "border_custom_color",
+      "label": "t:settings.custom_color",
+      "visible_if": "{{ block.settings.border != 'none' }}"
     },
     {
       "type": "range",

@@ -32,6 +32,10 @@
 >
   {% render 'skip-to-content-link', href: '#ResultsList', text: 'accessibility.skip_to_results_list' %}
 
+  {%- liquid
+    assign product_card_block = section.blocks | where: "type", "_product-card" | first
+  -%}
+
   <div
     class="collection-wrapper grid gap-style"
   >
@@ -147,6 +151,7 @@
       margin-inline-start: calc(-1 * max(var(--padding-xs), var(--padding-inline-start)));
       margin-inline-end: calc(-1 * max(var(--padding-xs), var(--padding-inline-end)));
     }
+  }
   }
 {% endstylesheet %}
 
@@ -307,6 +312,7 @@
       "label": "t:settings.color_scheme",
       "default": "scheme-1"
     },
+
     {
       "type": "range",
       "id": "padding-block-start",

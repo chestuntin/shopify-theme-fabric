@@ -789,6 +789,8 @@
     // Layout container block name for grouping other blocks
     "content": "Content",
     "content_alignment": "Content alignment",
+    "custom_color": "Custom color",
+    "style": "Style",
     "content_direction": "Content direction",
     "content_position": "Content position",
     "content_width": "Content width",
