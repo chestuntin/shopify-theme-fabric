@@ -149,15 +149,15 @@
         "footer_copyright_CiVbtG",
         "footer_policy_list_embjgg"
       ],
-      "name": "Policies and links-home-page",
+      "name": "policies-and-links-404-page",
       "settings": {
         "section_width": "page-width",
         "gap": 6,
         "divider_thickness": 0,
         "mobile_horizontal_layout": true,
-        "color_scheme": "scheme-5",
-        "padding-block-start": 0,
-        "padding-block-end": 12
+        "color_scheme": "scheme-1",
+        "padding-block-start": 30,
+        "padding-block-end": 30
       }
     },
     "footer": {

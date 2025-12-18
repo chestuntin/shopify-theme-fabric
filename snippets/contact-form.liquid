@@ -214,6 +214,13 @@
     min-height: var(--input-textarea-min-height);
     grid-column: 1 / -1; /* Span full width */
   }
+
+  /* Reduce textarea height on mobile to keep submit button in viewport */
+  @media screen and (max-width: 749px) {
+    .contact-form__input--textarea {
+      max-height: 150px;
+    }
+  }
   
   /* Ensure phone field also spans full width if it's not inside the row wrapper */
   #ContactForm-phone {

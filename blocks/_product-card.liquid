@@ -1,4 +1,5 @@
-{%- if template.name == 'collection' and block.settings.border == 'solid' -%}
+{%- if template.name == 'collection' or template.name == 'search' -%}
+{%- if block.settings.border == 'solid' -%}
   {%- liquid
     assign border_color = block.settings.border_custom_color
     if border_color == blank
@@ -39,6 +40,7 @@
       border-radius: 0 !important;
     }
   </style>
+{%- endif -%}
 {%- endif -%}
 
 {% liquid
