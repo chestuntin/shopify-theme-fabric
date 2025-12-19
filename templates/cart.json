@@ -6,7 +6,8 @@
  * or related systems. Please exercise caution as any changes
  * made to this file may be overwritten.
  * ------------------------------------------------------------
- */{
+ */
+{
   "sections": {
     "cart-section": {
       "type": "main-cart",
@@ -15,7 +16,7 @@
           "type": "_cart-title",
           "static": true,
           "settings": {
-            "title": "Cart",
+            "title": "CART",
             "show_count": true,
             "type_preset": "",
             "alignment": "left",
@@ -103,7 +104,7 @@
               "type": "text",
               "name": "t:names.heading",
               "settings": {
-                "text": "<h3>You may also like</h3>",
+                "text": "<h3>YOU MAY ALSO LIKE</h3>",
                 "width": "fit-content",
                 "max_width": "normal",
                 "alignment": "left",
@@ -138,7 +139,8 @@
             "product_card_gap": 8,
             "inherit_color_scheme": true,
             "color_scheme": "",
-            "border": "none",
+            "border": "solid",
+            "border_custom_color": "#1a1a1a",
             "border_width": 1,
             "border_opacity": 100,
             "border_radius": 0,
@@ -156,6 +158,7 @@
                 "border": "none",
                 "border_width": 1,
                 "border_opacity": 100,
+                "border_custom_color": "#000000",
                 "border_radius": 0,
                 "padding-block-start": 0,
                 "padding-block-end": 0,
@@ -168,7 +171,6 @@
               "type": "_product-card-group",
               "name": "t:names.group",
               "settings": {
-                "open_in_new_tab": false,
                 "content_direction": "column",
                 "vertical_on_mobile": true,
                 "horizontal_alignment": "flex-start",
@@ -196,6 +198,8 @@
                 "overlay_color": "#00000026",
                 "overlay_style": "solid",
                 "gradient_direction": "to top",
+                "link": "",
+                "open_in_new_tab": false,
                 "padding-block-start": 0,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
@@ -207,8 +211,8 @@
                   "name": "t:names.product_title",
                   "settings": {
                     "width": "100%",
-                    "max_width": "normal",
-                    "alignment": "left",
+                    "max_width": "none",
+                    "alignment": "center",
                     "type_preset": "h5",
                     "font": "var(--font-body--family)",
                     "font_size": "",
@@ -236,7 +240,7 @@
                     "show_tax_info": false,
                     "type_preset": "",
                     "width": "100%",
-                    "alignment": "left",
+                    "alignment": "center",
                     "font": "var(--font-body--family)",
                     "font_size": "1rem",
                     "line_height": "normal",
@@ -284,6 +288,7 @@
         "layout_type": "grid",
         "carousel_on_mobile": false,
         "max_products": 4,
+        "mobile_max_products": 4,
         "columns": 4,
         "mobile_columns": "2",
         "mobile_card_size": "60cqw",

@@ -1,4 +1,4 @@
-{%- if template.name == 'collection' or template.name == 'search' -%}
+{%- if template.name == 'collection' or template.name == 'search' or template.name == 'cart' -%}
 {%- if block.settings.border == 'solid' -%}
   {%- liquid
     assign border_color = block.settings.border_custom_color
@@ -9,6 +9,7 @@
   -%}
   <style>
     /* Collapsed Border Strategy: Container owns outer, cards own inner dividers */
+    /* For product-grid (collection/search pages) */
     .product-grid--{{ section.id }} {
       /* Zero gap - borders will touch */
       --product-grid-gap-mobile: 0 0;
@@ -32,15 +33,66 @@
       margin: 0 !important;
     }
 
+    /* For resource-list (cart/product-list sections) */
+    .ui-test-product-list .resource-list--grid {
+      /* Override gap CSS variables to zero */
+      --resource-list-column-gap-desktop: 0px !important;
+      --resource-list-row-gap-desktop: 0px !important;
+      --resource-list-column-gap: 0px !important;
+      gap: 0 !important;
+      
+      /* Container owns TOP and LEFT outer borders */
+      border-top: {{ border_width }}px solid {{ border_color }};
+      border-left: {{ border_width }}px solid {{ border_color }};
+      border-right: none;
+      border-bottom: none;
+    }
+    
+    .ui-test-product-list .resource-list--grid .resource-list__item {
+      /* Each item owns its RIGHT and BOTTOM borders only */
+      border: none !important;
+      border-right: {{ border_width }}px solid {{ border_color }} !important;
+      border-bottom: {{ border_width }}px solid {{ border_color }} !important;
+      border-radius: 0 !important;
+      box-shadow: none !important;
+      margin: 0 !important;
+    }
+
     /* Remove all borders from inner elements */
     .product-grid--{{ section.id }} .product-card,
     .product-grid--{{ section.id }} .product-card__content,
-    .product-grid--{{ section.id }} .product-card__content > * {
+    .product-grid--{{ section.id }} .product-card__content > *,
+    .ui-test-product-list .product-card,
+    .ui-test-product-list .product-card__content,
+    .ui-test-product-list .product-card__content > * {
       border: none !important;
       border-radius: 0 !important;
     }
+
+    /* Add bottom border to card gallery to separate image from title */
+    .product-grid--{{ section.id }} .card-gallery,
+    .ui-test-product-list .card-gallery {
+      border-bottom: {{ border_width }}px solid {{ border_color }} !important;
+    }
+
+    /* Disable hover scale/lift animation for cart page product cards */
+    .ui-test-product-list .product-card:hover {
+      transform: none !important;
+    }
   </style>
 {%- endif -%}
+{%- endif -%}
+
+{%- comment -%} Disable hover animation for cart page product cards - outside of border condition {%- endcomment -%}
+{%- if template.name == 'cart' -%}
+<style>
+  /* Disable hover scale/lift animation for cart page product cards */
+  .ui-test-product-list .product-card:hover,
+  .ui-test-product-list .product-card:hover .card-gallery {
+    transform: none !important;
+    scale: none !important;
+  }
+</style>
 {%- endif -%}
 
 {% liquid

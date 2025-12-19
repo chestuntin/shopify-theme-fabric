@@ -139,7 +139,7 @@
     "account_orders": "Orders",
     "account_profile": "Profile",
     "blog_details_separator": "|",
-    "cart_estimated_total": "Estimated total",
+    "cart_estimated_total": "ESTIMATED TOTAL",
     "cart_title": "Cart",
     "cart_subtotal": "Subtotal",
     "cart_total": "Cart total",
@@ -237,7 +237,7 @@
     "taxes_at_checkout_shipping_at_checkout_with_policy_html": "Taxes, discounts and <a href=\"{{ link }}\">shipping</a> calculated at checkout.",
     "taxes_at_checkout_shipping_at_checkout_with_policy_without_discounts_html": "Taxes and <a href=\"{{ link }}\">shipping</a> calculated at checkout.",
     "taxes_at_checkout_shipping_at_checkout_without_policy": "Taxes, discounts and shipping calculated at checkout.",
-    "taxes_at_checkout_shipping_at_checkout_without_policy_without_discounts": "Taxes and shipping calculated at checkout.",
+    "taxes_at_checkout_shipping_at_checkout_without_policy_without_discounts": "TAXES AND SHIPPING CALCULATED AT CHECKOUT.",
     "taxes_included": "Taxes included.",
     "taxes_included_shipping_at_checkout_with_policy_html": "Taxes included. Discounts and <a href=\"{{ link }}\">shipping</a> calculated at checkout.",
     "taxes_included_shipping_at_checkout_with_policy_without_discounts_html": "Taxes included. Shipping is calculated at checkout.",
@@ -306,6 +306,13 @@
       "quantity_minimum": "Minimum of {{ minimum }}",
       "quantity_maximum": "Maximum of {{ maximum }}",
       "in_cart": "in cart"
+    }
+  },
+  "shopify": {
+    "checkout": {
+      "general": {
+        "cart": "CART"
+      }
     }
   }
 }

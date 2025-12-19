@@ -50,7 +50,7 @@
             "custom_width_mobile": 100,
             "height": "fit",
             "details_position": "flex-start",
-            "gap": 40,
+            "gap": 20,
             "sticky_details_desktop": true,
             "inherit_color_scheme": true,
             "color_scheme": "",
@@ -181,7 +181,7 @@
                         "show_installments": false,
                         "show_tax_info": false,
                         "type_preset": "custom",
-                        "width": "fit-content",
+                        "width": "100%",
                         "alignment": "left",
                         "font": "var(--font-subheading--family)",
                         "font_size": "1.25rem",
@@ -189,7 +189,7 @@
                         "letter_spacing": "loose",
                         "case": "uppercase",
                         "color": "var(--color-foreground-heading)",
-                        "padding-block-start": 0,
+                        "padding-block-start": 6,
                         "padding-block-end": 0,
                         "padding-inline-start": 0,
                         "padding-inline-end": 0
@@ -221,6 +221,32 @@
                 "group_b7xNnM"
               ]
             },
+            "text_b6hdWK": {
+              "type": "text",
+              "name": "t:names.text",
+              "settings": {
+                "text": "<p>Gallery-style art print, produced in limited runs.<br/>Designed to elevate modern spaces.</p>",
+                "width": "fit-content",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
             "variant_picker_3Nha6V": {
               "type": "variant-picker",
               "name": "t:names.product_variant_picker",
@@ -228,7 +254,7 @@
                 "variant_style": "buttons",
                 "show_swatches": true,
                 "alignment": "left",
-                "padding-block-start": 16,
+                "padding-block-start": 0,
                 "padding-block-end": 16,
                 "padding-inline-start": 0,
                 "padding-inline-end": 0
@@ -667,6 +693,7 @@
           },
           "block_order": [
             "group_8fkkWP",
+            "text_b6hdWK",
             "variant_picker_3Nha6V",
             "buy_buttons_NmYpFG",
             "accordion_iWQwkW"
@@ -1359,6 +1386,7 @@
             "inherit_color_scheme": true,
             "color_scheme": "",
             "border": "none",
+            "border_custom_color": "",
             "border_width": 1,
             "border_opacity": 100,
             "border_radius": 0,
