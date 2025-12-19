@@ -58,6 +58,7 @@
     "product_title_case": "default",
     "cart_price_font": "body",
     "auto_open_cart_drawer": true,
+    "empty_cart_button_link": "/collections",
     "drawer_color_scheme": "scheme-5",
     "drawer_drop_shadow": true,
     "icon_stroke": "thin",
