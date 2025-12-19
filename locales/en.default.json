@@ -65,7 +65,7 @@
     "open": "Open",
     "continue_shopping": "Continue shopping",
     "enter_password": "Enter password",
-    "log_in_html": "Have an account? <a href=\"{{ link }}\">Log in</a> to check out faster.",
+    "log_in_html": "HAVE AN ACCOUNT? <a href=\"{{ link }}\">LOG IN</a> TO CHECK OUT FASTER.",
     "log_in": "Sign in",
     "log_out": "Log out",
     "open_image_in_full_screen": "Open image in full screen",

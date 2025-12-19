@@ -107,6 +107,32 @@
                 "padding-inline-end": 0
               },
               "blocks": {
+                "text_Rrh7pW": {
+                  "type": "text",
+                  "name": "Eyebrow",
+                  "settings": {
+                    "text": "<p>{{ closest.product.metafields.custom.series_name.value }} {{ closest.product.metafields.custom.series_number.value }}</p>",
+                    "width": "fit-content",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                },
                 "text_7VVz8U": {
                   "type": "text",
                   "name": "t:names.title",
@@ -189,7 +215,7 @@
                         "letter_spacing": "loose",
                         "case": "uppercase",
                         "color": "var(--color-foreground-heading)",
-                        "padding-block-start": 6,
+                        "padding-block-start": 4,
                         "padding-block-end": 0,
                         "padding-inline-start": 0,
                         "padding-inline-end": 0
@@ -217,6 +243,7 @@
                 }
               },
               "block_order": [
+                "text_Rrh7pW",
                 "text_7VVz8U",
                 "group_b7xNnM"
               ]
