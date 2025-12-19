@@ -252,9 +252,9 @@
               "type": "text",
               "name": "t:names.text",
               "settings": {
-                "text": "<p>Gallery-style art print, produced in limited runs.<br/>Designed to elevate modern spaces.</p>",
-                "width": "fit-content",
-                "max_width": "normal",
+                "text": "<p>Gallery-style art print, produced in limited runs. Designed to elevate modern spaces.</p>",
+                "width": "100%",
+                "max_width": "none",
                 "alignment": "left",
                 "type_preset": "rte",
                 "font": "var(--font-body--family)",
