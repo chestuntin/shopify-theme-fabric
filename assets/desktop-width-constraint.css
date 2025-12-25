@@ -10,8 +10,9 @@
  */
 
 :root {
-    --desktop-max-width: 1000px;
+    --desktop-max-width: 800px;
     --desktop-breakpoint: 1024px;
+    --desktop-vertical-padding: 40px;
 }
 
 @media (min-width: 1024px) {
@@ -19,5 +20,7 @@
         max-width: var(--desktop-max-width);
         margin-left: auto;
         margin-right: auto;
+        padding-top: var(--desktop-vertical-padding);
+        padding-bottom: var(--desktop-vertical-padding);
     }
 }
