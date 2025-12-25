@@ -1,0 +1,23 @@
+/**
+ * Desktop Width Constraint
+ * 
+ * Limits the entire site to a maximum width on desktop displays.
+ * This ensures consistent visual experience across all screen sizes,
+ * from MacBook Pro to ultra-wide monitors.
+ * 
+ * To adjust the max-width, change the --desktop-max-width variable.
+ * To disable, simply remove this stylesheet from stylesheets.liquid.
+ */
+
+:root {
+    --desktop-max-width: 1000px;
+    --desktop-breakpoint: 1024px;
+}
+
+@media (min-width: 1024px) {
+    body {
+        max-width: var(--desktop-max-width);
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
