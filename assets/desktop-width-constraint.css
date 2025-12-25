@@ -13,6 +13,8 @@
     --desktop-max-width: 800px;
     --desktop-breakpoint: 1024px;
     --desktop-vertical-padding: 40px;
+    --desktop-border-width: 2px;
+    --desktop-border-color: black;
 }
 
 @media (min-width: 1024px) {
@@ -20,7 +22,8 @@
         max-width: var(--desktop-max-width);
         margin-left: auto;
         margin-right: auto;
-        padding-top: var(--desktop-vertical-padding);
-        padding-bottom: var(--desktop-vertical-padding);
+        margin-top: var(--desktop-vertical-padding);
+        margin-bottom: var(--desktop-vertical-padding);
+        border: var(--desktop-border-width) solid var(--desktop-border-color);
     }
 }
