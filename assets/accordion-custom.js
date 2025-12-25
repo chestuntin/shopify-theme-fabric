@@ -1,5 +1,11 @@
 import { mediaQueryLarge, isMobileBreakpoint } from '@theme/utilities';
 
+/**
+ * Check if the browser supports interpolate-size CSS property.
+ * Safari/iOS doesn't support this, so we need a JS fallback for height animations.
+ */
+const supportsInterpolateSize = CSS.supports('interpolate-size', 'allow-keywords');
+
 // Accordion
 class AccordionCustom extends HTMLElement {
   /** @type {HTMLDetailsElement} */
@@ -20,6 +26,11 @@ class AccordionCustom extends HTMLElement {
     return summary;
   }
 
+  /** @type {HTMLElement | null} */
+  get content() {
+    return this.details.querySelector('.details-content');
+  }
+
   get #disableOnMobile() {
     return this.dataset.disableOnMobile === 'true';
   }
@@ -33,6 +44,8 @@ class AccordionCustom extends HTMLElement {
   }
 
   #controller = new AbortController();
+  /** @type {Animation | null} */
+  #animation = null;
 
   connectedCallback() {
     const { signal } = this.#controller;
@@ -50,6 +63,10 @@ class AccordionCustom extends HTMLElement {
   disconnectedCallback() {
     // Disconnect all the event listeners
     this.#controller.abort();
+    if (this.#animation) {
+      this.#animation.cancel();
+      this.#animation = null;
+    }
   }
 
   /**
@@ -66,21 +83,129 @@ class AccordionCustom extends HTMLElement {
       return;
     }
 
-    // Exclusive behavior: Close siblings
-    // Check if we are opening (if details.open is currently false, it will become true after this click)
-    // We use parentElement to automatically group adjacent accordions
-    if (!this.details.open) {
-      const parent = this.parentElement;
-      if (parent) {
-        const siblings = parent.querySelectorAll('accordion-custom');
-        for (const sibling of siblings) {
-          if (sibling !== this && sibling instanceof AccordionCustom && sibling.details.open) {
+    // For browsers that support interpolate-size (Chrome), use native behavior
+    if (supportsInterpolateSize) {
+      // Exclusive behavior: Close siblings
+      if (!this.details.open) {
+        this.#closeSiblings();
+      }
+      return;
+    }
+
+    // For Safari/iOS: intercept and animate manually
+    event.preventDefault();
+
+    if (this.details.open) {
+      this.#animateClose();
+    } else {
+      this.#closeSiblings();
+      this.#animateOpen();
+    }
+  };
+
+  /**
+   * Close sibling accordions (exclusive behavior)
+   */
+  #closeSiblings() {
+    const parent = this.parentElement;
+    if (parent) {
+      const siblings = parent.querySelectorAll('accordion-custom');
+      for (const sibling of siblings) {
+        if (sibling !== this && sibling instanceof AccordionCustom && sibling.details.open) {
+          if (supportsInterpolateSize) {
             sibling.details.open = false;
+          } else {
+            sibling.#animateClose();
           }
         }
       }
     }
-  };
+  }
+
+  /**
+   * Animate accordion opening (Safari/iOS fallback)
+   */
+  #animateOpen() {
+    const content = this.content;
+    if (!content) return;
+
+    // Cancel any running animation
+    if (this.#animation) {
+      this.#animation.cancel();
+    }
+
+    // First, set the details to open so content is rendered
+    this.details.open = true;
+
+    // Get the target height
+    const endHeight = content.scrollHeight;
+
+    // Start animation from 0
+    this.#animation = content.animate(
+      [
+        { maxHeight: '0px', opacity: 0 },
+        { maxHeight: `${endHeight}px`, opacity: 1 },
+      ],
+      {
+        duration: 200,
+        easing: 'ease-out',
+        fill: 'forwards',
+      }
+    );
+
+    this.#animation.onfinish = () => {
+      // Set final CSS values
+      content.style.maxHeight = '';
+      content.style.opacity = '';
+      this.#animation = null;
+    };
+
+    this.#animation.oncancel = () => {
+      this.#animation = null;
+    };
+  }
+
+  /**
+   * Animate accordion closing (Safari/iOS fallback)
+   */
+  #animateClose() {
+    const content = this.content;
+    if (!content) return;
+
+    // Cancel any running animation
+    if (this.#animation) {
+      this.#animation.cancel();
+    }
+
+    // Get current height
+    const startHeight = content.scrollHeight;
+
+    // Animate to closed
+    this.#animation = content.animate(
+      [
+        { maxHeight: `${startHeight}px`, opacity: 1 },
+        { maxHeight: '0px', opacity: 0 },
+      ],
+      {
+        duration: 200,
+        easing: 'ease-out',
+        fill: 'forwards',
+      }
+    );
+
+    this.#animation.onfinish = () => {
+      // Now actually close the details
+      this.details.open = false;
+      // Reset styles
+      content.style.maxHeight = '';
+      content.style.opacity = '';
+      this.#animation = null;
+    };
+
+    this.#animation.oncancel = () => {
+      this.#animation = null;
+    };
+  }
 
   /**
    * Handles the media query change event.
@@ -110,7 +235,11 @@ class AccordionCustom extends HTMLElement {
     if (event.key === 'Escape' && this.#closeWithEscape) {
       event.preventDefault();
 
-      this.details.open = false;
+      if (supportsInterpolateSize) {
+        this.details.open = false;
+      } else {
+        this.#animateClose();
+      }
       this.summary.focus();
     }
   }

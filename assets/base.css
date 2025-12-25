@@ -4085,42 +4085,77 @@ slideshow-arrows .slideshow-control.slideshow-control--style-none {
 
 accordion-custom {
   details {
+    /*
+     * Safari/iOS fallback: JavaScript handles animation via Web Animations API.
+     * CSS just defines the open/closed states.
+     */
 
-    &::details-content,
     .details-content {
-      block-size: 0;
-      overflow-y: clip;
-      opacity: 0;
-      interpolate-size: allow-keywords;
-      transition: content-visibility var(--animation-speed-slow) allow-discrete,
-        padding-block var(--animation-speed-slow) var(--animation-easing),
-        opacity var(--animation-speed-slow) var(--animation-easing),
-        block-size var(--animation-speed-slow) var(--animation-easing);
+      overflow: hidden;
     }
 
-    &:not([open]) {
+    &:not([open]) .details-content {
+      max-height: 0;
+      opacity: 0;
+      padding-block: 0;
+    }
 
-      &::details-content,
-      .details-content {
-        padding-block: 0;
+    &[open] .details-content {
+      max-height: none;
+      opacity: 1;
+
+      &:focus-within {
+        overflow: visible;
       }
     }
 
-    &[open] {
+    /*
+     * For browsers that support interpolate-size (Chrome 129+),
+     * use the more elegant block-size animation approach
+     */
+    @supports (interpolate-size: allow-keywords) {
+      .details-content {
+        max-height: revert;
+        transition: revert;
+      }
 
       &::details-content,
       .details-content {
-        opacity: 1;
-        block-size: auto;
+        block-size: 0;
+        overflow-y: clip;
+        opacity: 0;
+        interpolate-size: allow-keywords;
+        transition: content-visibility var(--animation-speed-slow) allow-discrete,
+          padding-block var(--animation-speed-slow) var(--animation-easing),
+          opacity var(--animation-speed-slow) var(--animation-easing),
+          block-size var(--animation-speed-slow) var(--animation-easing);
+      }
 
-        @starting-style {
-          block-size: 0;
-          opacity: 0;
-          overflow-y: clip;
+      &:not([open]) {
+
+        &::details-content,
+        .details-content {
+          padding-block: 0;
         }
+      }
 
-        &:focus-within {
-          overflow-y: visible;
+      &[open] {
+
+        &::details-content,
+        .details-content {
+          opacity: 1;
+          block-size: auto;
+          max-height: revert;
+
+          @starting-style {
+            block-size: 0;
+            opacity: 0;
+            overflow-y: clip;
+          }
+
+          &:focus-within {
+            overflow-y: visible;
+          }
         }
       }
     }
