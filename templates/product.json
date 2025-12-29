@@ -344,46 +344,6 @@
                 "padding-inline-end": 0
               },
               "blocks": {
-                "accordion_row_izUt9n": {
-                  "type": "_accordion-row",
-                  "name": "t:names.accordion_row",
-                  "settings": {
-                    "heading": "UNFRAMED OR FRAMED",
-                    "open_by_default": true,
-                    "icon": "none",
-                    "width": 20
-                  },
-                  "blocks": {
-                    "text_qjHqCQ": {
-                      "type": "text",
-                      "settings": {
-                        "text": "<h6>Choose how you want this piece to feel in your space.<br/><br/>Unframed prints offer a clean, minimal presentation that works beautifully in flexible or evolving interiors.<br/><br/>Framed prints arrive finished and ready to hang, giving the artwork a more permanent, gallery-like presence.<br/></h6>",
-                        "width": "fit-content",
-                        "max_width": "none",
-                        "alignment": "left",
-                        "type_preset": "custom",
-                        "font": "var(--font-subheading--family)",
-                        "font_size": "0.75rem",
-                        "line_height": "normal",
-                        "letter_spacing": "normal",
-                        "case": "uppercase",
-                        "wrap": "balance",
-                        "color": "var(--color-primary)",
-                        "background": false,
-                        "background_color": "#933a8926",
-                        "corner_radius": 0,
-                        "padding-block-start": 0,
-                        "padding-block-end": 0,
-                        "padding-inline-start": 0,
-                        "padding-inline-end": 0
-                      },
-                      "blocks": {}
-                    }
-                  },
-                  "block_order": [
-                    "text_qjHqCQ"
-                  ]
-                },
                 "accordion_row_KkLkxf": {
                   "type": "_accordion-row",
                   "name": "t:names.accordion_row",
@@ -424,6 +384,46 @@
                     "text_9RfQrP"
                   ]
                 },
+                "accordion_row_izUt9n": {
+                  "type": "_accordion-row",
+                  "name": "t:names.accordion_row",
+                  "settings": {
+                    "heading": "UNFRAMED OR FRAMED",
+                    "open_by_default": true,
+                    "icon": "none",
+                    "width": 20
+                  },
+                  "blocks": {
+                    "text_qjHqCQ": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<h6>Choose how you want this piece to feel in your space.<br/><br/>Unframed prints offer a clean, minimal presentation that works beautifully in flexible or evolving interiors.<br/><br/>Framed prints arrive finished and ready to hang, giving the artwork a more permanent, gallery-like presence.<br/></h6>",
+                        "width": "fit-content",
+                        "max_width": "none",
+                        "alignment": "left",
+                        "type_preset": "custom",
+                        "font": "var(--font-subheading--family)",
+                        "font_size": "0.75rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "uppercase",
+                        "wrap": "balance",
+                        "color": "var(--color-primary)",
+                        "background": false,
+                        "background_color": "#933a8926",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "text_qjHqCQ"
+                  ]
+                },
                 "accordion_row_38prhi": {
                   "type": "_accordion-row",
                   "name": "t:names.accordion_row",
@@ -437,7 +437,7 @@
                     "text_tN87Gm": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>Each piece is printed with rich detail and balanced colour.<br/><br/>Designed to look good up close and from a distance, and to sit comfortably in everyday spaces.</p>",
+                        "text": "<p>Each piece is printed on heavyweight art paper selected for its rigidity, colour stability, and clean surface finish.<br/><br/>The result is a print that sits flat, holds detail well, and feels substantial in hand — far beyond standard poster paper.</p>",
                         "width": "fit-content",
                         "max_width": "none",
                         "alignment": "left",
@@ -477,8 +477,8 @@
                     "text_YW8FqE": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>Framed prints come in a clean, modern white frame.<br/><br/>The frame enhances focus and gives the artwork a finished, intentional look.</p>",
-                        "width": "fit-content",
+                        "text": "<p>Framed prints are presented in a clean, modern white frame with a slim profile.</p><p>Designed to complement the artwork without distraction, the frame comes ready to hang straight out of the box.</p>",
+                        "width": "100%",
                         "max_width": "none",
                         "alignment": "left",
                         "type_preset": "custom",
@@ -487,7 +487,7 @@
                         "line_height": "normal",
                         "letter_spacing": "normal",
                         "case": "uppercase",
-                        "wrap": "balance",
+                        "wrap": "pretty",
                         "color": "var(--color-primary)",
                         "background": false,
                         "background_color": "#00000026",
@@ -517,7 +517,7 @@
                     "text_GpRpJT": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>Ships next business day.<br/>Delivered within 1–2 business days across Sri Lanka.<br/><br/>Carefully packaged to arrive safely.<br/><br/>Posters are delivered flat or rolled depending on size.<br/>Framed prints arrive protected and ready to display.</p>",
+                        "text": "<p>Orders are dispatched the next business day.<br/>Delivered within 2–3 business days across Sri Lanka.<br/><br/>Unframed prints are delivered rolled and protected.<br/>Framed prints are delivered in protective packaging.</p>",
                         "width": "fit-content",
                         "max_width": "none",
                         "alignment": "left",
@@ -582,6 +582,46 @@
                   },
                   "block_order": [
                     "text_Uk6M9M"
+                  ]
+                },
+                "accordion_row_GWypDm": {
+                  "type": "_accordion-row",
+                  "name": "t:names.accordion_row",
+                  "settings": {
+                    "heading": "ARTWORK & LICENSING",
+                    "open_by_default": false,
+                    "icon": "none",
+                    "width": 20
+                  },
+                  "blocks": {
+                    "text_tY8Crh": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>All works sold by KULTJUR® are either original creations or properly licensed designs acquired for commercial use.<br/><br/>Each piece is reproduced with care and respect for the original artist’s intent.<br/><br/>This work is offered as a physical art print only. No digital files or reproduction rights are included.</p>",
+                        "width": "fit-content",
+                        "max_width": "none",
+                        "alignment": "left",
+                        "type_preset": "custom",
+                        "font": "var(--font-subheading--family)",
+                        "font_size": "0.75rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "uppercase",
+                        "wrap": "balance",
+                        "color": "var(--color-primary)",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "text_tY8Crh"
                   ]
                 },
                 "accordion_row_TbgNUF": {
@@ -706,12 +746,13 @@
                 }
               },
               "block_order": [
-                "accordion_row_izUt9n",
                 "accordion_row_KkLkxf",
+                "accordion_row_izUt9n",
                 "accordion_row_38prhi",
                 "accordion_row_g7Kckx",
                 "accordion_row_qjgnBF",
                 "accordion_row_eJgEXX",
+                "accordion_row_GWypDm",
                 "accordion_row_TbgNUF",
                 "accordion_row_XMFatY",
                 "accordion_row_kmdwc8"
