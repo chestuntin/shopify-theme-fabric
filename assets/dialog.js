@@ -53,9 +53,13 @@ export class DialogComponent extends Component {
 
     // Prevent layout thrashing by separating DOM reads from DOM writes
     requestAnimationFrame(() => {
-      document.body.style.width = '100%';
+      // Capture body's current dimensions and position before changing to fixed
+      const bodyRect = document.body.getBoundingClientRect();
+
+      document.body.style.width = `${bodyRect.width}px`;
       document.body.style.position = 'fixed';
       document.body.style.top = `-${scrollY}px`;
+      document.body.style.left = `${bodyRect.left}px`;
 
       dialog.showModal();
       this.dispatchEvent(new DialogOpenEvent());
@@ -85,6 +89,7 @@ export class DialogComponent extends Component {
     document.body.style.width = '';
     document.body.style.position = '';
     document.body.style.top = '';
+    document.body.style.left = '';
     window.scrollTo({ top: this.#previousScrollY, behavior: 'instant' });
 
     dialog.close();
