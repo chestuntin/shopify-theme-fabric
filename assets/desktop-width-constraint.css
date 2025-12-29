@@ -13,7 +13,7 @@
     --desktop-max-width: 1200px;
     --desktop-breakpoint: 1024px;
     --desktop-vertical-padding: 0;
-    --desktop-border-width: 2px;
+    --desktop-border-width: 1px;
     --desktop-border-color: black;
     --desktop-outside-background: #f6f6f6;
 }
