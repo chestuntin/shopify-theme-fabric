@@ -55,7 +55,7 @@
     "button_text_case_primary": "uppercase",
     "secondary_button_border_width": 1,
     "button_border_radius_secondary": 0,
-    "cart_type": "drawer",
+    "cart_type": "page",
     "product_title_case": "default",
     "cart_price_font": "body",
     "auto_open_cart_drawer": true,
