@@ -2225,7 +2225,7 @@
           "name": "t:names.image",
           "disabled": true,
           "settings": {
-            "image": "shopify://shop_images/kultjur-banner-inverted_031aaedf-a5bd-4554-9b5d-e371b988c059.svg",
+            "image": "shopify://shop_images/kultjur-banner-black-kerned_48396421-7d11-4dc5-8ac7-16f437b757b5.svg",
             "link": "",
             "image_ratio": "adapt",
             "width": "custom",
@@ -2358,7 +2358,7 @@
           "type": "image",
           "name": "KULTJUR",
           "settings": {
-            "image": "shopify://shop_images/kultjur-banner-black.svg",
+            "image": "shopify://shop_images/kultjur-banner-black-kerned.svg",
             "link": "",
             "image_ratio": "adapt",
             "width": "custom",
