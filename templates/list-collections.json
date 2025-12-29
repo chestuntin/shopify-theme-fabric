@@ -948,7 +948,6 @@
           ]
         }
       },
-      "disabled": true,
       "name": "t:names.products_carousel",
       "settings": {
         "collection": "flight-series®",
@@ -1369,9 +1368,9 @@
         "collection": "the-kultjur-index®",
         "layout_type": "grid",
         "carousel_on_mobile": false,
-        "max_products": 1,
-        "mobile_max_products": 1,
-        "columns": 1,
+        "max_products": 3,
+        "mobile_max_products": 3,
+        "columns": 3,
         "mobile_columns": "1",
         "mobile_card_size": "60cqw",
         "columns_gap": 8,

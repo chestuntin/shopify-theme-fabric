@@ -34,3 +34,9 @@
 .page-contact-layout .footer-utilities {
     flex-shrink: 0;
 }
+
+/* Remove thicker border on focus for input fields */
+.page-contact-layout .contact-form__input:focus,
+.page-contact-layout .contact-form__input:focus-visible {
+    outline: none;
+}
