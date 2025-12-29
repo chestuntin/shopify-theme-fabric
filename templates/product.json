@@ -363,7 +363,7 @@
                   "name": "t:names.accordion_row",
                   "settings": {
                     "heading": "CHOOSE YOUR SIZE",
-                    "open_by_default": false,
+                    "open_by_default": true,
                     "icon": "none",
                     "width": 20
                   },
@@ -403,7 +403,7 @@
                   "name": "t:names.accordion_row",
                   "settings": {
                     "heading": "UNFRAMED OR FRAMED",
-                    "open_by_default": true,
+                    "open_by_default": false,
                     "icon": "none",
                     "width": 20
                   },
@@ -1152,7 +1152,7 @@
           "type": "image",
           "name": "KULTJUR",
           "settings": {
-            "image": "shopify://shop_images/kultjur-banner-black.svg",
+            "image": "shopify://shop_images/kultjur-banner-black-kerned.svg",
             "link": "",
             "image_ratio": "adapt",
             "width": "custom",
