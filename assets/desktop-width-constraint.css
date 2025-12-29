@@ -47,20 +47,6 @@
    =========================================== */
 
 @media (min-width: 1024px) {
-
-    /* Create gray background layer using pseudo-element - doesn't affect inheritance */
-    html::before {
-        content: '';
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: var(--desktop-outside-background);
-        z-index: -9999;
-        pointer-events: none;
-    }
-
     body {
         max-width: var(--desktop-max-width);
         margin-left: auto;
@@ -69,5 +55,10 @@
         margin-bottom: var(--desktop-vertical-padding);
         border: var(--desktop-border-width) solid var(--desktop-border-color);
         position: relative;
+
+        /* Use box-shadow to create gray outside instead of html::before */
+        /* This prevents the gray from showing through gaps in content */
+        box-shadow: 0 0 0 100vmax var(--desktop-outside-background);
+        clip-path: inset(0 -100vmax);
     }
 }
