@@ -12,18 +12,22 @@
     {% render 'account-drawer' %}
   {% endif %}
 
-  {% if settings.cart_type == 'drawer' and template.name != 'cart' %}
-    {% render 'cart-drawer' %}
-  {% else %}
-    <a
-      href="{{ routes.cart_url }}"
-      class="header-actions__action action__cart"
-      aria-label="{{ 'accessibility.cart' | t }}"
-      aria-describedby="cart-bubble-text"
-    >
-      {% render 'cart-icon-component' %}
-    </a>
+  {%- comment -%} Cart drawer for mobile only (hidden on desktop via CSS) {%- endcomment -%}
+  {% if template.name != 'cart' %}
+    <div class="cart-action--mobile">
+      {% render 'cart-drawer' %}
+    </div>
   {% endif %}
+
+  {%- comment -%} Cart link for desktop only (hidden on mobile via CSS) {%- endcomment -%}
+  <a
+    href="{{ routes.cart_url }}"
+    class="header-actions__action action__cart cart-action--desktop"
+    aria-label="{{ 'accessibility.cart' | t }}"
+    aria-describedby="cart-bubble-text"
+  >
+    {% render 'cart-icon-component' %}
+  </a>
 </header-actions>
 
 {% stylesheet %}

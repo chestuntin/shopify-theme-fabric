@@ -18,6 +18,34 @@
     --desktop-outside-background: #f6f6f6;
 }
 
+/* ===========================================
+   Responsive Cart: drawer on mobile, page on desktop
+   =========================================== */
+
+/* Default (mobile-first): show drawer, hide link */
+.cart-action--desktop {
+    display: none !important;
+}
+
+.cart-action--mobile {
+    display: block;
+}
+
+/* Desktop: show link, hide drawer */
+@media (min-width: 1024px) {
+    .cart-action--desktop {
+        display: flex !important;
+    }
+
+    .cart-action--mobile {
+        display: none !important;
+    }
+}
+
+/* ===========================================
+   Desktop Width Constraint Styles
+   =========================================== */
+
 @media (min-width: 1024px) {
 
     /* Create gray background layer using pseudo-element - doesn't affect inheritance */
