@@ -44,6 +44,7 @@
     {% render 'typography-style', settings: block_settings %}
     {% render 'spacing-style', settings: block_settings %}
     --width: {{ block_settings.width }};
+    {% if block_settings.width == 'fit-content' %}flex: none;{% endif %}
   "
   {{ block.shopify_attributes }}
 >
