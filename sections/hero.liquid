@@ -475,6 +475,10 @@
           {% else %}
             --hero-overlay-right-text-shadow: none;
           {% endif %}
+          {% if section.settings.right_hero_text contains 'THE RIGHT PIECE CHANGES' %}
+             bottom: auto !important;
+             top: var(--hero-overlay-right-offset) !important;
+          {% endif %}
         "
       >
         {{ section.settings.right_hero_text }}
