@@ -4302,3 +4302,14 @@ text-component {
     font-size: max(1rem, 100%);
   }
 }
+
+/* Logo Hover Effect */
+.header-logo:hover .header-logo__image {
+  /* Filter for #ff5400 */
+  filter: invert(39%) sepia(85%) saturate(2725%) hue-rotate(357deg) brightness(101%) contrast(105%) !important;
+}
+
+/* Fallback for text logo if implemented there too */
+.header-logo:hover {
+  color: #ff5400 !important;
+}
