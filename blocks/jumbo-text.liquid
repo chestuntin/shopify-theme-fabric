@@ -1,7 +1,7 @@
 
 
 {% if block.settings.enable_seo_heading %}
-  <h2 class="visually-hidden">{{ block.settings.text | newline_to_br | replace: '<br />', ' ' | strip_html }}</h2>
+  <{{ block.settings.seo_heading_tag | default: 'h2' }} class="visually-hidden">{{ block.settings.text | newline_to_br | replace: '<br />', ' ' | strip_html }}</{{ block.settings.seo_heading_tag | default: 'h2' }}>
 {% endif %}
 
 {% render 'jumbo-text' %}
@@ -16,6 +16,22 @@
       "id": "enable_seo_heading",
       "label": "Enable SEO Heading (Hidden H2)",
       "default": false
+    },
+    {
+      "type": "select",
+      "id": "seo_heading_tag",
+      "label": "SEO Heading Tag",
+      "options": [
+        {
+          "value": "h1",
+          "label": "H1"
+        },
+        {
+          "value": "h2",
+          "label": "H2"
+        }
+      ],
+      "default": "h2"
     },
     {
       "id": "text",

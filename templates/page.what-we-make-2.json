@@ -314,6 +314,7 @@
               "name": "t:names.jumbo_text",
               "settings": {
                 "enable_seo_heading": true,
+                "seo_heading_tag": "h1",
                 "text": "WHAT WE MAKE\n& WHY WE\nMAKE IT",
                 "font": "heading",
                 "alignment": "left",
