@@ -311,6 +311,7 @@
               "type": "jumbo-text",
               "name": "t:names.jumbo_text",
               "settings": {
+                "enable_seo_heading": true,
                 "text": "WHAT WE MAKE\n& WHY WE\nMAKE IT",
                 "font": "heading",
                 "alignment": "left",
@@ -447,6 +448,7 @@
                   "type": "text",
                   "name": "t:names.heading",
                   "settings": {
+                    "enable_seo_heading": true,
                     "text": "<p>WHAT WE MAKE</p>",
                     "width": "fit-content",
                     "max_width": "normal",
@@ -642,6 +644,7 @@
                   "type": "text",
                   "name": "t:names.heading",
                   "settings": {
+                    "enable_seo_heading": true,
                     "text": "<p>WHY WE MAKE IT</p>",
                     "width": "fit-content",
                     "max_width": "normal",

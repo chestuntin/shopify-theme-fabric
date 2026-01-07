@@ -1,5 +1,9 @@
 
 
+{% if block.settings.enable_seo_heading %}
+  <h2 class="visually-hidden">{{ block.settings.text | strip_html }}</h2>
+{% endif %}
+
 {% render 'text', block: block %}
 
 {% schema %}
@@ -7,6 +11,12 @@
   "name": "t:names.text",
   "tag": null,
   "settings": [
+    {
+      "type": "checkbox",
+      "id": "enable_seo_heading",
+      "label": "Enable SEO Heading (Hidden H2)",
+      "default": false
+    },
     {
       "type": "richtext",
       "id": "text",
