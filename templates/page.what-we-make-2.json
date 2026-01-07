@@ -16,6 +16,7 @@
           "type": "text",
           "name": "Title",
           "settings": {
+            "enable_seo_heading": false,
             "text": "<h1>{{ closest.page.title }}</h1>",
             "width": "100%",
             "max_width": "normal",
@@ -158,6 +159,7 @@
               "type": "text",
               "name": "t:names.text",
               "settings": {
+                "enable_seo_heading": false,
                 "text": "<h3>SHOP BY COLLECTION</h3>",
                 "width": "fit-content",
                 "max_width": "normal",
@@ -383,6 +385,7 @@
               "type": "text",
               "name": "t:names.caption",
               "settings": {
+                "enable_seo_heading": false,
                 "text": "<p>INTRODUCTION</p>",
                 "width": "fit-content",
                 "max_width": "normal",
@@ -448,6 +451,7 @@
                   "type": "text",
                   "name": "t:names.heading",
                   "settings": {
+                    "enable_seo_heading": false,
                     "text": "<p>WHAT WE MAKE</p>",
                     "width": "fit-content",
                     "max_width": "normal",
@@ -473,6 +477,7 @@
                 "text_w3gBqR": {
                   "type": "text",
                   "settings": {
+                    "enable_seo_heading": false,
                     "text": "<p>WE CREATE CONTEMPORARY PRINTS DESIGNED TO ELEVATE ANY SPACE. AVAILABLE AS  FINE ART PRINTS OR FRAMED PRINTS IN TWO SIZES.<br/><br/>PRINTED AND FRAMED IN SRI LANKA.</p>",
                     "width": "fit-content",
                     "max_width": "narrow",
@@ -578,6 +583,7 @@
               "type": "text",
               "name": "t:names.caption",
               "settings": {
+                "enable_seo_heading": false,
                 "text": "<p>OUR PURPOSE</p>",
                 "width": "fit-content",
                 "max_width": "normal",
@@ -643,6 +649,7 @@
                   "type": "text",
                   "name": "t:names.heading",
                   "settings": {
+                    "enable_seo_heading": false,
                     "text": "<p>WHY WE MAKE IT</p>",
                     "width": "fit-content",
                     "max_width": "normal",
@@ -668,6 +675,7 @@
                 "text_U6y644": {
                   "type": "text",
                   "settings": {
+                    "enable_seo_heading": false,
                     "text": "<p>BECAUSE GREAT ART SHOULD BE ACCESSIBLE.<br/>A SINGLE PIECE CAN CHANGE THE FEELING OF A ROOM.<br/>GOOD DESIGN BELONGS IN EVERYDAY SPACES.</p>",
                     "width": "fit-content",
                     "max_width": "none",
@@ -773,6 +781,7 @@
               "type": "text",
               "name": "t:names.caption",
               "settings": {
+                "enable_seo_heading": false,
                 "text": "<p>BEGIN HERE</p>",
                 "width": "fit-content",
                 "max_width": "normal",
@@ -838,6 +847,7 @@
                   "type": "text",
                   "name": "t:names.heading",
                   "settings": {
+                    "enable_seo_heading": false,
                     "text": "<p>START WITH THE ART</p>",
                     "width": "fit-content",
                     "max_width": "normal",
@@ -863,6 +873,7 @@
                 "text_ckChLe": {
                   "type": "text",
                   "settings": {
+                    "enable_seo_heading": false,
                     "text": "<p>EVERY ROOM BEGINS WITH A FEELING.<br/>OUR PRINTS ARE DESIGNED TO SET THAT TONE — CALM, BOLD, MINIMAL, EXPRESSIVE.<br/>CHOOSE THE ART THAT SPEAKS TO YOU FIRST.</p><p></p>",
                     "width": "fit-content",
                     "max_width": "none",
@@ -909,6 +920,7 @@
               "type": "text",
               "name": "t:names.caption",
               "settings": {
+                "enable_seo_heading": false,
                 "text": "<p>POSTERS & FRAMED PRINTS — ACCESSIBLY PRICED.</p>",
                 "width": "fit-content",
                 "max_width": "normal",
@@ -994,6 +1006,7 @@
               "type": "text",
               "name": "t:names.caption",
               "settings": {
+                "enable_seo_heading": false,
                 "text": "<p>THE PURE FORM</p>",
                 "width": "fit-content",
                 "max_width": "normal",
@@ -1059,6 +1072,7 @@
                   "type": "text",
                   "name": "t:names.heading",
                   "settings": {
+                    "enable_seo_heading": false,
                     "text": "<p>POSTERS</p>",
                     "width": "fit-content",
                     "max_width": "normal",
@@ -1084,6 +1098,7 @@
                 "text_w7pFNn": {
                   "type": "text",
                   "settings": {
+                    "enable_seo_heading": false,
                     "text": "<p>PRINTED ON PREMIUM MATTE ART PAPER WITH RICH COLOR.<br/>MINIMAL, LIGHTWEIGHT, AND EASY TO PLACE ANYWHERE.<br/>MATERIAL.</p>",
                     "width": "fit-content",
                     "max_width": "none",
@@ -1190,6 +1205,7 @@
               "type": "text",
               "name": "t:names.caption",
               "settings": {
+                "enable_seo_heading": false,
                 "text": "<p>READY TO HANG</p>",
                 "width": "fit-content",
                 "max_width": "normal",
@@ -1255,6 +1271,7 @@
                   "type": "text",
                   "name": "t:names.heading",
                   "settings": {
+                    "enable_seo_heading": false,
                     "text": "<p>FRAMED PRINTS</p>",
                     "width": "fit-content",
                     "max_width": "normal",
@@ -1280,6 +1297,7 @@
                 "text_dcqERF": {
                   "type": "text",
                   "settings": {
+                    "enable_seo_heading": false,
                     "text": "<p>A CLEAN, MODERN WHITE FRAME WITH A FRONT GLASS PLANE.<br/>LIGHTWEIGHT, DURABLE, AND MADE TO LAST.</p>",
                     "width": "fit-content",
                     "max_width": "none",
@@ -1385,6 +1403,7 @@
               "type": "text",
               "name": "t:names.caption",
               "settings": {
+                "enable_seo_heading": false,
                 "text": "<p>CHOOSING A SIZE</p>",
                 "width": "fit-content",
                 "max_width": "normal",
@@ -1450,6 +1469,7 @@
                   "type": "text",
                   "name": "t:names.heading",
                   "settings": {
+                    "enable_seo_heading": false,
                     "text": "<p>A3 OR A2 — WHICH IS RIGHT FOR YOU?</p>",
                     "width": "fit-content",
                     "max_width": "normal",
@@ -1475,6 +1495,7 @@
                 "text_8Dpmr8": {
                   "type": "text",
                   "settings": {
+                    "enable_seo_heading": false,
                     "text": "<p>A3 — COMPACT, PERFECT FOR SMALL ROOMS AND DESKS.<br/>A2 — A STATEMENT SIZE FOR BEDROOMS, LIVING ROOMS, AND OFFICES.</p>",
                     "width": "fit-content",
                     "max_width": "none",
@@ -1579,6 +1600,7 @@
               "type": "text",
               "name": "t:names.caption",
               "settings": {
+                "enable_seo_heading": false,
                 "text": "<p>CRAFT + MATERIALS</p>",
                 "width": "fit-content",
                 "max_width": "normal",
@@ -1644,6 +1666,7 @@
                   "type": "text",
                   "name": "t:names.heading",
                   "settings": {
+                    "enable_seo_heading": false,
                     "text": "<p>QUALITY THAT LASTS</p>",
                     "width": "fit-content",
                     "max_width": "normal",
@@ -1669,6 +1692,7 @@
                 "text_PcrFEX": {
                   "type": "text",
                   "settings": {
+                    "enable_seo_heading": false,
                     "text": "<p>MATTE ART PAPER, FADE-RESISTANT INKS, SHARP DETAIL.<br/>EVERY PRINT IS MADE IN SMALL BATCHES IN SRI LANKA.</p>",
                     "width": "fit-content",
                     "max_width": "none",
@@ -1773,6 +1797,7 @@
               "type": "text",
               "name": "t:names.caption",
               "settings": {
+                "enable_seo_heading": false,
                 "text": "<p>ARRIVES SAFE</p>",
                 "width": "fit-content",
                 "max_width": "normal",
@@ -1838,6 +1863,7 @@
                   "type": "text",
                   "name": "t:names.heading",
                   "settings": {
+                    "enable_seo_heading": false,
                     "text": "<p>PACKAGED WITH CARE</p>",
                     "width": "fit-content",
                     "max_width": "normal",
@@ -1863,6 +1889,7 @@
                 "text_WGAjcF": {
                   "type": "text",
                   "settings": {
+                    "enable_seo_heading": false,
                     "text": "<p>PROTECTED FROM BENDING AND HUMIDITY.<br/>DELIVERED FLAT OR ROLLED.<br/>READY TO DISPLAY INSTANTLY.</p>",
                     "width": "fit-content",
                     "max_width": "none",
@@ -1967,6 +1994,7 @@
               "type": "text",
               "name": "t:names.caption",
               "settings": {
+                "enable_seo_heading": false,
                 "text": "<p>NEXT STEP</p>",
                 "width": "fit-content",
                 "max_width": "normal",
@@ -2032,6 +2060,7 @@
                   "type": "text",
                   "name": "t:names.heading",
                   "settings": {
+                    "enable_seo_heading": false,
                     "text": "<p>READY TO EXPLORE THE ART?</p>",
                     "width": "fit-content",
                     "max_width": "normal",
@@ -2057,6 +2086,7 @@
                 "text_n9emKx": {
                   "type": "text",
                   "settings": {
+                    "enable_seo_heading": false,
                     "text": "<p>READY TO EXPLORE THE ART?</p>",
                     "width": "fit-content",
                     "max_width": "none",
@@ -2167,6 +2197,7 @@
         "text_VEBjUF": {
           "type": "text",
           "settings": {
+            "enable_seo_heading": false,
             "text": "<p>We make things that work better and last longer.</p>",
             "width": "fit-content",
             "max_width": "normal",
@@ -2269,6 +2300,7 @@
           "type": "text",
           "disabled": true,
           "settings": {
+            "enable_seo_heading": false,
             "text": "<p>Culture, design and modern identity — curated through our work.</p>",
             "width": "100%",
             "max_width": "normal",
@@ -2470,6 +2502,7 @@
           "type": "text",
           "disabled": true,
           "settings": {
+            "enable_seo_heading": false,
             "text": "<p>Culture, design and modern identity — curated through our work.</p>",
             "width": "100%",
             "max_width": "normal",
@@ -2510,6 +2543,7 @@
         "button_UUxHHm": {
           "type": "button",
           "name": "t:names.button",
+          "disabled": true,
           "settings": {
             "label": "OUR STORY →",
             "link": "shopify://collections/all",
@@ -2541,6 +2575,7 @@
         "button_ziwnbH": {
           "type": "button",
           "name": "t:names.button",
+          "disabled": true,
           "settings": {
             "label": "BACK HOME →",
             "link": "/",
