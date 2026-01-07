@@ -19,8 +19,8 @@
     assign media_class_modifier = media_class_modifier | append: ' media-with-content--has-top-divider'
   endif
 
-  # Force mobile behavior on tablets for what-we-make-v2 page
-  if page.handle == 'what-we-make-v2'
+  # Force mobile behavior on tablets for what-we-make page
+  if page.handle == 'what-we-make'
     assign media_class_modifier = media_class_modifier | append: ' force-mobile-on-tablet'
   endif
 %}
@@ -491,7 +491,7 @@
     grid-template-columns: var(--media-with-content-grid-columns);
     grid-template-areas: 'media media media' 'content content content';
 
-    /* Flip order for what-we-make-v2 page on mobile */
+    /* Flip order for what-we-make page on mobile */
     &.force-mobile-on-tablet {
       grid-template-areas: 'content content content' 'media media media';
     }
@@ -618,7 +618,7 @@
     min-height: 500px;
   }
 
-  /* Force mobile behavior on tablets for what-we-make-v2 page */
+  /* Force mobile behavior on tablets for what-we-make page */
   @media screen and (min-width: 750px) and (max-width: 1024px) {
     .force-mobile-on-tablet.media-with-content {
       grid-template-areas: 'content content content' 'media media media' !important;
