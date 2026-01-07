@@ -1155,7 +1155,6 @@
           ]
         }
       },
-      "disabled": true,
       "name": "t:names.products_carousel",
       "settings": {
         "collection": "dopamine-archive®",
@@ -1363,6 +1362,7 @@
           ]
         }
       },
+      "disabled": true,
       "name": "t:names.products_carousel",
       "settings": {
         "collection": "the-kultjur-index®",
