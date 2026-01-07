@@ -2622,7 +2622,7 @@
           "disabled": true,
           "settings": {
             "label": "WHAT WE MAKE (AND WHY) →",
-            "link": "shopify://pages/what-we-make-v2",
+            "link": "shopify://pages/what-we-make",
             "open_in_new_tab": false,
             "style_class": "button-secondary",
             "width": "custom",

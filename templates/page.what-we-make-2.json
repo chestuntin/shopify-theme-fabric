@@ -448,7 +448,6 @@
                   "type": "text",
                   "name": "t:names.heading",
                   "settings": {
-                    "enable_seo_heading": true,
                     "text": "<p>WHAT WE MAKE</p>",
                     "width": "fit-content",
                     "max_width": "normal",
@@ -644,7 +643,6 @@
                   "type": "text",
                   "name": "t:names.heading",
                   "settings": {
-                    "enable_seo_heading": true,
                     "text": "<p>WHY WE MAKE IT</p>",
                     "width": "fit-content",
                     "max_width": "normal",
