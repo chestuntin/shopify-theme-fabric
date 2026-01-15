@@ -4444,3 +4444,26 @@ text-component {
 [id*="section_zBRnU8"] .group-block:nth-child(3) .icon-block svg {
   animation: icon-rotate 4s ease-in-out infinite;
 }
+
+
+
+
+/* Typography for Accordions (all screen sizes) */
+/* Accordion headers - maximum specificity */
+body .accordion .details summary.details__header,
+body .accordion accordion-custom .details summary.details__header,
+body .accordion accordion-custom details summary.details__header {
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  line-height: 1.4 !important;
+}
+
+/* Accordion content - maximum specificity */
+body .accordion .details-content,
+body .accordion .details-content p,
+body .accordion .details-content div,
+body .accordion .details-content * {
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  line-height: 1.5 !important;
+}
