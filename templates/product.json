@@ -851,7 +851,7 @@
             "icon_q7k3Tb": {
               "type": "icon",
               "settings": {
-                "icon": "box",
+                "icon": "truck",
                 "width": 32,
                 "link": "",
                 "open_in_new_tab": false
@@ -1003,7 +1003,7 @@
             "icon_UQhYYy": {
               "type": "icon",
               "settings": {
-                "icon": "heart",
+                "icon": "map_pin",
                 "width": 32,
                 "link": "",
                 "open_in_new_tab": false
@@ -1155,7 +1155,7 @@
             "icon_HBQFma": {
               "type": "icon",
               "settings": {
-                "icon": "silhouette",
+                "icon": "eye",
                 "width": 32,
                 "link": "",
                 "open_in_new_tab": false

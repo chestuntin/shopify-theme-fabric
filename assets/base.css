@@ -4381,3 +4381,66 @@ text-component {
     line-height: 1.5 !important;
   }
 }
+
+/* Trust Badge Icon Animations - Continuous Loops */
+
+/* Keyframe: Horizontal drift for truck */
+@keyframes icon-drift {
+
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  50% {
+    transform: translateX(3px);
+  }
+}
+
+/* Keyframe: Pulse/breathing for map pin */
+@keyframes icon-pulse {
+
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    transform: scale(1.1);
+    opacity: 0.85;
+  }
+}
+
+/* Keyframe: Subtle rotate for eye */
+@keyframes icon-rotate {
+
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+
+  25% {
+    transform: rotate(-5deg);
+  }
+
+  75% {
+    transform: rotate(5deg);
+  }
+}
+
+/* Apply different animations to each icon by group position */
+/* First group (truck) - horizontal drift */
+[id*="section_zBRnU8"] .group-block:nth-child(1) .icon-block svg {
+  animation: icon-drift 3s ease-in-out infinite;
+}
+
+/* Second group (map_pin) - pulse */
+[id*="section_zBRnU8"] .group-block:nth-child(2) .icon-block svg {
+  animation: icon-pulse 2.5s ease-in-out infinite;
+}
+
+/* Third group (eye) - rotate */
+[id*="section_zBRnU8"] .group-block:nth-child(3) .icon-block svg {
+  animation: icon-rotate 4s ease-in-out infinite;
+}
