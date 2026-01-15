@@ -277,7 +277,7 @@
         }
       ],
       "default": "none",
-      "visible_if": "{{ block.settings.type_preset == 'custom' }}"
+      "visible_if": "{{ block.settings.type_preset == 'custom' or block.settings.type_preset == 'rte' }}"
     },
     {
       "type": "select",

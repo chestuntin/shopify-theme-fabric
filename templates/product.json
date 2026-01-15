@@ -278,7 +278,7 @@
                 "font_size": "1rem",
                 "line_height": "normal",
                 "letter_spacing": "normal",
-                "case": "none",
+                "case": "uppercase",
                 "wrap": "pretty",
                 "color": "var(--color-foreground)",
                 "background": false,
@@ -901,7 +901,7 @@
                   "type": "text",
                   "settings": {
                     "enable_seo_heading": false,
-                    "text": "<h2>INTENTIONAL DESIGN</h2>",
+                    "text": "<h2>DOORSTEP DELIVERY</h2>",
                     "width": "100%",
                     "max_width": "none",
                     "alignment": "center",
@@ -927,7 +927,7 @@
                   "type": "text",
                   "settings": {
                     "enable_seo_heading": false,
-                    "text": "<p>LOREM IPSUM DOLOR SIT AMET CONSECTETUR ADIPISCING ELIT SED DO EIUSMOD TEMPOR INCIDIDUNT UT LABORE ET DOLORE MAGNA ALIQUA UT ENIM AD MINIM VENIAM QUIS NOSTRUD EXERCITATION ULLAMCO LABORIS NISI UT ALIQUIP EX EA COMMODO CONSEQUAT</p>",
+                    "text": "<p>OUR PRODUCTS ARE SECURELY PACKED USING MULTIPLE PROTECTIVE LAYERS TO MINIMISE MOVEMENT, ABSORB IMPACT, AND PROTECT FRAMES, GLASS, AND EDGES DURING TRANSIT. EACH ORDER IS PREPARED WITH THE EXPECTATION THAT IT WILL BE HANDLED, STACKED, AND TRANSPORTED, SO IT ARRIVES SAFELY AND INTACT AT YOUR DOORSTEP.</p>",
                     "width": "100%",
                     "max_width": "none",
                     "alignment": "left",
@@ -1053,7 +1053,7 @@
                   "type": "text",
                   "settings": {
                     "enable_seo_heading": false,
-                    "text": "<h2>MADE WITH CARE</h2>",
+                    "text": "<h2>MADE IN SRI LANKA</h2>",
                     "width": "100%",
                     "max_width": "none",
                     "alignment": "center",
@@ -1079,7 +1079,7 @@
                   "type": "text",
                   "settings": {
                     "enable_seo_heading": false,
-                    "text": "<p>LOREM IPSUM DOLOR SIT AMET CONSECTETUR ADIPISCING ELIT SED DO EIUSMOD TEMPOR INCIDIDUNT UT LABORE ET DOLORE MAGNA ALIQUA UT ENIM AD MINIM VENIAM QUIS NOSTRUD EXERCITATION ULLAMCO LABORIS NISI UT ALIQUIP EX EA COMMODO CONSEQUAT</p>",
+                    "text": "<p>OUR PRODUCTS ARE DESIGNED, PRINTED, AND FRAMED LOCALLY IN SRI LANKA, WORKING CLOSELY WITH LOCAL PRINTERS, FRAMERS, AND SUPPLIERS. BY PRODUCING LOCALLY, WE MAINTAIN QUALITY CONTROL, SHORTEN SUPPLY CHAINS, AND SUPPORT SKILLED WORK WITHIN THE LOCAL CREATIVE AND MANUFACTURING ECOSYSTEM.</p>",
                     "width": "100%",
                     "max_width": "none",
                     "alignment": "center",
@@ -1205,7 +1205,7 @@
                   "type": "text",
                   "settings": {
                     "enable_seo_heading": false,
-                    "text": "<h2>A TEAM WITH A GOAL</h2>",
+                    "text": "<h2>CAREFULLY PRODUCED</h2>",
                     "width": "100%",
                     "max_width": "none",
                     "alignment": "center",
@@ -1231,7 +1231,7 @@
                   "type": "text",
                   "settings": {
                     "enable_seo_heading": false,
-                    "text": "<p>LOREM IPSUM DOLOR SIT AMET CONSECTETUR ADIPISCING ELIT SED DO EIUSMOD TEMPOR INCIDIDUNT UT LABORE ET DOLORE MAGNA ALIQUA UT ENIM AD MINIM VENIAM QUIS NOSTRUD EXERCITATION ULLAMCO LABORIS NISI UT ALIQUIP EX EA COMMODO CONSEQUAT</p>",
+                    "text": "<p>OUR PRODUCTS ARE CHECKED BY HAND AT MULTIPLE STAGES FOR PRINT CLARITY, COLOUR ACCURACY, MATERIAL QUALITY, AND FINISH. EACH PRINT AND FRAME IS REVIEWED TO ENSURE CONSISTENCY, ATTENTION TO DETAIL, AND A RESULT WE ARE PROUD TO PUT OUR NAME ON. FROM STUDIO TO YOUR SPACE.</p>",
                     "width": "100%",
                     "max_width": "none",
                     "alignment": "right",

@@ -60,7 +60,7 @@
       --font-weight: {{ settings.font | replace: 'family', 'weight' }};
     {%- endif -%}
     --font-family: {{ settings.font }};
-    --text-transform: {{ settings.case }};
+
     --text-wrap: {{ settings.wrap }};
     {% if settings.type_preset == 'custom' and settings.font_size == blank %}
       --line-height--display: var(--line-height--display-{{ settings.line_height }});
@@ -71,5 +71,7 @@
     {% endif %}
     --letter-spacing: var(--letter-spacing--{{ type }}-{{ settings.letter_spacing }});
   {%- endif -%}
+
+  --text-transform: {{ settings.case }};
 {%- endcapture -%}
 {{- variables | strip | strip_newlines -}}
