@@ -4359,3 +4359,25 @@ text-component {
     align-items: flex-end;
   }
 }
+
+/* Mobile typography for Trust Badges */
+@media screen and (max-width: 749px) {
+
+  /* Headers - h2 elements in Trust Badges section */
+  [id*="section_zBRnU8"] .group-block-content .text-block.h3,
+  [id*="section_zBRnU8"] .group-block-content .text-block.h3>*,
+  [id*="section_zBRnU8"] .group-block-content h2 {
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    line-height: 1.4 !important;
+  }
+
+  /* Descriptions - paragraph elements in Trust Badges section */
+  [id*="section_zBRnU8"] .group-block-content .text-block.rte,
+  [id*="section_zBRnU8"] .group-block-content .text-block.rte>*,
+  [id*="section_zBRnU8"] .group-block-content p {
+    font-size: 12px !important;
+    font-weight: 400 !important;
+    line-height: 1.5 !important;
+  }
+}
