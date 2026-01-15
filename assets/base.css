@@ -4376,7 +4376,7 @@ text-component {
   [id*="section_zBRnU8"] .group-block-content .text-block.rte,
   [id*="section_zBRnU8"] .group-block-content .text-block.rte>*,
   [id*="section_zBRnU8"] .group-block-content p {
-    font-size: 12px !important;
+    font-size: 14px !important;
     font-weight: 400 !important;
     line-height: 1.5 !important;
   }
