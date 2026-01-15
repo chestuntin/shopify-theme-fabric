@@ -4341,3 +4341,21 @@ text-component {
 [id*="section_zBRnU8"] .text-block--align-right.rte {
   text-align-last: right !important;
 }
+
+/* Conditional min-height for headings - only when viewport causes wrapping */
+@container (max-width: 900px) {
+  [id*="section_zBRnU8"] .text-block.h3 {
+    min-height: 2.6em;
+    display: flex;
+    align-items: flex-end;
+  }
+}
+
+/* Fallback for browsers without container query support - use media query */
+@media (max-width: 900px) and (min-width: 768px) {
+  [id*="section_zBRnU8"] .text-block.h3 {
+    min-height: 2.6em;
+    display: flex;
+    align-items: flex-end;
+  }
+}
