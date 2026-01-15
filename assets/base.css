@@ -4315,29 +4315,29 @@ text-component {
 }
 
 /* Icons with text section - force full width text blocks */
-#shopify-section-template--23281436885363__section_zBRnU8 .group-block-content .text-block>* {
+[id*="section_zBRnU8"] .group-block-content .text-block>* {
   width: 100% !important;
   max-width: none !important;
 }
 
-#shopify-section-template--23281436885363__section_zBRnU8 .group-block-content .text-block {
+[id*="section_zBRnU8"] .group-block-content .text-block {
   width: 100% !important;
 }
 
 /* Justify text in icons with text section */
-#shopify-section-template--23281436885363__section_zBRnU8 .group-block-content .text-block>p,
-#shopify-section-template--23281436885363__section_zBRnU8 .group-block-content .text-block.rte {
+[id*="section_zBRnU8"] .group-block-content .text-block>p,
+[id*="section_zBRnU8"] .group-block-content .text-block.rte {
   text-align: justify !important;
   text-align-last: left !important;
 }
 
 /* Override text-align-last for center and right aligned groups */
-#shopify-section-template--23281436885363__section_zBRnU8 .text-block--align-center>p,
-#shopify-section-template--23281436885363__section_zBRnU8 .text-block--align-center.rte {
+[id*="section_zBRnU8"] .text-block--align-center>p,
+[id*="section_zBRnU8"] .text-block--align-center.rte {
   text-align-last: center !important;
 }
 
-#shopify-section-template--23281436885363__section_zBRnU8 .text-block--align-right>p,
-#shopify-section-template--23281436885363__section_zBRnU8 .text-block--align-right.rte {
+[id*="section_zBRnU8"] .text-block--align-right>p,
+[id*="section_zBRnU8"] .text-block--align-right.rte {
   text-align-last: right !important;
 }
