@@ -1,0 +1,10 @@
+/* Force text blocks in icons-with-text section to use full width */
+#shopify-section-template--23281436885363__section_zBRnU8 .group-block-content .text-block>* {
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+/* Ensure the text blocks themselves also take full width */
+#shopify-section-template--23281436885363__section_zBRnU8 .group-block-content .text-block {
+    width: 100% !important;
+}
