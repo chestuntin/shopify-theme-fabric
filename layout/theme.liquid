@@ -60,6 +60,10 @@
       {{ content_for_layout }}
     </main>
 
+    {% if template.name == 'index' %}
+      {% render 'scroll-indicator' %}
+    {% endif %}
+
     {% sections 'footer-group' %}
 
     {% render 'search-modal' %}
