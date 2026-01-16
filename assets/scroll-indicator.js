@@ -76,9 +76,16 @@ class ScrollIndicator {
             }
         }
 
-        // Keep indicator always visible (no fade-out)
-        this.element.style.opacity = '1';
-        this.element.style.pointerEvents = 'auto';
+        // Fade out starting at 60% scroll, fully faded by 75%
+        let opacity = 1;
+        if (progress >= 0.60) {
+            // Map 0.60-0.75 to 1.0-0.0
+            opacity = 1 - ((progress - 0.60) / 0.15);
+            opacity = Math.max(0, Math.min(1, opacity));
+        }
+
+        this.element.style.opacity = `${opacity}`;
+        this.element.style.pointerEvents = opacity > 0 ? 'auto' : 'none';
     }
 
     handleClick() {
