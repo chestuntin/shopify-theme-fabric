@@ -1,6 +1,6 @@
 /**
  * Circular Scroll Progress Indicator
- * Shows scroll progress through the hero section with an animated SVG ring
+ * Shows scroll progress with toggle between scroll-down and scroll-to-top functionality
  */
 
 class ScrollIndicator {
@@ -11,8 +11,11 @@ class ScrollIndicator {
         this.element = element;
         /** @type {SVGCircleElement | null} */
         this.progressCircle = element.querySelector('.scroll-indicator__circle-progress');
+        /** @type {SVGGElement | null} */
+        this.arrow = element.querySelector('.scroll-indicator__arrow');
         this.radius = 20; // Must match the SVG circle radius
         this.circumference = 2 * Math.PI * this.radius;
+        this.isAtBottom = false; // Track if user is at bottom (95%+)
 
         // Initialize the circle
         if (this.progressCircle) {
@@ -58,21 +61,44 @@ class ScrollIndicator {
             this.progressCircle.style.strokeDashoffset = `${offset}`;
         }
 
+        // Check if at bottom (95% or more)
+        const wasAtBottom = this.isAtBottom;
+        this.isAtBottom = progress >= 0.95;
+
+        // Toggle arrow direction when state changes
+        if (this.isAtBottom !== wasAtBottom) {
+            if (this.isAtBottom) {
+                // Add class to rotate arrow up
+                this.element.classList.add('scroll-indicator--at-bottom');
+            } else {
+                // Remove class to rotate arrow down
+                this.element.classList.remove('scroll-indicator--at-bottom');
+            }
+        }
+
         // Keep indicator always visible (no fade-out)
         this.element.style.opacity = '1';
         this.element.style.pointerEvents = 'auto';
     }
 
     handleClick() {
-        // Smooth scroll to bottom of page
         const documentHeight = document.documentElement.scrollHeight;
         const viewportHeight = window.innerHeight;
         const maxScroll = documentHeight - viewportHeight;
 
-        window.scrollTo({
-            top: maxScroll,
-            behavior: 'smooth'
-        });
+        if (this.isAtBottom) {
+            // Scroll to top of page
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        } else {
+            // Scroll to bottom of page
+            window.scrollTo({
+                top: maxScroll,
+                behavior: 'smooth'
+            });
+        }
     }
 
     destroy() {

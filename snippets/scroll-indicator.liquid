@@ -25,16 +25,10 @@
       transform="rotate(-90 21.5 21.5)"
     />
     
-    <!-- Down arrow -->
-    <g class="scroll-indicator__arrow" transform="translate(21.5, 21.5)">
-      <path
-        d="M 0 -8 L 0 8 M -4 4 L 0 8 L 4 4"
-        stroke="white"
-        stroke-width="1.5"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        fill="none"
-      />
+    <!-- Down arrow - centered at 21.5, 21.5 -->
+    <g class="scroll-indicator__arrow">
+      <line x1="21.5" y1="13.5" x2="21.5" y2="29.5" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+      <polyline points="17.5,25.5 21.5,29.5 25.5,25.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
     </g>
   </svg>
 </div>

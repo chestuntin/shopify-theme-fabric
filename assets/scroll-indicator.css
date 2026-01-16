@@ -48,8 +48,16 @@
 .scroll-indicator__arrow {
     /* Arrow icon - white (same as opaque ring) */
     stroke: white;
-    transform-origin: center;
-    transition: transform 0.2s ease-out;
+    /* Rotate around the arrow's own center */
+    transform-box: fill-box;
+    transform-origin: center center;
+    /* Smooth rotation animation for bottom toggle */
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Rotate arrow when at bottom of page */
+.scroll-indicator--at-bottom .scroll-indicator__arrow {
+    transform: rotate(180deg);
 }
 
 /* Hover effects */
