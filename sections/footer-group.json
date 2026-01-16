@@ -107,6 +107,7 @@
         "divider_thickness": 0,
         "mobile_horizontal_layout": true,
         "color_scheme": "scheme-1",
+        "payment_image_width": 200,
         "padding-block-start": 0,
         "padding-block-end": 12
       }
@@ -156,6 +157,8 @@
         "divider_thickness": 0,
         "mobile_horizontal_layout": true,
         "color_scheme": "scheme-5",
+        "payment_image": "shopify://shop_images/payment-trust-badges_26b0c7f9-2a4d-4167-8f30-672c6020efbc.png",
+        "payment_image_width": 400,
         "padding-block-start": 30,
         "padding-block-end": 30
       }

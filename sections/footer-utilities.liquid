@@ -13,51 +13,34 @@
   {{ section.shopify_attributes }}
 >
   <div
-    class="utilities-wrapper spacing-style"
-    style="{% render 'spacing-style', settings: section.settings %} --border-width: {{ section.settings.divider_thickness }}px; --gap: {{ section.settings.gap }}px; --payment-image-width: {{ section.settings.payment_image_width }}px;"
+    class="utilities spacing-style {% unless section.settings.mobile_horizontal_layout %}utilities--mobile-stacked{% endunless %}"
+    style="{% render 'spacing-style', settings: section.settings %} --border-width: {{ section.settings.divider_thickness }}px; --gap: {{ section.settings.gap }}px;"
     data-testid="footer-utilities"
   >
-    {%- if section.settings.payment_image != blank -%}
-      {%- assign payment_image_retina_width = section.settings.payment_image_width | times: 2 -%}
-      <div class="utilities__payment-image">
-        <img
-          src="{{ section.settings.payment_image | image_url: width: payment_image_retina_width }}"
-          alt="{{ section.settings.payment_image.alt | default: 'Payment methods' }}"
-          width="{{ section.settings.payment_image_width }}"
-          height="auto"
-          loading="lazy"
-        >
-      </div>
-    {%- endif -%}
-    <div class="utilities {% unless section.settings.mobile_horizontal_layout %}utilities--mobile-stacked{% endunless %}">
-      {% content_for 'blocks' %}
-    </div>
+    {% content_for 'blocks' %}
+
   </div>
 </div>
 
 {% stylesheet %}
-  .utilities-wrapper {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: var(--gap);
-    border-top: var(--border-width) solid var(--color-border);
+  /* Force correct vertical alignment for all footer items and strip margins */
+  .utilities > * {
+    align-self: center !important;
+    margin: 0 !important;
+    padding: 0 !important;
   }
 
-  .utilities__payment-image {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
+  .utilities > * :where(p, a, span, div, h1, h2, h3, h4, h5, h6, small, ul, li) {
+    margin: 0 !important;
+    /* padding: 0 !important; - safer to leave padding for buttons etc */
   }
 
-  .utilities__payment-image img {
-    width: var(--payment-image-width, 200px);
-    max-width: 100%;
-    height: auto;
-    object-fit: contain;
+  .utilities ul {
+     margin: 0 !important;
+     padding: 0 !important;
+     list-style: none;
   }
+
 
   .utilities {
     width: 100%;
@@ -67,6 +50,7 @@
     gap: var(--gap);
     align-items: center;
     text-wrap: nowrap;
+    border-top: var(--border-width) solid var(--color-border);
     color: var(--color-foreground-muted);
     text-align: left;
     position: relative;
@@ -380,26 +364,6 @@
     },
     {
       "type": "header",
-      "content": "Payment image"
-    },
-    {
-      "type": "image_picker",
-      "id": "payment_image",
-      "label": "Payment logos image",
-      "info": "Upload an image of payment method logos (Visa, Amex, etc.) for trust signals"
-    },
-    {
-      "type": "range",
-      "id": "payment_image_width",
-      "label": "Image width",
-      "min": 100,
-      "max": 500,
-      "step": 10,
-      "unit": "px",
-      "default": 200
-    },
-    {
-      "type": "header",
       "content": "t:content.padding"
     },
     {
@@ -432,6 +396,9 @@
     },
     {
       "type": "social-links"
+    },
+    {
+      "type": "payment-methods"
     }
   ],
   "presets": [

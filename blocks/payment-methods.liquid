@@ -1,0 +1,36 @@
+<div class="footer-utilities__icons" {{ block.shopify_attributes }}>
+  {%- if block.settings.image != blank -%}
+    {%- assign image_width_2x = block.settings.width | times: 2 -%}
+    <img
+      src="{{ block.settings.image | image_url: width: image_width_2x }}"
+      alt="{{ block.settings.image.alt | default: 'Payment methods' }}"
+      width="{{ block.settings.width }}"
+      height="40"
+      loading="lazy"
+      style="width: {{ block.settings.width }}px; height: 40px; object-fit: cover; vertical-align: middle;"
+    >
+  {%- endif -%}
+</div>
+
+{% schema %}
+{
+  "name": "Payment Methods",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Payment logos image"
+    },
+    {
+       "type": "range",
+       "id": "width",
+       "label": "Image width",
+       "default": 300,
+       "min": 50,
+       "max": 500,
+       "step": 10,
+       "unit": "px"
+    }
+  ]
+}
+{% endschema %}
