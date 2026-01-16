@@ -18,9 +18,10 @@
     data-testid="footer-utilities"
   >
     {%- if section.settings.payment_image != blank -%}
+      {%- assign payment_image_retina_width = section.settings.payment_image_width | times: 2 -%}
       <div class="utilities__payment-image">
         <img
-          src="{{ section.settings.payment_image | image_url: width: section.settings.payment_image_width | times: 2 }}"
+          src="{{ section.settings.payment_image | image_url: width: payment_image_retina_width }}"
           alt="{{ section.settings.payment_image.alt | default: 'Payment methods' }}"
           width="{{ section.settings.payment_image_width }}"
           height="auto"
