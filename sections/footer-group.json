@@ -107,7 +107,6 @@
         "divider_thickness": 0,
         "mobile_horizontal_layout": true,
         "color_scheme": "scheme-1",
-        "payment_image_width": 200,
         "padding-block-start": 0,
         "padding-block-end": 12
       }
@@ -115,6 +114,15 @@
     "footer_utilities_KiUxYM": {
       "type": "footer-utilities",
       "blocks": {
+        "payment_methods_ABVPqK": {
+          "type": "payment-methods",
+          "name": "Payment Methods",
+          "settings": {
+            "image": "shopify://shop_images/payment-trust-badges_26b0c7f9-2a4d-4167-8f30-672c6020efbc.png",
+            "width": 300
+          },
+          "blocks": {}
+        },
         "footer_copyright_gPa7eF": {
           "type": "footer-copyright",
           "name": "t:names.copyright",
@@ -146,6 +154,7 @@
         }
       },
       "block_order": [
+        "payment_methods_ABVPqK",
         "footer_copyright_gPa7eF",
         "footer_copyright_CiVbtG",
         "footer_policy_list_embjgg"
@@ -157,8 +166,6 @@
         "divider_thickness": 0,
         "mobile_horizontal_layout": true,
         "color_scheme": "scheme-5",
-        "payment_image": "shopify://shop_images/payment-trust-badges_26b0c7f9-2a4d-4167-8f30-672c6020efbc.png",
-        "payment_image_width": 400,
         "padding-block-start": 30,
         "padding-block-end": 30
       }

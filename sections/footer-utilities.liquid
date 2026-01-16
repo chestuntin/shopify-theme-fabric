@@ -192,6 +192,51 @@
         justify-self: start;
       }
     }
+
+    /* Fallback: Generic 3-item layout for Desktop */
+    .utilities:has(> :nth-child(3):last-child) {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+    }
+    .utilities:has(> :nth-child(3):last-child) > :nth-child(2) {
+      justify-self: center;
+    }
+    .utilities:has(> :nth-child(3):last-child) > :nth-child(3) {
+      justify-self: end;
+    }
+
+    /* FORCE GRID always for desktop with STRICT PLACEMENT */
+    .utilities:not(.utilities--mobile-stacked) {
+       display: grid !important;
+       grid-template-columns: 1fr auto 1fr !important;
+       align-items: center !important;
+    }
+    .utilities:not(.utilities--mobile-stacked) > * {
+       order: initial !important;
+       margin: 0 !important;
+       grid-row: 1 !important; /* Force all to same line */
+    }
+
+    /* Assign Specific Columns regardless of Order */
+    /* Left: Copyright */
+    .utilities:not(.utilities--mobile-stacked) .footer-utilities__group-copyright {
+       grid-column: 1;
+       justify-self: start !important;
+    }
+
+    /* Center: Payment Icons */
+    .utilities:not(.utilities--mobile-stacked) .footer-utilities__icons {
+       grid-column: 2;
+       justify-self: center !important;
+    }
+
+    /* Right: Policy List */
+    .utilities:not(.utilities--mobile-stacked) .footer-utilities__policy-list {
+       grid-column: 3;
+       justify-self: end !important;
+    }
+    
   }
 
   /* Apply dynamic positioning to mobile when horizontal layout is enabled */
@@ -291,7 +336,6 @@
       }
     }
 
-    /* B => B left */
     .utilities:not(.utilities--mobile-stacked):has(.footer-utilities__icons:first-child:nth-last-child(1)) {
       grid-template-columns: 1fr;
       justify-content: start;
@@ -300,6 +344,20 @@
         justify-self: start;
       }
     }
+    
+    /* Fallback: Generic 3-item layout (Left - Center - Right) */
+    .utilities:not(.utilities--mobile-stacked):has(> :nth-child(3):last-child) {
+       display: grid;
+       grid-template-columns: 1fr auto 1fr;
+       align-items: center;
+    }
+    .utilities:not(.utilities--mobile-stacked):has(> :nth-child(3):last-child) > :nth-child(2) {
+       justify-self: center;
+    }
+    .utilities:not(.utilities--mobile-stacked):has(> :nth-child(3):last-child) > :nth-child(3) {
+       justify-self: end;
+    }
+
   }
 {% endstylesheet %}
 
