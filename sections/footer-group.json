@@ -118,8 +118,8 @@
           "type": "payment-methods",
           "name": "Payment Methods",
           "settings": {
-            "image": "shopify://shop_images/webxpay-badges.png",
-            "width": 400
+            "image": "shopify://shop_images/webxpay-powered.png",
+            "width": 380
           },
           "blocks": {}
         },

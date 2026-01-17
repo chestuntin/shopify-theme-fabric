@@ -77,7 +77,7 @@
     position-anchor: --terms-policies-trigger;
     inset: unset;
     bottom: calc(anchor(top) + 1rem);
-    left: anchor(left);
+    left: anchor(center);
     border-radius: var(--style-border-radius-popover);
     background: linear-gradient(var(--color-background) 0 100%),
       linear-gradient(rgb(var(--color-background-rgb) / 0.15) 0 100%);
@@ -85,11 +85,12 @@
     border: 1px solid #0000;
     box-shadow: var(--shadow-popover);
     padding: 8px;
-    margin: 0 0 0 -20px;
+    margin: 0;
     opacity: 0;
     scale: 0.94;
     translate: 0 6px;
-    transform-origin: 6ch 100%;
+    transform: translateX(-50%);
+    transform-origin: center bottom;
   }
 
   .terms-policies-popover.\:popover-open,
@@ -111,8 +112,8 @@
     .terms-policies-popover {
       bottom: unset;
       top: calc(var(--anchor-top) * 1px);
-      left: calc(var(--anchor-left) * 1px);
-      transform: translate(0, calc(-100% - 1.25rem));
+      left: calc((var(--anchor-left) + (var(--anchor-width) / 2)) * 1px);
+      transform: translate(-50%, calc(-100% - 1.25rem));
     }
     @media screen and (max-width: 750px) {
       .terms-policies-popover {
