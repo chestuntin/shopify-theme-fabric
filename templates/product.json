@@ -784,6 +784,13 @@
                 "accordion_row_XMFatY",
                 "accordion_row_kmdwc8"
               ]
+            },
+            "payment_methods_new": {
+              "type": "payment-methods",
+              "settings": {
+                "image": "shopify://shop_images/webxpay-powered.png",
+                "width": 380
+              }
             }
           },
           "block_order": [
@@ -791,6 +798,7 @@
             "text_b6hdWK",
             "variant_picker_3Nha6V",
             "buy_buttons_NmYpFG",
+            "payment_methods_new",
             "accordion_iWQwkW"
           ]
         }

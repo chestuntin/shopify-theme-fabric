@@ -114,15 +114,6 @@
     "footer_utilities_KiUxYM": {
       "type": "footer-utilities",
       "blocks": {
-        "payment_methods_ABVPqK": {
-          "type": "payment-methods",
-          "name": "Payment Methods",
-          "settings": {
-            "image": "shopify://shop_images/webxpay-powered.png",
-            "width": 380
-          },
-          "blocks": {}
-        },
         "footer_copyright_gPa7eF": {
           "type": "footer-copyright",
           "name": "t:names.copyright",
@@ -154,7 +145,6 @@
         }
       },
       "block_order": [
-        "payment_methods_ABVPqK",
         "footer_copyright_gPa7eF",
         "footer_copyright_CiVbtG",
         "footer_policy_list_embjgg"
@@ -173,19 +163,6 @@
     "footer": {
       "type": "Footer",
       "blocks": {
-        "payment_icons_XMtR7h": {
-          "type": "payment-icons",
-          "name": "t:names.payment_icons",
-          "settings": {
-            "horizontal_alignment": "flex-end",
-            "gap": 10,
-            "padding-block-start": 0,
-            "padding-block-end": 25,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
-        },
         "menu_HADdVb": {
           "type": "menu",
           "name": "t:names.menu",
@@ -276,7 +253,6 @@
         }
       },
       "block_order": [
-        "payment_icons_XMtR7h",
         "menu_HADdVb",
         "menu_xJa7q7",
         "menu_f9RViT",
