@@ -1,45 +1,100 @@
 {% if shop.policies.size > 0 %}
-  <anchored-popover-component
-    class="footer-utilities__policy-list footer-utilities__text"
-  >
-    <button
-      class="policy-list-trigger button-unstyled"
-      popovertarget="terms-policies-popover"
-      popovertargetaction="toggle"
-      ref="trigger"
-      style="{% render 'typography-style', preset: 'custom', settings: block.settings %}"
-      {{ block.shopify_attributes }}
-    >
-      {{ 'content.terms_and_policies' | t }}
-    </button>
-    <div
-      class="terms-policies-popover color-{{ settings.popover_color_scheme }}"
-      id="terms-policies-popover"
-      popover="auto"
-      ref="popover"
-    >
-      <ul
-        class="
-          policy_list list-unstyled
-          custom-typography
-          {% if block.settings.font_size != "" %}custom-font-size{% endif %}
-        "
+  <div class="footer-utilities__policy-list footer-utilities__text" style="text-align: right;">
+    <anchored-popover-component class="socials-trigger-wrapper">
+      <button
+        class="social-popout-trigger button-unstyled"
+        popovertarget="socials-popover"
+        popovertargetaction="toggle"
+        ref="trigger"
+        style="{% render 'typography-style', preset: 'custom', settings: block.settings %}"
       >
-        {%- for policy in shop.policies -%}
-          {%- if policy != blank -%}
-            <li>
-              <a
-                href="{{ policy.url }}"
-                class="footer-utilities__text"
-              >
-                {{- policy.title | escape -}}
-              </a>
-            </li>
-          {%- endif -%}
-        {%- endfor -%}
-      </ul>
-    </div>
-  </anchored-popover-component>
+        SOCIALS
+      </button>
+      <div
+        class="socials-popover color-{{ settings.popover_color_scheme }}"
+        id="socials-popover"
+        popover="auto"
+        ref="popover"
+      >
+        <ul
+          class="
+            social_list list-unstyled
+            custom-typography
+            {% if block.settings.font_size != "" %}custom-font-size{% endif %}
+          "
+        >
+          <li>
+            <a
+              href="https://www.instagram.com/kultjur.lk/"
+              class="footer-utilities__text"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              INSTAGRAM
+            </a>
+          </li>
+          <li>
+            <a
+              href="#"
+              class="footer-utilities__text"
+              onclick="return false;"
+            >
+              TIKTOK
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.facebook.com/profile.php?id=61569432370747"
+              class="footer-utilities__text"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              FACEBOOK
+            </a>
+          </li>
+        </ul>
+      </div>
+    </anchored-popover-component>
+    <anchored-popover-component class="terms-trigger-wrapper">
+      <button
+        class="policy-list-trigger button-unstyled"
+        popovertarget="terms-policies-popover"
+        popovertargetaction="toggle"
+        ref="trigger"
+        style="{% render 'typography-style', preset: 'custom', settings: block.settings %}"
+        {{ block.shopify_attributes }}
+      >
+        {{ 'content.terms_and_policies' | t }}
+      </button>
+      <div
+        class="terms-policies-popover color-{{ settings.popover_color_scheme }}"
+        id="terms-policies-popover"
+        popover="auto"
+        ref="popover"
+      >
+        <ul
+          class="
+            policy_list list-unstyled
+            custom-typography
+            {% if block.settings.font_size != "" %}custom-font-size{% endif %}
+          "
+        >
+          {%- for policy in shop.policies -%}
+            {%- if policy != blank -%}
+              <li>
+                <a
+                  href="{{ policy.url }}"
+                  class="footer-utilities__text"
+                >
+                  {{- policy.title | escape -}}
+                </a>
+              </li>
+            {%- endif -%}
+          {%- endfor -%}
+        </ul>
+      </div>
+    </anchored-popover-component>
+  </div>
 {% endif %}
 
 {% stylesheet %}
@@ -130,6 +185,115 @@
     @starting-style {
       .terms-policies-popover.\:popover-open,
       .terms-policies-popover:popover-open {
+        opacity: 0.7;
+        translate: 0 6px;
+        scale: 0.94;
+      }
+    }
+  }
+
+  /* Social popout styles */
+  .socials-trigger-wrapper {
+    margin-top: 0;
+    display: block;
+    text-align: right;
+  }
+
+  .terms-trigger-wrapper {
+    margin-top: 0;
+    display: block;
+  }
+
+  .social-popout-trigger {
+    anchor-name: --socials-trigger;
+    cursor: pointer;
+    font-size: var(--font-size, 0.75rem);
+    text-transform: var(--text-transform, none);
+    display: inline-block;
+    text-align: right;
+  }
+
+  .social_list {
+    li {
+      border-radius: calc(var(--style-border-radius-popover) - 8px);
+
+      a {
+        color: var(--color-foreground);
+        display: inline-block;
+        padding: 8px;
+        text-align: start;
+        width: 100%;
+        outline-color: #0000;
+        font-size: var(--font-size, 0.75rem);
+        text-transform: var(--text-transform, uppercase);
+      }
+
+      &:is(:hover, :focus-within) {
+        background: rgb(var(--color-foreground-rgb) / 0.15);
+      }
+    }
+  }
+
+  .socials-popover {
+    position-anchor: --socials-trigger;
+    inset: unset;
+    bottom: calc(anchor(top) + 1rem);
+    left: anchor(center);
+    border-radius: var(--style-border-radius-popover);
+    background: linear-gradient(var(--color-background) 0 100%),
+      linear-gradient(rgb(var(--color-background-rgb) / 0.15) 0 100%);
+    background-clip: padding-box, border-box;
+    border: 1px solid #0000;
+    box-shadow: var(--shadow-popover);
+    padding: 8px;
+    margin: 0;
+    opacity: 0;
+    scale: 0.94;
+    translate: 0 6px;
+    transform: translateX(-50%);
+    transform-origin: center bottom;
+  }
+
+  .socials-popover.\:popover-open,
+  .socials-popover:popover-open {
+    opacity: 1;
+    translate: 0 0;
+    scale: 1;
+  }
+
+  @media screen and (max-width: 750px) {
+    .socials-popover {
+      left: anchor(center);
+      transform: translate(-50%, 0);
+      transform-origin: 0% 100%;
+    }
+  }
+
+  @supports not (position-anchor: --account-button-trigger) {
+    .socials-popover {
+      bottom: unset;
+      top: calc(var(--anchor-top) * 1px);
+      left: calc((var(--anchor-left) + (var(--anchor-width) / 2)) * 1px);
+      transform: translate(-50%, calc(-100% - 1.25rem));
+    }
+    @media screen and (max-width: 750px) {
+      .socials-popover {
+        left: calc((var(--anchor-left) + (var(--anchor-width) / 2)) * 1px);
+        transform: translate(-50%, calc(-100% - 1.25rem));
+      }
+    }
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .socials-popover {
+      transition-property: display, overlay, opacity, scale, translate;
+      transition-behavior: allow-discrete;
+      transition-duration: 0.3s;
+      transition-timing-function: var(--ease-out-quad);
+    }
+    @starting-style {
+      .socials-popover.\:popover-open,
+      .socials-popover:popover-open {
         opacity: 0.7;
         translate: 0 6px;
         scale: 0.94;

@@ -10,9 +10,11 @@
   style="{% render 'typography-style', preset: 'custom', settings: block_settings %}"
   {{ block.shopify_attributes }}
 >
+  <a href="/pages/what-we-make" class="footer-utilities__text" style="{% render 'typography-style', preset: 'custom', settings: block_settings %}">ABOUT</a>
+  <br>
   <span class="footer-utilities__text">
     &copy; {{ 'now' | date: '%Y' }}
-    {{ shop.name | link_to: routes.root_url -}}
+    {{ shop.name | replace: '®', '' | link_to: routes.root_url -}}
     {%- if block_settings.show_powered_by -%}
       , {{ powered_by_link }}
     {%- endif -%}
