@@ -153,11 +153,12 @@
     scale: 1;
   }
 
-  @media screen and (max-width: 750px) {
+  @media screen and (max-width: 1024px) {
     .terms-policies-popover {
-      left: anchor(center);
-      transform: translate(-50%, 0);
-      transform-origin: 0% 100%;
+      left: auto;
+      right: 10px;
+      transform: none;
+      transform-origin: right bottom;
     }
   }
 
@@ -168,7 +169,7 @@
       left: calc((var(--anchor-left) + (var(--anchor-width) / 2)) * 1px);
       transform: translate(-50%, calc(-100% - 1.25rem));
     }
-    @media screen and (max-width: 750px) {
+    @media screen and (max-width: 1024px) {
       .terms-policies-popover {
         left: calc((var(--anchor-left) + (var(--anchor-width) / 2)) * 1px);
         transform: translate(-50%, calc(-100% - 1.25rem));
@@ -261,11 +262,12 @@
     scale: 1;
   }
 
-  @media screen and (max-width: 750px) {
+  @media screen and (max-width: 1024px) {
     .socials-popover {
-      left: anchor(center);
-      transform: translate(-50%, 0);
-      transform-origin: 0% 100%;
+      left: auto !important;
+      right: 10px !important;
+      transform: none !important;
+      transform-origin: right bottom !important;
     }
   }
 
@@ -276,7 +278,7 @@
       left: calc((var(--anchor-left) + (var(--anchor-width) / 2)) * 1px);
       transform: translate(-50%, calc(-100% - 1.25rem));
     }
-    @media screen and (max-width: 750px) {
+    @media screen and (max-width: 1024px) {
       .socials-popover {
         left: calc((var(--anchor-left) + (var(--anchor-width) / 2)) * 1px);
         transform: translate(-50%, calc(-100% - 1.25rem));
