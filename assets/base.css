@@ -306,6 +306,12 @@ p:empty {
   }
 }
 
+/* Remove focus outline from product card link to prevent white border on mobile back navigation */
+.product-card__link:focus,
+.product-card__link:focus-visible {
+  outline: none;
+}
+
 .focus-inset {
   outline-offset: calc(var(--focus-outline-width) * -1);
 }
