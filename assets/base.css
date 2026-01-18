@@ -3812,12 +3812,54 @@ slideshow-arrows .slideshow-control.slideshow-control--style-none {
   padding-inline: 0 var(--padding-md);
 }
 
+/* Arrow Icon Swapping */
+.icon-arrow-mobile {
+  display: none;
+}
+
 .card-gallery slideshow-arrows .slideshow-control {
   /* Align icons with quick-add button */
   padding-inline: var(--padding-xl);
 
   @container (max-width: 249px) {
     padding-inline: 0 var(--padding-sm);
+  }
+}
+
+@media screen and (max-width: 749px) {
+  .card-gallery slideshow-arrows {
+    padding-inline: 2% !important;
+  }
+
+  .card-gallery slideshow-arrows .slideshow-control {
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    background: transparent !important;
+    padding-inline: 0 !important;
+    width: 50px !important;
+    height: 50px !important;
+  }
+
+  .slideshow-control .icon-arrow-desktop {
+    display: none;
+  }
+
+  .slideshow-control .icon-arrow-mobile {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Rotate caret to point right (next) or left (previous - flipped by parent) */
+  .slideshow-control .icon-arrow-mobile svg {
+    transform: rotate(-90deg);
+  }
+
+  slideshow-component[disabled="true"] slideshow-arrows {
+    display: flex !important;
   }
 }
 

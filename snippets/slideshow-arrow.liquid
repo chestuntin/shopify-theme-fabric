@@ -43,7 +43,12 @@
     {%- if icon_name == 'caret' -%}
       {{- 'icon-caret.svg' | inline_asset_content -}}
     {%- else -%}
-      {{- 'icon-arrow.svg' | inline_asset_content -}}
+      <span class="icon-arrow-desktop">
+        {{- 'icon-arrow.svg' | inline_asset_content -}}
+      </span>
+      <span class="icon-arrow-mobile">
+        {{- 'icon-caret.svg' | inline_asset_content -}}
+      </span>
     {%- endif -%}
   </span>
 </button>
