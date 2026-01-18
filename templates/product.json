@@ -345,7 +345,7 @@
             "payment_methods_new": {
               "type": "payment-methods",
               "settings": {
-                "image": "shopify://shop_images/webxpay-custom.png",
+                "image": "shopify://shop_images/webxpay-custom-cod.png",
                 "width": 500
               },
               "blocks": {}
