@@ -2141,7 +2141,6 @@ product-price.text-block:is(.h1, .h2, .h3, .h4, .h5, .h6)>*:not(.tax-note) {
 
 @media screen and (min-width: 750px) {
 
-  product-card:focus-within .quick-add__button,
   .card-gallery:hover .quick-add__button {
     display: grid;
     will-change: margin, opacity;
