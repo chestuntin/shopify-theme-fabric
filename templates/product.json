@@ -414,7 +414,7 @@
                   "type": "_accordion-row",
                   "name": "t:names.accordion_row",
                   "settings": {
-                    "heading": "UNFRAMED OR FRAMED",
+                    "heading": "FRAMED OR FRAME IT YOURSELF",
                     "open_by_default": false,
                     "icon": "none",
                     "width": 20
@@ -455,7 +455,7 @@
                   "type": "_accordion-row",
                   "name": "t:names.accordion_row",
                   "settings": {
-                    "heading": "ABOUT THE PRINT",
+                    "heading": "ABOUT OUR 12-COLOUR PRINT",
                     "open_by_default": false,
                     "icon": "none",
                     "width": 20
@@ -465,7 +465,7 @@
                       "type": "text",
                       "settings": {
                         "enable_seo_heading": false,
-                        "text": "<p>Each piece is printed on heavyweight art paper selected for its rigidity, colour stability, and clean surface finish.<br/><br/>The result is a print that sits flat, holds detail well, and feels substantial in hand — far beyond standard poster paper.</p>",
+                        "text": "<p>Each piece is printed using a <strong>12-colour pigment ink system</strong> on <strong>photo-luster paper</strong>, chosen for its colour depth, tonal smoothness, and long-term stability.<br/><br/>This process allows for richer gradients, finer detail, and more accurate colour reproduction than standard 4-colour CMYK printing.</p>",
                         "width": "fit-content",
                         "max_width": "none",
                         "alignment": "left",
@@ -537,7 +537,7 @@
                   "type": "_accordion-row",
                   "name": "t:names.accordion_row",
                   "settings": {
-                    "heading": "SHIPPING & PACKAGING",
+                    "heading": "DELIVERY & PACKAGING",
                     "open_by_default": false,
                     "icon": "none",
                     "width": 20
@@ -547,7 +547,7 @@
                       "type": "text",
                       "settings": {
                         "enable_seo_heading": false,
-                        "text": "<p>Orders are dispatched the next business day.<br/>Delivered within 2–3 business days across Sri Lanka.<br/><br/>Unframed prints are delivered rolled and protected.<br/>Framed prints are delivered in protective packaging.</p>",
+                        "text": "<p>Orders are dispatched the next business day.<br/>Delivered to your doorstep within 2–3 business days across Sri Lanka.<br/><br/>Unframed prints are delivered rolled and protected.<br/>Framed prints are delivered in protective packaging.</p>",
                         "width": "fit-content",
                         "max_width": "none",
                         "alignment": "left",
@@ -578,7 +578,7 @@
                   "type": "_accordion-row",
                   "name": "t:names.accordion_row",
                   "settings": {
-                    "heading": "RETURNS & SUPPORT",
+                    "heading": "14 DAY RETURN POLICY",
                     "open_by_default": false,
                     "icon": "none",
                     "width": 20
@@ -588,7 +588,7 @@
                       "type": "text",
                       "settings": {
                         "enable_seo_heading": false,
-                        "text": "<p>IF SOMETHING ISN’T RIGHT, WE’RE HERE TO HELP. REACH OUT TO US AND WE’LL ASSIST YOU PROMPTLY. </p>",
+                        "text": "<p>EACH ORDER IS BACKED BY A 14-DAY, NO-QUESTIONS-ASKED RETURN POLICY. VIEW OUR RETURN POLICY <a href=\"/policies/refund-policy\" target=\"_blank\" title=\"Refund Policy\">HERE</a></p><p>FOR SUPPORT REACH US AT CONTACT@KULTJUR.LK<br/><br/></p>",
                         "width": "fit-content",
                         "max_width": "none",
                         "alignment": "left",
@@ -818,7 +818,7 @@
     "section_zBRnU8": {
       "type": "section",
       "blocks": {
-        "group_EqKwDi": {
+        "group_nDKtLg": {
           "type": "group",
           "settings": {
             "content_direction": "column",
@@ -857,17 +857,17 @@
             "padding-inline-end": 0
           },
           "blocks": {
-            "icon_q7k3Tb": {
+            "icon_HBQFma": {
               "type": "icon",
               "settings": {
-                "icon": "truck",
+                "icon": "eye",
                 "width": 32,
                 "link": "",
                 "open_in_new_tab": false
               },
               "blocks": {}
             },
-            "group_CeJVqQ": {
+            "group_4Vj9BD": {
               "type": "group",
               "settings": {
                 "content_direction": "column",
@@ -875,7 +875,7 @@
                 "horizontal_alignment": "flex-start",
                 "vertical_alignment": "center",
                 "align_baseline": false,
-                "horizontal_alignment_flex_direction_column": "flex-start",
+                "horizontal_alignment_flex_direction_column": "flex-end",
                 "vertical_alignment_flex_direction_column": "flex-start",
                 "gap": 12,
                 "width": "fill",
@@ -906,11 +906,11 @@
                 "padding-inline-end": 0
               },
               "blocks": {
-                "text_JArAFi": {
+                "text_XYXyMr": {
                   "type": "text",
                   "settings": {
                     "enable_seo_heading": false,
-                    "text": "<h2>DOORSTEP DELIVERY</h2>",
+                    "text": "<h2>MUSEUM GRADE PRINT</h2>",
                     "width": "100%",
                     "max_width": "none",
                     "alignment": "center",
@@ -932,14 +932,14 @@
                   },
                   "blocks": {}
                 },
-                "text_rLYwiK": {
+                "text_bYm76C": {
                   "type": "text",
                   "settings": {
                     "enable_seo_heading": false,
-                    "text": "<p>EACH ORDER IS SECURELY PACKED USING MULTIPLE PROTECTIVE LAYERS TO MINIMISE MOVEMENT, ABSORB IMPACT, AND PROTECT FRAMES, GLASS, AND EDGES DURING TRANSIT. EVERY PACKAGE IS PREPARED WITH REAL-WORLD HANDLING IN MIND, SO IT ARRIVES SAFELY AND INTACT AT YOUR DOORSTEP.</p>",
+                    "text": "<p>PRINTED USING A <strong>12-COLOUR PIGMENT INK PROCESS</strong>, WITH ATTENTION TO DETAIL GUIDING EACH STEP. EVERY PRINT AND FRAME IS CHECKED BY HAND AT MULTIPLE STAGES FOR MATERIAL QUALITY AND FINISH, RESULTING IN A PIECE WE ARE PROUD TO PUT OUR NAME ON. FROM OUR STUDIO TO YOUR SPACE.</p>",
                     "width": "100%",
                     "max_width": "none",
-                    "alignment": "left",
+                    "alignment": "right",
                     "type_preset": "rte",
                     "font": "var(--font-body--family)",
                     "font_size": "1rem",
@@ -960,14 +960,14 @@
                 }
               },
               "block_order": [
-                "text_JArAFi",
-                "text_rLYwiK"
+                "text_XYXyMr",
+                "text_bYm76C"
               ]
             }
           },
           "block_order": [
-            "icon_q7k3Tb",
-            "group_CeJVqQ"
+            "icon_HBQFma",
+            "group_4Vj9BD"
           ]
         },
         "group_xG6Uaw": {
@@ -1122,7 +1122,7 @@
             "group_dDei99"
           ]
         },
-        "group_nDKtLg": {
+        "group_EqKwDi": {
           "type": "group",
           "settings": {
             "content_direction": "column",
@@ -1161,17 +1161,17 @@
             "padding-inline-end": 0
           },
           "blocks": {
-            "icon_HBQFma": {
+            "icon_q7k3Tb": {
               "type": "icon",
               "settings": {
-                "icon": "eye",
+                "icon": "truck",
                 "width": 32,
                 "link": "",
                 "open_in_new_tab": false
               },
               "blocks": {}
             },
-            "group_4Vj9BD": {
+            "group_CeJVqQ": {
               "type": "group",
               "settings": {
                 "content_direction": "column",
@@ -1179,7 +1179,7 @@
                 "horizontal_alignment": "flex-start",
                 "vertical_alignment": "center",
                 "align_baseline": false,
-                "horizontal_alignment_flex_direction_column": "flex-end",
+                "horizontal_alignment_flex_direction_column": "flex-start",
                 "vertical_alignment_flex_direction_column": "flex-start",
                 "gap": 12,
                 "width": "fill",
@@ -1210,11 +1210,11 @@
                 "padding-inline-end": 0
               },
               "blocks": {
-                "text_XYXyMr": {
+                "text_JArAFi": {
                   "type": "text",
                   "settings": {
                     "enable_seo_heading": false,
-                    "text": "<h2>CAREFULLY PRODUCED</h2>",
+                    "text": "<h2>14-DAY RETURN POLICY</h2>",
                     "width": "100%",
                     "max_width": "none",
                     "alignment": "center",
@@ -1236,14 +1236,14 @@
                   },
                   "blocks": {}
                 },
-                "text_bYm76C": {
+                "text_rLYwiK": {
                   "type": "text",
                   "settings": {
                     "enable_seo_heading": false,
-                    "text": "<p>EVERY PRINT AND FRAME IS CHECKED BY HAND AT MULTIPLE STAGES FOR CLARITY, COLOUR ACCURACY, MATERIAL QUALITY, AND FINISH. CONSISTENCY AND ATTENTION TO DETAIL GUIDE EACH STEP, RESULTING IN A PIECE WE ARE PROUD TO PUT OUR NAME ON. FROM OUR STUDIO TO YOUR SPACE.</p>",
+                    "text": "<p>EVERY ORDER COMES WITH A 14-DAY, NO-QUESTIONS-ASKED RETURN POLICY. IF YOU CHANGE YOUR MIND OR IT’S NOT WHAT YOU EXPECTED, YOU CAN RETURN IT WITHIN 14 DAYS. WE BELIEVE BUYING ART SHOULD FEEL CONFIDENT, NOT COMMITTED — SO THE DECISION STAYS IN YOUR HANDS.</p>",
                     "width": "100%",
                     "max_width": "none",
-                    "alignment": "right",
+                    "alignment": "left",
                     "type_preset": "rte",
                     "font": "var(--font-body--family)",
                     "font_size": "1rem",
@@ -1264,21 +1264,21 @@
                 }
               },
               "block_order": [
-                "text_XYXyMr",
-                "text_bYm76C"
+                "text_JArAFi",
+                "text_rLYwiK"
               ]
             }
           },
           "block_order": [
-            "icon_HBQFma",
-            "group_4Vj9BD"
+            "icon_q7k3Tb",
+            "group_CeJVqQ"
           ]
         }
       },
       "block_order": [
-        "group_EqKwDi",
+        "group_nDKtLg",
         "group_xG6Uaw",
-        "group_nDKtLg"
+        "group_EqKwDi"
       ],
       "name": "t:names.icons_with_text",
       "settings": {

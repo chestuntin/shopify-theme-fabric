@@ -15,6 +15,7 @@
         "text_y963YN": {
           "type": "text",
           "settings": {
+            "enable_seo_heading": false,
             "text": "<h1>New arrivals</h1>",
             "width": "fit-content",
             "max_width": "narrow",
@@ -40,6 +41,7 @@
         "text_zXkEbm": {
           "type": "text",
           "settings": {
+            "enable_seo_heading": false,
             "text": "<p>Made with care and unconditionally loved by our customers.</p>",
             "width": "fit-content",
             "max_width": "narrow",
@@ -151,6 +153,7 @@
           "type": "text",
           "name": "Title",
           "settings": {
+            "enable_seo_heading": false,
             "text": "<h1>{{ closest.collection.title }}</h1>",
             "width": "fit-content",
             "max_width": "narrow",
@@ -177,7 +180,8 @@
           "type": "text",
           "name": "t:names.text",
           "settings": {
-            "text": "<p>THIS IS WHERE THE COLLECTION SUBHEADING GOES. THIS IS A DYNAMIC TEXT.</p>",
+            "enable_seo_heading": false,
+            "text": "<p>Six aerial prints designed with a modern, minimal aesthetic — perfect for clean setups and contemporary interiors. From coastlines to hill country to the Colombo skyline, each piece captures Sri Lanka from a fresh, elevated perspective.</p>",
             "width": "100%",
             "max_width": "none",
             "alignment": "center",
@@ -186,7 +190,7 @@
             "font_size": "1rem",
             "line_height": "normal",
             "letter_spacing": "normal",
-            "case": "none",
+            "case": "uppercase",
             "wrap": "pretty",
             "color": "var(--color-foreground)",
             "background": false,
@@ -202,7 +206,9 @@
         "text_HT38AN": {
           "type": "text",
           "name": "t:names.text",
+          "disabled": true,
           "settings": {
+            "enable_seo_heading": false,
             "text": "<p>AVAILABLE AS UNFRAMED FINE ART PRINTS OR FRAMED, READY-TO-HANG. </p>",
             "width": "100%",
             "max_width": "none",
@@ -267,14 +273,14 @@
           "type": "filters",
           "static": true,
           "settings": {
-            "enable_filtering": true,
+            "enable_filtering": false,
             "filter_style": "horizontal",
             "filter_width": "centered",
             "text_label_case": "default",
             "show_swatch_label": false,
             "show_filter_label": false,
-            "enable_sorting": true,
-            "enable_grid_density": true,
+            "enable_sorting": false,
+            "enable_grid_density": false,
             "inherit_color_scheme": true,
             "color_scheme": "",
             "padding-block-start": 0,
@@ -459,6 +465,7 @@
         "text_QKdM8K": {
           "type": "text",
           "settings": {
+            "enable_seo_heading": false,
             "text": "<h1>New arrivals</h1>",
             "width": "fit-content",
             "max_width": "narrow",
@@ -484,6 +491,7 @@
         "text_qjhB4L": {
           "type": "text",
           "settings": {
+            "enable_seo_heading": false,
             "text": "<p>Made with care and unconditionally loved by our customers.</p>",
             "width": "fit-content",
             "max_width": "narrow",
@@ -635,6 +643,7 @@
               "type": "text",
               "name": "t:names.text",
               "settings": {
+                "enable_seo_heading": false,
                 "text": "<h3>Shop by collection</h3>",
                 "width": "fit-content",
                 "max_width": "normal",
@@ -826,6 +835,7 @@
           "type": "text",
           "disabled": true,
           "settings": {
+            "enable_seo_heading": false,
             "text": "<p>Culture, design and modern identity — curated through our work.</p>",
             "width": "100%",
             "max_width": "normal",

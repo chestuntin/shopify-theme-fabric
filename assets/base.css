@@ -4548,9 +4548,9 @@ text-component {
 }
 
 /* Apply different animations to each icon by group position */
-/* First group (truck) - horizontal drift */
+/* First group (Eye) - rotate */
 [id*="section_zBRnU8"] .group-block:nth-child(1) .icon-block svg {
-  animation: icon-drift 3s ease-in-out infinite;
+  animation: icon-rotate 4s ease-in-out infinite;
 }
 
 /* Second group (map_pin) - pulse */
@@ -4558,9 +4558,9 @@ text-component {
   animation: icon-pulse 2.5s ease-in-out infinite;
 }
 
-/* Third group (eye) - rotate */
+/* Third group (Truck) - horizontal drift */
 [id*="section_zBRnU8"] .group-block:nth-child(3) .icon-block svg {
-  animation: icon-rotate 4s ease-in-out infinite;
+  animation: icon-drift 3s ease-in-out infinite;
 }
 
 

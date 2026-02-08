@@ -253,6 +253,7 @@
               "type": "text",
               "name": "t:names.text",
               "settings": {
+                "enable_seo_heading": false,
                 "text": "<h1>Collections</h1>",
                 "width": "fit-content",
                 "max_width": "normal",
@@ -579,6 +580,7 @@
               "type": "text",
               "name": "t:names.text",
               "settings": {
+                "enable_seo_heading": false,
                 "text": "<h3>Shop by collection</h3>",
                 "width": "fit-content",
                 "max_width": "normal",
@@ -708,6 +710,7 @@
           "type": "text",
           "name": "t:names.text",
           "settings": {
+            "enable_seo_heading": false,
             "text": "<p>AVAILABLE FORMATS<br/><br/>UNFRAMED FINE ART PRINTS — FROM LKR 4500<br/>FRAMED, READY-TO-HANG — FROM LKR 7900<br/></p>",
             "width": "100%",
             "max_width": "normal",
@@ -734,6 +737,7 @@
       "block_order": [
         "text_8rjDbK"
       ],
+      "disabled": true,
       "name": "t:names.rich_text_section",
       "settings": {
         "content_direction": "column",
@@ -2546,6 +2550,7 @@
           "type": "text",
           "disabled": true,
           "settings": {
+            "enable_seo_heading": false,
             "text": "<p>Culture, design and modern identity — curated through our work.</p>",
             "width": "100%",
             "max_width": "normal",
